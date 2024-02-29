@@ -1,3 +1,19 @@
+
+/*
+=data=============================================================
+JavaScripFile: getUserController.js
+Objetive:  Archivo que permite obtener los usuarios registrados
+Author: alejoc.137
+Creation: 26 de february de 2023
+==================================================================
+Manifiesto de funciones:
+==Methods==
+===========
+=functions=
+ getUserController = Funcion que permite Obtener todos los usuarios registrados, al buscarlos por email
+==========
+*/
+
 const {Sequelize, Op} = require("sequelize");
 const axios = require("axios");
 // require('dotenv').config
