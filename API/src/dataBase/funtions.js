@@ -57,6 +57,7 @@ async function getAllEntries(route) {
 async function getEntryByKey(route, data) {
     try {
         // Get the collection
+        // const collection = setCollection(route.db, route.collection);
         const collection = setCollection(route.db, route.collection);
         
         // Extract key and value from the data object
@@ -129,4 +130,10 @@ async function editFieldById(route, id, fieldToUpdate, newValue) {
 
 
 
-module.exports = {createProjectInstance , getAllEntries , getEntryByKey , deleteEntryByKey , editFieldById }
+module.exports = { 
+    createProjectInstance, 
+    getAllEntries, 
+    getEntryByKey, 
+    deleteEntryByKey, 
+    editFieldById 
+}

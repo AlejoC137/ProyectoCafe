@@ -14,25 +14,35 @@ Manifiesto de funciones:
 ==========
 */
 
+
+
+
 const {Sequelize, Op} = require("sequelize");
 const axios = require("axios");
+const { Project } = require('../models/projectModel.js')
+
+const {
+    createProjectInstance , 
+    getAllEntries , 
+    getEntryByKey ,
+    deleteEntryByKey,
+    editFieldById
+                     } = require('../dataBase/funtions.js')
 // require('dotenv').config
 
 
-const getAllArchControler = async () => {
+const postProjectControler = async (req, res) => {
+   
+   const dataProject = req.body
+   
     try {
-        const testArchObject = {
-            1:{ 
-                name:'Hotel Heiss',
-                locationName: 'Medellin'
-                    },
-            2:{ 
-                name:'Hotel Click Clack 10B',
-                locationName: 'Medellin'
-                    },
-                }
-                
-        return testArchObject
+ 
+
+        createProjectInstance(dataProject , Project , {db:"projects" , collection: dataProject.category }) 
+        res.status(200).json(`${dataProject.name} creado!`);
+
+
+
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Ocurrió un error en el servidor" });
@@ -41,6 +51,6 @@ const getAllArchControler = async () => {
 
   module.exports = { 
 
-    getAllArchControler
+    postProjectControler
   
  };

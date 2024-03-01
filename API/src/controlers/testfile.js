@@ -4,20 +4,22 @@ const {
     getEntryByKey ,
     deleteEntryByKey,
     editFieldById
-                     } = require('../../API/src/dataBase/funtions.js')
-const { Project } = require('../../API/src/models/projectModel.js')
+                     } = require('../dataBase/funtions.js')
+
+const { Project } = require('../models/projectModel.js')
 const { ObjectId } = require('mongodb');
 const {     
     sampleData1,
     sampleData2,
     sampleData3, 
-} = require('./sampledata.js');
+} = require('../../../BACK/src/sampledata.js');
 
-// createProjectInstance(sampleData1 , Project , {db:"test" , collection: "projects" }) 
+// createProjectInstance(sampleData1 , Project , {db:"projects" , collection: "arch" }) 
 // createProjectInstance(sampleData2 , Project , {db:"test" , collection: "projects" }) 
 // createProjectInstance(sampleData3 , Project , {db:"test" , collection: "projects" }) 
 
-// getAllEntries( {db:"test" , collection: "projects" })
+// getAllEntries( {db:"test" ,     collection: "projects" })
+// getAllEntries( {db:"projects" , collection: "arch" })
 
     
     // const search = {
@@ -30,15 +32,15 @@ const {
     // };
 
 
-// getEntryByKey({ db: "test", collection: "projects" }, search).then(result => {
-//     // Access and use properties of the retrieved object
-//     console.log(result.name); // Accessing the 'name' property
-//     console.log(result.category); // Accessing the 'category' property
-//     // Continue using other properties as needed
-// })
-// .catch(error => {
-//     console.error('Error:', error); // Handle errors if any
-// });
+getEntryByKey({ db: "test", collection: "projects" }, search).then(result => {
+    // Access and use properties of the retrieved object
+    console.log(result.name); // Accessing the 'name' property
+    console.log(result.category); // Accessing the 'category' property
+    // Continue using other properties as needed
+})
+.catch(error => {
+    console.error('Error:', error); // Handle errors if any
+});
 
 
 // deleteEntryByKey({ db: "test", collection: "projects" }, search)

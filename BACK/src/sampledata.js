@@ -1,6 +1,6 @@
 const sampleData1 = {
     name: "Project One",
-    category: "Software Development",
+    category: "arch",
     properties: [{
         active: true,
         client: "Tech Solutions Inc.",
