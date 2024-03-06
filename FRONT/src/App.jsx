@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Route } from 'react-router-dom'; // Import Route from react-router-dom
+import { Route , Routes } from 'react-router-dom'; // Import Route from react-router-dom
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -8,8 +8,12 @@ function App() {
 
   return (
     <>
+    <Routes>
+
+        <Route path="/home" element={<Home/>} />
         {/* <Route path="/home" element={<Home />} /> */}
-        <Route path="/" element={<Home/>} />
+
+    </Routes>
     </>
   )
 }
