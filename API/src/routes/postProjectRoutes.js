@@ -10,8 +10,7 @@ const {
 const {Router} = require('express');
 const postProjectRouter = Router()
 
-postProjectRouter.post("/postProject" , postProject);
-
-
+postProjectRouter.post( "/postProject" , postProject);
 
 module.exports = postProjectRouter
+  
