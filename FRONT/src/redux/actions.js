@@ -11,10 +11,12 @@ import Swal from "sweetalert2";
 
 export function getAllProjects(category) {
 
+
   return async function (dispatch) {
+    
       try {
           const projects = await axios.get(`/projects/category?category=${category}`);
-    
+          // console.log(projects.data);
           return dispatch({
               type: GET_ALL_PROJECTS,
               payload: projects.data,

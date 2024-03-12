@@ -1,0 +1,20 @@
+
+
+.centerColumn {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  /* width: 350px; */
+}
+.percheroElement {
+/* margin: 20px; */
+  /* margin: auto; */
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 768px) {
+  .menuProjectoCafe {
+    flex-direction: column;
+    align-items: center;
+  }
+}

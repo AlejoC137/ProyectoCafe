@@ -7,25 +7,35 @@ import { getAllProjects, postProject } from '../../../redux/actions';
 function Home() {
     const dispatch = useDispatch();
     
-    // useEffect( () => {
-    //     dispatch()
-    // } , [] );
+    useEffect( () => {
+        // dispatch()
+    } , [] );
 
-    const [sampleState, setSampleState] = useState();
+    const [selectedProjects, setSelectedProjects] = useState([]);
 
-    const sampleSelectionState = useSelector(state => state.sampleSelectionState);
+    const Projects = useSelector(state => state.allProjects);
 
     const onPressHandler = (value) => {
         // Handle press action
-        console.log(value);
-    };
+     
+        setSelectedProjects( dispatch( getAllProjects(value) ) )  
+        console.log(Projects);
+      };
+      
+    
 
     return (
-        <div>
+    <div>
+      <div>
             <button onClick={() => onPressHandler('arch')}>ARCHITECTURE</button>
             <button onClick={() => onPressHandler('code')}>CODING</button>
             <button onClick={() => onPressHandler('soci')}>SOCIAL</button>
-        </div>
+      </div>
+      <div>
+
+
+      </div>
+    </div>
     );
 }
 

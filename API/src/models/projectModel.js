@@ -3,14 +3,21 @@ const mongoose = require('mongoose');
 const projectSchema = new mongoose.Schema({
     name: { type: String, required: true },
     category: String,
-    properties: [{
-        active: { type: Boolean, required: true },
-        client: { type: String, required: true },
+    general_properties: {
+        active: { type: String, required: true },
+        client: {
+            name:{ type: String, required: true },
+            contact:{ type: String, required: true },
+        
+        },
         team: [{
             name: { type: String, required: true },
             role: { type: String, required: true },
             contact: String
         }]
+    },
+    particular_properties:[{
+        
     }],
     media: {
         img: [{
