@@ -1,13 +1,16 @@
 import {
     
     POST_A_PROJECT,
-    GET_ALL_PROJECTS
+    GET_ALL_PROJECTS,
+    SET_LENGUAJE,
     
   } from "./actions-types";
   
   const initialState = {
     allProjects: [],
-    postedProject: []
+    postedProject: [],
+    currentLenguaje: 'ES',
+
     
   };
   
@@ -24,6 +27,12 @@ import {
             return {
               ...state,
               postedProject: action.payload,
+            };
+
+        case SET_LENGUAJE:
+            return {
+              ...state,
+              currentLenguaje: action.payload,
             };
 
 

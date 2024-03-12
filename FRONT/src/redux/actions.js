@@ -1,6 +1,7 @@
 import {
   POST_A_PROJECT,
-  GET_ALL_PROJECTS
+  GET_ALL_PROJECTS,
+  SET_LENGUAJE,
 } from "./actions-types";
 
 import axios from "axios";
@@ -27,6 +28,7 @@ export function getAllProjects(category) {
   };
 }
 
+
 export function postProject() {
 
   return function (dispatch) {
@@ -48,3 +50,23 @@ export function postProject() {
       }
   };
 }
+
+
+export function setLenguaje(lenguaje) {
+
+    return function (dispatch) {
+        try {
+  
+                    return dispatch({
+                        type: SET_LENGUAJE,
+                        payload: lenguaje,
+               
+                })
+                .catch((error) => {
+  console.log(error);             
+   });
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
+  }

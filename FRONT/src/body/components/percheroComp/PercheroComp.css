@@ -47,7 +47,7 @@
     text-shadow: 
         2.5px 2.5px 0 rgba(118,159,211,0.7); /* Add shadow effect */
     /* -webkit-text-stroke: 0.0125px rgba(255, 234, 202, 0.5);  */
-    -webkit-text-stroke: 0.0125px rgba(44, 28, 5, 0.5); 
+    -webkit-text-stroke: 0.0125px rgba(44, 28, 5, 0.8); 
     /* text-stroke: 0.025px rgba(0, 0, 0, 0.5); */
 }
 
