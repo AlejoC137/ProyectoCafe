@@ -13,7 +13,7 @@ getProjectRouter.get("/projects/category" , getAllProject);
 getProjectRouter.get("/projects/search" , getProjectByKey);
 //http://localhost:3001/projects/search?key=name&value=Project%20One&category=arch
 
-getSayHi.get('/sayhi' , (req, res ) => {
+getProjectRouter.get('/sayhi' , (req, res ) => {
     res.send(' hi ');
 })
 
