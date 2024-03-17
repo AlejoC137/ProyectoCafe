@@ -15,6 +15,8 @@ app.use(
     postProjectRouter
     ) //<- sets the routers before use 
 
-
+app.use('/', (req,res) => {
+    res.send('buenas');
+})
 
 module.exports = app; // is required by index.js
