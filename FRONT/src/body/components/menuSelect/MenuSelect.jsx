@@ -58,7 +58,7 @@ function MenuSelect() {
                     src="https://i.imgur.com/xj2tmL5.png" 
                     alt="Your Image Alt Text" 
     
-                    buttonText={currentLenguaje == 'ES' ? "COMO LLEGAR?" : "HOW TO GET HERE?"}
+                    buttonText={currentLenguaje == 'ES' ? "CÓMO LLEGAR?" : "HOW TO GET HERE?"}
 
                     onClick={() => onPressHandler('https://maps.app.goo.gl/W6rawzsECjrDqJYf7')}
                     imageWidth="40px"
