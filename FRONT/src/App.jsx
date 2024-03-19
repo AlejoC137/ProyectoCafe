@@ -10,11 +10,11 @@ function App() {
     <>
     <Routes>
 
-        <Route path="/" element={<Home/>} />
+        {/* <Route path="/" element={<Home/>} /> */}
         <Route path="/home" element={<Home/>} />
         <Route path="/wifiportal" element={<WifiPortal/>} />
         <Route path="/newproject" element={<NewProjectPortal/>} />
-        <Route path="/menuprojectocafe" element={<MenuProjectoCafe/>} />
+        <Route path="/" element={<MenuProjectoCafe/>} />
         {/* <Route path="/home" element={<Home />} /> */}
 
     </Routes>
