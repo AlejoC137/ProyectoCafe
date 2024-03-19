@@ -34,7 +34,9 @@ function LengOptions() {
                     alt="Your Image Alt Text" 
                     buttonText={"ESPAÑOL"}
                     value='ES'
-                    onClick={onPressHandler('ES')}
+                    onClick={()=>{
+                        dispatch(setLenguaje('ES'))
+                    }}
                     imageWidth="40px"
                 />
             </Link>
@@ -45,7 +47,9 @@ function LengOptions() {
                     alt="Your Image Alt Text" 
                     buttonText={"ENGLISH"}
                     value='EN'
-                    onClick={onPressHandler('EN')}
+                    onClick={()=>{
+                        dispatch(setLenguaje('EN'))
+                    }}
                     imageWidth="40px"
                 />
             </Link>
