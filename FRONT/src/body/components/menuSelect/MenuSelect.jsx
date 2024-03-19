@@ -9,6 +9,23 @@ function MenuSelect() {
         window.location.href = link;
     };
 
+
+
+    const MENU_ES_COMIDA =
+        'https://drive.google.com/open?id=1Z0NnUd9KdkuHi6KUByFvd5NEQeUfpaYg&usp=drive_fs'
+
+    const MENU_ES_BEBIDAS = 
+        'https://drive.google.com/open?id=1Z7eDDDXP6Vtc0fQFavF8zO4n9jsR3O2U&usp=drive_fs'
+
+    const MENU_EN_FOOD = 
+        'https://drive.google.com/open?id=1XwOYc3lsU5BKyAFv633x19M52GK7Za6a&usp=drive_fs'
+
+    const MENU_EN_DRIKS = 
+        'https://drive.google.com/open?id=1XxV0kRBVC-tItlqaH1rPRn_kNxmRZtdZ&usp=drive_fs'
+
+
+
+
     const currentLenguaje = useSelector(state => state.currentLenguaje);
 
     return (
@@ -28,8 +45,8 @@ function MenuSelect() {
                     buttonText={currentLenguaje == 'ES' ? "MENÚ CAFÉ Y BEBIDAS" : "COFFEE & DRINKS MENU"}
                     onClick={
                         currentLenguaje == 'ES' 
-                        ? () => onPressHandler('https://drive.google.com/file/d/1Z7eDDDXP6Vtc0fQFavF8zO4n9jsR3O2U/view?usp=drive_link')
-                        : () => onPressHandler('https://drive.google.com/file/d/1XxV0kRBVC-tItlqaH1rPRn_kNxmRZtdZ/view?usp=drive_link')
+                        ? () => onPressHandler(`${MENU_ES_BEBIDAS}`)
+                        : () => onPressHandler(`${MENU_EN_DRIKS}`)
                     }                    imageWidth="40px"
                     />
                 <PercheroComp 
@@ -39,8 +56,8 @@ function MenuSelect() {
                     buttonText={currentLenguaje == 'ES' ? "MENÚ COMIDA" : "FOOD MENU"}
                     onClick={
                         currentLenguaje == 'ES' 
-                        ? () => onPressHandler('https://drive.google.com/file/d/1Z7eDDDXP6Vtc0fQFavF8zO4n9jsR3O2U/view?usp=drive_link')
-                        : () => onPressHandler('https://drive.google.com/file/d/1XwOYc3lsU5BKyAFv633x19M52GK7Za6a/view?usp=drive_link')
+                        ? () => onPressHandler(`${MENU_ES_COMIDA}`)
+                        : () => onPressHandler(`${MENU_EN_FOOD}`)
                     }
                     imageWidth=""
                     />
