@@ -15,7 +15,7 @@ function MenuSelect() {
             <div className={styles.centerColumn}>
                 <PercheroComp 
                     className={styles.percheroElement}
-                    src="https://i.imgur.com/f7xPeGC.png" 
+                    src="https://res.cloudinary.com/denjiview/image/upload/v1710822553/Untitled-1-02_zml2ay.png" 
                     alt="Your Image Alt Text" 
                     // buttonText="MENÚ BEBIDAS Y CAFÉ" 
                     // onClick={() => onPressHandler('https://drive.google.com/open?id=1XdYJBJlGG72I-zdY639OOcYRHdtPz46V&usp=drive_fs')}
@@ -23,7 +23,7 @@ function MenuSelect() {
                     />
                 <PercheroComp 
                     className={styles.percheroElement}
-                    src="https://i.imgur.com/xj2tmL5.png" 
+                    src="https://res.cloudinary.com/denjiview/image/upload/v1710822094/PERCHERO_02-01_mvlvyz.png" 
                     alt="Your Image Alt Text" 
                     buttonText={currentLenguaje == 'ES' ? "MENÚ CAFÉ Y BEBIDAS" : "COFFEE & DRINKS MENU"}
                     onClick={
@@ -34,7 +34,7 @@ function MenuSelect() {
                     />
                 <PercheroComp 
                     className={styles.percheroElement}
-                    src="https://i.imgur.com/xj2tmL5.png" 
+                    src="https://res.cloudinary.com/denjiview/image/upload/v1710822094/PERCHERO_02-01_mvlvyz.png" 
                     alt="Your Image Alt Text" 
                     buttonText={currentLenguaje == 'ES' ? "MENÚ COMIDA" : "FOOD MENU"}
                     onClick={
@@ -46,7 +46,7 @@ function MenuSelect() {
                     />
                 <PercheroComp 
                     className={styles.percheroElement}
-                    src="https://i.imgur.com/xj2tmL5.png" 
+                    src="https://res.cloudinary.com/denjiview/image/upload/v1710822094/PERCHERO_02-01_mvlvyz.png" 
                     alt="Your Image Alt Text" 
                     buttonText={currentLenguaje == 'ES' ? "SERVICIOS" : "SERVICES"}
                     onClick={() => console.log('Button clicked')} 
@@ -55,7 +55,7 @@ function MenuSelect() {
 
                 <PercheroComp 
                     className={styles.percheroElement}
-                    src="https://i.imgur.com/xj2tmL5.png" 
+                    src="https://res.cloudinary.com/denjiview/image/upload/v1710822094/PERCHERO_02-01_mvlvyz.png" 
                     alt="Your Image Alt Text" 
     
                     buttonText={currentLenguaje == 'ES' ? "CÓMO LLEGAR?" : "HOW TO GET HERE?"}
@@ -66,7 +66,7 @@ function MenuSelect() {
 
                 <PercheroComp 
                     className={styles.percheroElement}
-                    src="https://i.imgur.com/xj2tmL5.png" 
+                    src="https://res.cloudinary.com/denjiview/image/upload/v1710822094/PERCHERO_02-01_mvlvyz.png" 
                     alt="Your Image Alt Text" 
                     buttonText={currentLenguaje == 'ES' ? "AGENDA / CONTACTO" : "EVENTS / CONTACT"}
 
