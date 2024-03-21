@@ -4,6 +4,7 @@ import PercheroComp from '../percheroComp/PercheroComp'
 import styles from './LengOptions.module.css'; // Import CSS module
 import { useDispatch, useSelector } from "react-redux";
 import { setLenguaje } from "../../../redux/actions";
+import FormWifi from "../formWifi/FormWifi";
 
 function LengOptions() {
     const dispatch = useDispatch();
@@ -52,7 +53,29 @@ function LengOptions() {
                     }}
                     imageWidth="40px"
                 />
+                              
             </Link>
+
+                {/* <PercheroComp 
+                    // className={styles.singUpElement}
+                    src="https://res.cloudinary.com/denjiview/image/upload/v1710996709/PERCHERO_02-02_g4pqcy.png" 
+                    alt="Your Image Alt Text" 
+                    // buttonText={                               }
+                    value='EN'
+                    // onClick={()=>{
+                    //     dispatch(setLenguaje('EN'))
+                    // }}
+                    imageWidth="40px"
+                >
+                     
+                     
+                </PercheroComp> */}
+                              
+
+                <FormWifi/>
+
+
+
         </div>
     );
 }

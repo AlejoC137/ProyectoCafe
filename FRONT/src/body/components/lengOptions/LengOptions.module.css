@@ -6,10 +6,10 @@
   align-self: center;
   /* width: 350px; */
 }
-/* .percheroElement { */
-/* margin: 20px; */
-  /* margin: auto; */
-/* } */
+.singUpElement {
+margin: 20px;
+  margin: auto;
+}
 
 /* Estilos responsivos */
 @media screen and (max-width: 768px) {

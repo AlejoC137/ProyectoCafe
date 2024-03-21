@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import "./FormWifi.css"; // Import CSS file for styling
 
 function FormWifi() {
+
+  
+
   const [formData, setFormData] = useState({
     name: "",
     number: "",
@@ -58,58 +61,67 @@ function FormWifi() {
   };
 
   return (
-    <div className="form-container">
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Name:</label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label>Number:</label>
-          <input
-            type="text"
-            name="number"
-            value={formData.number}
-            onChange={handleChange}
-          />
-          {errors.number && <span className="error-msg">{errors.number}</span>}
-        </div>
-        <div className="form-group">
-          <label>Email:</label>
-          <input
-            type="text"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
-          {errors.email && <span className="error-msg">{errors.email}</span>}
-        </div>
-        <div className="form-group">
-          <input
-            type="checkbox"
-            name="optForNewsLetters"
-            checked={formData.optForNewsLetters}
-            onChange={handleChange}
-          />
-          <label>Opt for newsletters</label>
-        </div>
-        <div className="form-group">
-          <input
-            type="checkbox"
-            name="acceptDataUsagePolicy"
-            checked={formData.acceptDataUsagePolicy}
-            onChange={handleChange}
-          />
-          <label>Accept data usage policy</label>
-        </div>
-        <button type="submit">Submit</button>
-      </form>
+<div className="form-container">
+  <form onSubmit={handleSubmit}>
+    <label>Noticias, Promos y Más!<br />News, Promos and More!</label>
+    <div className="form-group">
+      <label>Name:<br />Nombre:</label>
+      <input
+        type="text"
+        name="name"
+        value={formData.name}
+        onChange={handleChange}
+      />
     </div>
+
+    <div className="form-group">
+      <label>Number:<br />Numero:</label>
+      <input
+        type="text"
+        name="number"
+        value={formData.number}
+        onChange={handleChange}
+      />
+      {errors.number && <span className="error-msg">{errors.number}</span>}
+    </div>
+
+    <div className="form-group">
+      <label>E-mail:<br />Correo:</label>
+      <input
+        type="text"
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+      />
+      {errors.email && <span className="error-msg">{errors.email}</span>}
+    </div>
+
+    <div className="form-group checks">
+      <label>Opt out for newsletters</label>
+      <input
+        className="button"
+        type="checkbox"
+        name="optForNewsLetters"
+        checked={formData.optForNewsLetters}
+        onChange={handleChange}
+      />
+    </div>
+
+    <div className="form-group checks">
+      <label>Accept data usage policy</label>
+      <input
+        type="checkbox"
+        className="button"
+        name="acceptDataUsagePolicy"
+        checked={formData.acceptDataUsagePolicy}
+        onChange={handleChange}
+      />
+    </div>
+
+    <button type="submit">Café!</button>
+  </form>
+</div>
+
   );
 }
 
