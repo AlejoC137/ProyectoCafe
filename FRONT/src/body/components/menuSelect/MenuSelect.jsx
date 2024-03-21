@@ -4,6 +4,9 @@ import styles from './MenuSelect.module.css'; // Import CSS module
 import { useSelector } from "react-redux";
 
 function MenuSelect() {
+    const [showBanner, setShowBanner] = useState(true);
+
+
     const onPressHandler = (link) => {
         // Redirect to the provided external link
         window.location.href = link;
@@ -90,6 +93,18 @@ function MenuSelect() {
                     onClick={() => onPressHandler('https://www.instagram.com/proyecto__cafe?igsh=MWllenJ5Y2wwM2FuaA%3D%3D&utm_source=qr')}
                     imageWidth="40px"
                     />
+
+{showBanner && (
+    <div className={`${styles.popup} max-w-sm p-3 bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700`}>
+        <button onClick={() => setShowBanner(false)}>❎</button>
+        <div>
+            <h2>¡Bienvenid@ a Proyecto Café!</h2>
+            <p>Te invitamos a registrarte para que puedas comentar, guardar artículos y mucho más:</p>
+        </div>
+    </div>
+)}
+
+
             </div>
 
     );
