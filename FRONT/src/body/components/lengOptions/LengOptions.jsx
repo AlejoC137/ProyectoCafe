@@ -72,7 +72,7 @@ function LengOptions() {
                 </PercheroComp> */}
                               
 
-                <FormWifi/>
+                {/* <FormWifi/> */}
 
 
 

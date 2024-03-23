@@ -97,7 +97,7 @@ function FormWifi() {
     </div>
 
     <div className="form-group checks">
-      <label>Opt out for newsletters</label>
+      <label>QUIERO MANTENERME INFORMADO DE PROMOS Y EVENTOS</label>
       <input
         className="button"
         type="checkbox"
