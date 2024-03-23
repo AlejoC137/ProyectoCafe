@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom"; // Import Link component
 import PercheroComp from '../percheroComp/PercheroComp'
 import styles from './LengOptions.module.css'; // Import CSS module
@@ -7,6 +7,10 @@ import { setLenguaje } from "../../../redux/actions";
 import FormWifi from "../formWifi/FormWifi";
 
 function LengOptions() {
+
+    const [showBanner, setShowBanner] = useState(true);
+
+
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(setLenguaje('ES') )
@@ -73,7 +77,15 @@ function LengOptions() {
                               
 
                 {/* <FormWifi/> */}
-
+                {showBanner && (
+    <div className={`${styles.popup} max-w-sm p-3 bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700`}>
+        <button onClick={() => setShowBanner(false)}>❎</button>
+        <div>
+            <h2>¡Bienvenid@ a Proyecto Café!</h2>
+            <p>Te invitamos a registrarte para que puedas comentar, guardar artículos y mucho más:</p>
+        </div>
+    </div>
+)}
 
 
         </div>

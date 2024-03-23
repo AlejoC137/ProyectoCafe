@@ -4,7 +4,7 @@ import styles from './MenuSelect.module.css'; // Import CSS module
 import { useSelector } from "react-redux";
 
 function MenuSelect() {
-    const [showBanner, setShowBanner] = useState(true);
+    // const [showBanner, setShowBanner] = useState(true);
 
 
     const onPressHandler = (link) => {
@@ -94,7 +94,7 @@ function MenuSelect() {
                     imageWidth="40px"
                     />
 
-{showBanner && (
+{/* {showBanner && (
     <div className={`${styles.popup} max-w-sm p-3 bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700`}>
         <button onClick={() => setShowBanner(false)}>❎</button>
         <div>
@@ -102,7 +102,7 @@ function MenuSelect() {
             <p>Te invitamos a registrarte para que puedas comentar, guardar artículos y mucho más:</p>
         </div>
     </div>
-)}
+)} */}
 
 
             </div>
