@@ -1,4 +1,8 @@
-
+@font-face {
+  font-family: Montserrat;
+  src: url('../../../assets/Montserrat-VariableFont_wght.ttf') format('truetype');
+  /* Add other font formats (e.g., woff, woff2) if needed */
+}
 
 .centerColumn {
   display: flex;
