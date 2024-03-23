@@ -64,14 +64,14 @@ function MenuSelect() {
                     }
                     imageWidth=""
                     />
-                <PercheroComp 
+                {/* <PercheroComp 
                     className={styles.percheroElement}
                     src="https://res.cloudinary.com/denjiview/image/upload/v1710822094/PERCHERO_02-01_mvlvyz.png" 
                     alt="Your Image Alt Text" 
                     buttonText={currentLenguaje == 'ES' ? "SERVICIOS" : "SERVICES"}
                     onClick={() => console.log('Button clicked')} 
                     imageWidth="45px"
-                    />
+                    /> */}
 
                 <PercheroComp 
                     className={styles.percheroElement}
