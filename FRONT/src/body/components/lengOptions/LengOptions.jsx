@@ -79,10 +79,28 @@ function LengOptions() {
                 {/* <FormWifi/> */}
                 {showBanner && (
     <div className={`${styles.popup} max-w-sm p-3 bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700`}>
-        <button onClick={() => setShowBanner(false)}>❎</button>
+        <button onClick={() => setShowBanner(false)}>❌</button>
         <div>
             <h2>¡Bienvenid@ a Proyecto Café!</h2>
-            <p>Te invitamos a registrarte para que puedas comentar, guardar artículos y mucho más:</p>
+            <p>
+                Horario de Semana Santa:<br></br>
+                <br></br>
+                Domingo 31:<br></br>   8:00am - 2:00pm <br></br>
+                <br></br>
+                Lunes 24:<br></br>     8:00am - 7:30pm <br></br>
+                <br></br>
+                Martes 25:<br></br>    8:00am - 7:30pm <br></br>
+                <br></br>
+                Miercoles 26:<br></br> 2:00pm - 8:30pm <br></br>
+                <br></br>
+                Jueves 27:<br></br>    2:00pm - 8:30pm <br></br>
+                <br></br>
+                Viernes 28:<br></br>   8:00am - 7:30pm <br></br>
+                <br></br>
+                Sabado 29:<br></br>    8:00am - 7:30pm <br></br>
+                <br></br>
+                Domingo 30:<br></br>   8:00am - 7:30pm <br></br>
+            </p>
         </div>
     </div>
 )}
