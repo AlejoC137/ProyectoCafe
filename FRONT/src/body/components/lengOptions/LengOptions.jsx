@@ -85,21 +85,21 @@ function LengOptions() {
             <p>
                 Horario de Semana Santa:<br></br>
                 <br></br>
-                Domingo 31:<br></br>   8:00am - 2:00pm <br></br>
+                Domingo 31:   8:00am - 2:00pm <br></br>
                 <br></br>
-                Lunes 24:<br></br>     8:00am - 7:30pm <br></br>
+                Lunes 24:     8:00am - 7:30pm <br></br>
                 <br></br>
-                Martes 25:<br></br>    8:00am - 7:30pm <br></br>
+                Martes 25:   8:00am - 7:30pm <br></br>
                 <br></br>
-                Miercoles 26:<br></br> 2:00pm - 8:30pm <br></br>
+                Miercoles 26: 2:00pm - 8:30pm <br></br>
                 <br></br>
-                Jueves 27:<br></br>    2:00pm - 8:30pm <br></br>
+                Jueves 27:    2:00pm - 8:30pm <br></br>
                 <br></br>
-                Viernes 28:<br></br>   8:00am - 7:30pm <br></br>
+                Viernes 28:   8:00am - 7:30pm <br></br>
                 <br></br>
-                Sabado 29:<br></br>    8:00am - 7:30pm <br></br>
+                Sabado 29:    8:00am - 7:30pm <br></br>
                 <br></br>
-                Domingo 30:<br></br>   8:00am - 7:30pm <br></br>
+                Domingo 30:   8:00am - 7:30pm <br></br>
             </p>
         </div>
     </div>
