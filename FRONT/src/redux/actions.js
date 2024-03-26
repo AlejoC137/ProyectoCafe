@@ -16,7 +16,8 @@ export function getAllProjects(category) {
   return async function (dispatch) {
     
       try {
-          const projects = await axios.get(`/projects/category?category=${category}`);
+        // /project?collection=soci
+          const projects = await axios.get(`/project?collection=${category}`);
           // console.log(projects.data);
           return dispatch({
               type: GET_ALL_PROJECTS,
