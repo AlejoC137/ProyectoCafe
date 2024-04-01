@@ -83,23 +83,12 @@ function LengOptions() {
         <div>
             <h2>¡Bienvenid@ a Proyecto Café!</h2>
             <p>
-                Horario de Semana Santa:<br></br>
+                Horario/Schedule: <br></br>
                 <br></br>
-                Domingo 31:   8:00am - 2:00pm <br></br>
+                Lunes/Monday - Sabado/Saturday: 8:00am - 7:30pm <br></br>
                 <br></br>
-                Lunes 24:     8:00am - 7:30pm <br></br>
-                <br></br>
-                Martes 25:   8:00am - 7:30pm <br></br>
-                <br></br>
-                Miercoles 26: 2:00pm - 8:30pm <br></br>
-                <br></br>
-                Jueves 27:    2:00pm - 8:30pm <br></br>
-                <br></br>
-                Viernes 28:   8:00am - 7:30pm <br></br>
-                <br></br>
-                Sabado 29:    8:00am - 7:30pm <br></br>
-                <br></br>
-                Domingo 30:   8:00am - 7:30pm <br></br>
+                Domingo/Sunday: 9:00am - 2:00 pm <br></br>
+               
             </p>
         </div>
     </div>
