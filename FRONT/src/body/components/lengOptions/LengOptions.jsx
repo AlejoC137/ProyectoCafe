@@ -60,9 +60,9 @@ function LengOptions() {
                               
             </Link>
 
-                {/* <PercheroComp 
+                <PercheroComp 
                     // className={styles.singUpElement}
-                    src="https://res.cloudinary.com/denjiview/image/upload/v1710996709/PERCHERO_02-02_g4pqcy.png" 
+                    src="https://drive.google.com/file/d/10INGpWaoBNQMI0xu9rGeNyuPhqtpEgnt/view?usp=drive_link" 
                     alt="Your Image Alt Text" 
                     // buttonText={                               }
                     value='EN'
@@ -73,7 +73,7 @@ function LengOptions() {
                 >
                      
                      
-                </PercheroComp> */}
+                </PercheroComp>
                               
 
                 {/* <FormWifi/> */}
