@@ -87,6 +87,7 @@ function LengOptions() {
             className={`${styles.imageVitrina}`}
             src={`${vitrinaImg.URL}`}
             alt=""></img>
+            <br></br>
             {`${vitrinaImg.description}`}
         </div>
         </div>
