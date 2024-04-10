@@ -60,17 +60,7 @@ function LengOptions() {
                               
             </Link>
 
-                <PercheroComp 
-                    // className={styles.singUpElement}
-                    src="https://drive.google.com/file/d/10INGpWaoBNQMI0xu9rGeNyuPhqtpEgnt/view?usp=drive_link" 
-                    alt="Your Image Alt Text" 
-                    // buttonText={                               }
-                    value='EN'
-                    // onClick={()=>{
-                    //     dispatch(setLenguaje('EN'))
-                    // }}
-                    imageWidth="40px"
-                >
+                
                      
                      
                 </PercheroComp>
