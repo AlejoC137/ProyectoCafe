@@ -82,10 +82,13 @@ function LengOptions() {
                 Domingo/Sunday: 9:00am - 2:00 pm <br></br>
                
             </p>
+        <div className="flex flex-col justify-center items-center	">
             <img 
             className={`${styles.imageVitrina}`}
-            src={`${vitrinaImg}`}
-            alt="ass"></img>
+            src={`${vitrinaImg.URL}`}
+            alt=""></img>
+            {`${vitrinaImg.description}`}
+        </div>
         </div>
     </div>
 )}
