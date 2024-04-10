@@ -2,6 +2,7 @@ import {
   POST_A_PROJECT,
   GET_ALL_PROJECTS,
   SET_LENGUAJE,
+  GET_VITRINA
 } from "./actions-types";
 
 import axios from "axios";
@@ -71,3 +72,24 @@ export function setLenguaje(lenguaje) {
         }
     };
   }
+
+
+
+export function getVitrina() {
+
+
+    return async function (dispatch) {
+      
+        try {
+          // /project?collection=soci
+            const vitrina = await axios.get(`/getvitrina`);
+          //   console.log(projects.data);
+            return dispatch({
+                type: GET_VITRINA,
+                payload: vitrina.data,
+            });          
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
+      };

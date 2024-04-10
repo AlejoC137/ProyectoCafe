@@ -3,6 +3,7 @@ import {
     POST_A_PROJECT,
     GET_ALL_PROJECTS,
     SET_LENGUAJE,
+    GET_VITRINA
     
   } from "./actions-types";
   
@@ -10,12 +11,20 @@ import {
     allProjects: [],
     postedProject: [],
     currentLenguaje: 'ES',
+    vitrina: '',
 
     
   };
   
   const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case GET_VITRINA:
+          console.log(action.payload.img.URL);
+        return {
+            ...state,
+            vitrina: action.payload.img.URL,
+                    // console.log(action.payload);
+        };
         case GET_ALL_PROJECTS:
         return {
             ...state,

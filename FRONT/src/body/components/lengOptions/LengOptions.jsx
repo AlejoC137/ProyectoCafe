@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"; // Import Link component
 import PercheroComp from '../percheroComp/PercheroComp'
 import styles from './LengOptions.module.css'; // Import CSS module
 import { useDispatch, useSelector } from "react-redux";
-import { setLenguaje } from "../../../redux/actions";
+import { getVitrina, setLenguaje } from "../../../redux/actions";
 import FormWifi from "../formWifi/FormWifi";
 
 function LengOptions() {
@@ -14,6 +14,7 @@ function LengOptions() {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(setLenguaje('ES') )
+        dispatch(getVitrina())
     }, [/* Dependencies */]);
 
 
@@ -23,6 +24,7 @@ function LengOptions() {
     };
 
     const currentLenguaje = useSelector(state => state.currentLenguaje);
+    const vitrinaImg = useSelector(state => state.vitrina);
 
     return (
         <div className={styles.centerColumn}>
@@ -80,6 +82,10 @@ function LengOptions() {
                 Domingo/Sunday: 9:00am - 2:00 pm <br></br>
                
             </p>
+            <img 
+            className={`${styles.imageVitrina}`}
+            src={`${vitrinaImg}`}
+            alt="ass"></img>
         </div>
     </div>
 )}
