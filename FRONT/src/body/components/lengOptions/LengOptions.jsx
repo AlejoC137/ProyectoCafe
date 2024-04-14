@@ -61,6 +61,18 @@ function LengOptions() {
                 />
                               
             </Link>
+                <PercheroComp 
+                    className={styles.percheroElement}
+                    src="https://res.cloudinary.com/denjiview/image/upload/v1710996709/PERCHERO_02-02_g4pqcy.png" 
+                    alt="Your Image Alt Text" 
+                    // buttonText={"ENGLISH"}
+                    value='EN'
+                    // onClick={()=>{
+                    //     dispatch(setLenguaje('EN'))
+                    // }}
+                    imageWidth="40px"
+                    vitrina={`${vitrinaImg.URL}`}
+                />
 
                 
                      
@@ -69,7 +81,9 @@ function LengOptions() {
                               
 
                 {/* <FormWifi/> */}
-                {showBanner && (
+
+
+                {/* {showBanner && (
     <div className={`${styles.popup} max-w-sm p-3 bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700`}>
         <div>
             <h2>¡Bienvenid@ a Proyecto Café!</h2>
@@ -94,7 +108,7 @@ function LengOptions() {
         </div>
         </div>
     </div>
-)}
+)} */}
 
 
         </div>
