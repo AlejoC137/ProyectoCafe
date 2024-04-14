@@ -71,9 +71,11 @@ function LengOptions() {
                 {/* <FormWifi/> */}
                 {showBanner && (
     <div className={`${styles.popup} max-w-sm p-3 bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700`}>
-        <button onClick={() => setShowBanner(false)}>❌</button>
         <div>
             <h2>¡Bienvenid@ a Proyecto Café!</h2>
+            <button 
+            className={styles.button}
+            onClick={() => setShowBanner(false)}>¡MENú!</button>
             <p>
                 Horario/Schedule: <br></br>
                 <br></br>
