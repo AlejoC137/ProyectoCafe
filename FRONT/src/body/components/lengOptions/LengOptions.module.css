@@ -37,6 +37,15 @@ margin: 20px;
   font-family:  ProyectoCafe2-Regular;
   font-style: bold;
 }
+.horario {
+  background-color: rgb(220,153,131);
+  /* width: 120px; */
+  height: 75px;
+  font-size: 30px;
+  border-radius: 10px;
+  font-family:  Montserrat ;
+  font-style: bold;
+}
 
 .popup {
   position: fixed;

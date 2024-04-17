@@ -65,7 +65,7 @@
 
 .vitrina-container {
     width: 150px;
-    height: 220px;
+    height: 240px;
     overflow: hidden; /* Para asegurar que la imagen no se desborde del contenedor */
     border-radius: 005%; /* Para crear un rectángulo redondeado */
 }

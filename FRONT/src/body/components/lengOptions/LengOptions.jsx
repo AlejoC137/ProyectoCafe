@@ -34,6 +34,14 @@ function LengOptions() {
                 alt="Your Image Alt Text" 
                 imageWidth="40px"
             />
+
+<div 
+className={styles.horario}
+>Lun/Monday - Sabado/Saturday: 8:00am - 7:30pm
+<br></br>
+Domingo/Sunday: 9:00am - 2:00 pm
+</div>
+
             <Link to="/menuprojectocafe"> {/* Use Link component */}
                 <PercheroComp 
                     className={styles.percheroElement}
@@ -61,11 +69,26 @@ function LengOptions() {
                 />
                               
             </Link>
+            <Link to="https://wa.me/3008214593"> 
+                <PercheroComp 
+                    className={styles.percheroElement}
+                    src="https://res.cloudinary.com/denjiview/image/upload/v1710822094/PERCHERO_02-01_mvlvyz.png" 
+                    alt="Your Image Alt Text" 
+                    buttonText={"WHATSAPP"}
+                    value='EN'
+                    onClick={()=>{
+                        dispatch(setLenguaje('EN'))
+                    }}
+                    imageWidth="40px"
+                />
+                              
+            </Link>
+      
                 <PercheroComp 
                     className={styles.percheroElement}
                     src="https://res.cloudinary.com/denjiview/image/upload/v1710996709/PERCHERO_02-02_g4pqcy.png" 
                     alt="Your Image Alt Text" 
-                    // buttonText={"ENGLISH"}
+                    // buttonText={""}
                     value='EN'
                     // onClick={()=>{
                     //     dispatch(setLenguaje('EN'))
@@ -75,7 +98,8 @@ function LengOptions() {
                 />
 
                 
-                     
+
+
                      
 
                               
@@ -93,7 +117,7 @@ function LengOptions() {
             <p>
                 Horario/Schedule: <br></br>
                 <br></br>
-                Lunes/Monday - Sabado/Saturday: 8:00am - 7:30pm <br></br>
+                Lun/Monday - Sabado/Saturday: 8:00am - 7:30pm <br></br>
                 <br></br>
                 Domingo/Sunday: 9:00am - 2:00 pm <br></br>
                
