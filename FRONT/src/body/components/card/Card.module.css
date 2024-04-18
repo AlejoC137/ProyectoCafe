@@ -1,0 +1,12 @@
+.card {
+  width: calc(50% - 10px); /* Se resta el margen horizontal */
+  height: calc(50% - 10px);
+  margin: 1%; /* Añadimos un margen para separar las tarjetas */
+  margin-bottom: 1%; /* Añadimos un margen para separar las tarjetas */
+}
+
+.img {
+  width: 100%; /* Para que la imagen ocupe todo el ancho del contenedor */
+  height: 100%; /* Para que la imagen ocupe todo el alto del contenedor */
+  object-fit: cover; /* Para que la imagen se ajuste dentro del contenedor manteniendo su relación de aspecto */
+}

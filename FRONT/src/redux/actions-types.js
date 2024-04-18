@@ -2,6 +2,7 @@ export const POST_A_PROJECT = "POST_A_PROJECT";
 export const GET_ALL_PROJECTS = "GET_ALL_PROJECTS";
 export const SET_LENGUAJE = "SET_LENGUAJE";
 export const GET_VITRINA = "GET_VITRINA";
+export const GET_MENU = "GET_MENU";
 
 
 export const CODE = "CODE";

@@ -5,7 +5,7 @@
   /* You may need to adjust the top, bottom, and width properties depending on your layout */
   top: 0;
   bottom: 0;
-  width: 25%; /* Adjust width as needed */
+  width: 10%; /* Adjust width as needed */
   position: fixed; /* Position fixed to ensure it stays at the edge */
 }
 
@@ -15,10 +15,9 @@
   /* You may need to adjust the top, bottom, and width properties depending on your layout */
   top: 0;
   bottom: 0;
-  width: 25%; /* Adjust width as needed */
+  width: 10%; /* Adjust width as needed */
   position: fixed; /* Position fixed to ensure it stays at the edge */
 }
-
 .sideC {
   align-self: center;
   /* height: auto; */
@@ -31,13 +30,11 @@
   /* Adjust width as needed */
   position: fixed; 
   /* Position fixed to ensure it stays at the edge */
-  /* padding: 1; */
 }
 
 .centerGroup {
   display: flex;
   flex-direction: row;
-  /* padding: 1; */
   /* align-items: center; */
 }
 

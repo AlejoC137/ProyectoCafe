@@ -1,21 +1,24 @@
 import React from 'react';
 import Card from '../card/Card.jsx';
-
+import styles from '../cards/Cards.module.css'
+import { useSelector } from 'react-redux';
+useSelector
 function Cards(props) {
-  
-  // const activePADs = props.currentPAD.filter((PAD) => PAD.active === true);
-  const activePADs = props.currentPAD
+   const menu = useSelector(state => state.menu)
+
 
   return (
-    <div className="overflow-y-hidden">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 px-4 ">
-        {activePADs.map((PAD) => (
+    <div >
+      <div className={styles.cards}>
+        {menu.map((PAD) => (
           <Card
+            fondo={props.sourceImg}
             // key={PAD?._id}
             // media={PAD?.media}
             // location={PAD?.location}
             // date={PAD?.date}
-            name={PAD?.name}
+            // name={PAD?.name}
+            name={PAD.NombreES}
             // name={PAD?.name}
             // breaf={PAD?.breaf}
             // _id={PAD?._id}

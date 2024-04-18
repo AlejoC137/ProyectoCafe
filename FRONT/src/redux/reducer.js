@@ -3,7 +3,8 @@ import {
     POST_A_PROJECT,
     GET_ALL_PROJECTS,
     SET_LENGUAJE,
-    GET_VITRINA
+    GET_VITRINA,
+    GET_MENU
     
   } from "./actions-types";
   
@@ -12,6 +13,7 @@ import {
     postedProject: [],
     currentLenguaje: 'ES',
     vitrina: {},
+    menu: [],
 
     
   };
@@ -29,6 +31,12 @@ import {
         return {
             ...state,
             allProjects: action.payload,
+                    // console.log(action.payload);
+        };
+        case GET_MENU:
+        return {
+            ...state,
+            menu: action.payload,
                     // console.log(action.payload);
         };
   

@@ -42,7 +42,8 @@ className={styles.horario}
 Domingo/Sunday: 9:00am - 2:00 pm
 </div>
 
-            <Link to="/menuprojectocafe"> {/* Use Link component */}
+            {/* <Link to="/menupc"> Use Link component */}
+            <Link to="/menuprojectocafe"> 
                 <PercheroComp 
                     className={styles.percheroElement}
                     src="https://res.cloudinary.com/denjiview/image/upload/v1710822094/PERCHERO_02-01_mvlvyz.png" 
@@ -55,7 +56,8 @@ Domingo/Sunday: 9:00am - 2:00 pm
                     imageWidth="40px"
                 />
             </Link>
-            <Link to="/menuprojectocafe"> {/* Use Link component */}
+            {/* <Link to="/menupc"> Use Link component */}
+            <Link to="/menuprojectocafe">
                 <PercheroComp 
                     className={styles.percheroElement}
                     src="https://res.cloudinary.com/denjiview/image/upload/v1710822094/PERCHERO_02-01_mvlvyz.png" 

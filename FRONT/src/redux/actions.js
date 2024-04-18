@@ -2,7 +2,8 @@ import {
   POST_A_PROJECT,
   GET_ALL_PROJECTS,
   SET_LENGUAJE,
-  GET_VITRINA
+  GET_VITRINA,
+  GET_MENU,
 } from "./actions-types";
 
 import axios from "axios";
@@ -21,8 +22,26 @@ export function getAllProjects(category) {
           const projects = await axios.get(`/project?collection=${category}`);
           // console.log(projects.data);
           return dispatch({
-              type: GET_ALL_PROJECTS,
+              type: GET_MENU,
               payload: projects.data,
+          });          
+      } catch (error) {
+          console.log(error.message);
+      }
+  };
+}
+export function getAllProducts() {
+
+
+  return async function (dispatch) {
+    
+      try {
+        // /project?collection=soci
+          const menu = await axios.get(`/getmenu`);
+        //   console.log(menu.data);
+          return dispatch({
+              type: GET_MENU,
+              payload: menu.data,
           });          
       } catch (error) {
           console.log(error.message);
