@@ -37,9 +37,9 @@ function LengOptions() {
 
 <div 
 className={styles.horario}
->Lun/Monday - Sabado/Saturday: 8:00am - 7:30pm
+>Lun/Mon - Sab/Sat: 8:00am - 7:30pm
 <br></br>
-Domingo/Sunday: 9:00am - 2:00 pm
+Dom/Sun: 9:00am - 2:00 pm
 </div>
 
             {/* <Link to="/menupc"> Use Link component */}

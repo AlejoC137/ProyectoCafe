@@ -40,8 +40,8 @@ margin: 20px;
 .horario {
   background-color: rgb(220,153,131);
   /* width: 120px; */
-  height: 75px;
-  font-size: 30px;
+  height: 30px;
+  font-size: 12px;
   border-radius: 10px;
   font-family:  Montserrat ;
   font-style: bold;
