@@ -70,7 +70,7 @@ function MenuButtons({ categories }) {
         onClick={() => handleOnClickCat("TODO")}
         className={selectedCat === "TODO" ? styles.highlightedButton : styles.card}
       >
-        {categories[4]}
+        {categories[6]}
       </button>
 
 
