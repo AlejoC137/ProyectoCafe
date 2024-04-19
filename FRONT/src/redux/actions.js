@@ -4,11 +4,16 @@ import {
   SET_LENGUAJE,
   GET_VITRINA,
   GET_MENU,
+  GET_MENU_BY_CATEGORY,
+  SET_CATEGORY,
 } from "./actions-types";
+import React from "react";
+import { useSelector } from "react-redux";
 
 import axios from "axios";
 // import Swal from "swal"
 import Swal from "sweetalert2";
+
 
 
 
@@ -48,6 +53,44 @@ export function getAllProducts() {
       }
   };
 }
+export function productsByCat(cat , prevMenu) {
+
+
+  return async function (dispatch) {
+    
+    let menuFu = []
+   
+
+
+if (cat==='TODO' ) {
+  menuFu = prevMenu
+} else {
+
+ 
+  for (let i = 0; i < prevMenu.length; i++) {
+    if(cat === prevMenu[i].TipoES || cat === prevMenu[i].TipoEN ){
+      menuFu.push(prevMenu[i])
+    }
+  }
+
+
+
+}
+
+
+      try {
+        // /project?collection=soci
+        //   console.log(menu.data);
+          return dispatch({
+              type: GET_MENU_BY_CATEGORY,
+              payload: menuFu,
+          });          
+      } catch (error) {
+          console.log(error.message);
+
+    }
+  };
+}
 
 
 export function postProject() {
@@ -81,6 +124,24 @@ export function setLenguaje(lenguaje) {
                     return dispatch({
                         type: SET_LENGUAJE,
                         payload: lenguaje,
+               
+                })
+                .catch((error) => {
+  console.log(error);             
+   });
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
+  }
+export function setCat(cat) {
+
+    return function (dispatch) {
+        try {
+  
+                    return dispatch({
+                        type: SET_CATEGORY ,
+                        payload: cat,
                
                 })
                 .catch((error) => {

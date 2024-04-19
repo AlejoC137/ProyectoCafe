@@ -2,69 +2,48 @@ import React, { useEffect, useState } from "react";
 import PercheroComp from '../percheroComp/PercheroComp.jsx'
 import styles from './menuPCSelect.module.css'; // Import CSS module
 import { useDispatch, useSelector } from "react-redux";
-
 import Cards from "../cards/Cards.jsx"
-import { getAllProducts } from "../../../redux/actions.js";
+import { getAllProducts, productsByCat } from "../../../redux/actions.js";
+import MenuButtons from "../menuButtons/MenuButtons.jsx";
 
 
 function MenuPCSelect() {
-    // const [showBanner, setShowBanner] = useState(true);
-const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const [isButtonHighlighted, setIsButtonHighlighted] = useState(false); // Estado local para resaltar el botón
+
     useEffect(() => {
-        // This code will run after the first render and whenever the 'count' state changes
+        dispatch(getAllProducts());
+    }, []);
 
-dispatch(getAllProducts())
-// getAllProducts()
-      }, [])
-  
-    //   console.log(menu)
-    const onPressHandler = (link) => {
-        // Redirect to the provided external link
-        window.location.href = link;
+    const handleCategoryClick = (category) => {
+        // Aquí puedes manejar la lógica para la categoría seleccionada
+        console.log('Categoría seleccionada:', category);
+        // Por ejemplo, puedes hacer algo como dispatch de una acción para filtrar los productos basados en la categoría
+        // Aquí también puedes actualizar el estado para resaltar el botón
+        setIsButtonHighlighted(true);
     };
-
-
-
-    const MENU_ES_COMIDA =
-        'https://drive.google.com/open?id=1Z0NnUd9KdkuHi6KUByFvd5NEQeUfpaYg&usp=drive_fs'
-
-    const MENU_ES_BEBIDAS = 
-        'https://drive.google.com/open?id=1Z7eDDDXP6Vtc0fQFavF8zO4n9jsR3O2U&usp=drive_fs'
-
-    const MENU_EN_FOOD = 
-        'https://drive.google.com/open?id=1XwOYc3lsU5BKyAFv633x19M52GK7Za6a&usp=drive_fs'
-
-    const MENU_EN_DRIKS = 
-        'https://drive.google.com/open?id=1XxV0kRBVC-tItlqaH1rPRn_kNxmRZtdZ&usp=drive_fs'
-
-
-
 
     const currentLenguaje = useSelector(state => state.currentLenguaje);
 
     return (
-            <div className={styles.centerColumn}>
-
-
-
-
-                <PercheroComp 
-                    className={styles.percheroElement}
-                    src="https://res.cloudinary.com/denjiview/image/upload/v1710822553/Untitled-1-02_zml2ay.png" 
-                    alt="Your Image Alt Text" 
-                    // buttonText="MENÚ BEBIDAS Y CAFÉ" 
-                    // onClick={() => onPressHandler('https://drive.google.com/open?id=1XdYJBJlGG72I-zdY639OOcYRHdtPz46V&usp=drive_fs')}
-                    imageWidth="40px"
-                    />
-
-
-<Cards
-                    sourceImg="https://res.cloudinary.com/denjiview/image/upload/v1710996709/PERCHERO_02-02_g4pqcy.png" 
-                    // info={menu}
-
-></Cards>
-            </div>
-
+        <div className={styles.centerColumn}>
+            <PercheroComp
+                className={styles.percheroElement}
+                src="https://res.cloudinary.com/denjiview/image/upload/v1710822553/Untitled-1-02_zml2ay.png"
+                alt="Your Image Alt Text"
+                imageWidth="40px"
+            />
+            <MenuButtons
+                categories={currentLenguaje === 'ES'?
+                            ['Café', 'Bebidas', 'Sanduches', 'Desayuno', 'Mostrar todo']:
+                            ['Coffee', 'Drinks', 'Sandwitch', 'Breackfast', "Show all"]}
+                onClick={handleCategoryClick}
+                highlighted={isButtonHighlighted} // Pasamos el estado local como prop para resaltar el botón
+            />
+            <Cards
+                sourceImg="https://res.cloudinary.com/denjiview/image/upload/v1710996709/PERCHERO_02-02_g4pqcy.png"
+            />
+        </div>
     );
 }
 

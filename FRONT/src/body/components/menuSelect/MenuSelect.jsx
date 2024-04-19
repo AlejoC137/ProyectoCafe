@@ -14,18 +14,6 @@ function MenuSelect() {
 
 
 
-    const MENU_ES_COMIDA =
-        'https://drive.google.com/open?id=1Z0NnUd9KdkuHi6KUByFvd5NEQeUfpaYg&usp=drive_fs'
-
-    const MENU_ES_BEBIDAS = 
-        'https://drive.google.com/open?id=1Z7eDDDXP6Vtc0fQFavF8zO4n9jsR3O2U&usp=drive_fs'
-
-    const MENU_EN_FOOD = 
-        'https://drive.google.com/open?id=1XwOYc3lsU5BKyAFv633x19M52GK7Za6a&usp=drive_fs'
-
-    const MENU_EN_DRIKS = 
-        'https://drive.google.com/open?id=1XxV0kRBVC-tItlqaH1rPRn_kNxmRZtdZ&usp=drive_fs'
-
 
 
 

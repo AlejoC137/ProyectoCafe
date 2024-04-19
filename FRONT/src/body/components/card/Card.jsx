@@ -33,18 +33,22 @@ function Card(props) {
     // dispatch(setDonationItems([value]));
   };
 
-console.log(props);
+// console.log(props);
 
   return(
     <div className={styles.card}>
+      {/* <br></br> */}
+      {props.name}
       <img 
       className={styles.img}
       src={props.fondo} alt="" />
-      <h5 
-      // className="h-14 mt-2 text-xl font-bold font-gobold tracking-tight text-gray-900 dark:text-white"
-      >
-      {props.name}
-      </h5>
+      {/* <h5  */}
+      {/* // className="h-14 mt-2 text-xl font-bold font-gobold tracking-tight text-gray-900 dark:text-white" */}
+      {/* > */}
+      {props.precio}
+      {/* </h5> */}
+      
+      <br></br>
     </div>
   )
 }
