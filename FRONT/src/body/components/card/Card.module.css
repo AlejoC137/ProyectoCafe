@@ -38,3 +38,29 @@
   /* padding-top: 5px; */
   object-fit: cover; /* Para que la imagen se ajuste dentro del contenedor manteniendo su relación de aspecto */
 }
+
+.imageContainer {
+  position: relative;
+}
+
+.descriptionOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco al 50% de opacidad */
+}
+
+.description {
+  position: absolute;
+  width: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  color: #e74615;
+  text-align: center;
+  z-index: 1; /* Asegura que la descripción esté sobre el overlay */
+  /* background-color: #7591c9; */
+}

@@ -61,7 +61,7 @@ function Cards(props) {
             // name={PAD?.name}
             name={currentLenguaje === 'ES'?PAD.NombreES:PAD.NombreEN}
             precio={PAD.Precio}
-            DescripcioE={currentLenguaje === 'ES'?PAD.DescripcionES:PAD.DescripcionEN}
+            descripcion={currentLenguaje === 'ES'?PAD.DescripcionES:PAD.DescripcionEN}
             // breaf={PAD?.breaf}
             // _id={PAD?._id}
             // PAD={props?.PAD}
