@@ -35,8 +35,8 @@ function MenuPCSelect() {
             />
             <MenuButtons
                 categories={currentLenguaje === 'ES'?
-                            ['Café', 'Bebidas', 'Sanduches', 'Desayuno', 'Mostrar todo']:
-                            ['Coffee', 'Drinks', 'Sandwitch', 'Breackfast', "Show all"]}
+                            ['Café', 'Bebidas', 'Sanduches', 'Desayuno', 'Postres', 'Panes' , 'Mostrar todo']:
+                            ['Coffee', 'Drinks', 'Sandwitch', 'Breackfast' , 'Deserts' , 'Breads', "Show all"]}
                 onClick={handleCategoryClick}
                 highlighted={isButtonHighlighted} // Pasamos el estado local como prop para resaltar el botón
             />
@@ -48,3 +48,9 @@ function MenuPCSelect() {
 }
 
 export default MenuPCSelect;
+
+
+// Postres
+// Panes
+// Deserts
+// Breads

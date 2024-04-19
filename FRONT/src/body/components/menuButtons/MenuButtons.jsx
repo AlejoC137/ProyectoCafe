@@ -46,13 +46,26 @@ function MenuButtons({ categories }) {
       >
         {categories[2]}
       </button>
-
       <button
         onClick={() => handleOnClickCat(categories[3])}
         className={selectedCat === categories[3] ? styles.highlightedButton : styles.card}
       >
         {categories[3]}
       </button>
+      <button
+        onClick={() => handleOnClickCat(categories[4])}
+        className={selectedCat === categories[4] ? styles.highlightedButton : styles.card}
+      >
+        {categories[4]}
+      </button>
+
+      <button
+        onClick={() => handleOnClickCat(categories[5])}
+        className={selectedCat === categories[5] ? styles.highlightedButton : styles.card}
+      >
+        {categories[5]}
+      </button>
+
       <button
         onClick={() => handleOnClickCat("TODO")}
         className={selectedCat === "TODO" ? styles.highlightedButton : styles.card}
