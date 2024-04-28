@@ -5,6 +5,7 @@ export const SET_CATEGORY = "SET_CATEGORY";
 export const GET_MENU_BY_CATEGORY = "GET_MENU_BY_CATEGORY";
 export const GET_VITRINA = "GET_VITRINA";
 export const GET_MENU = "GET_MENU";
+export const USER_ADMIN = "USER_ADMIN";
 
 
 export const CODE = "CODE";

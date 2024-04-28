@@ -1,24 +1,28 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
-import styles from '../card/Card.module.css'
+import styles from '../card/Card.module.css';
+import GearIcon from './GearIcon';
+import SwitchToggle from './SwitchToggle';
 
 function Card(props) {
   const [showDescription, setShowDescription] = useState(false);
-
+  if (props.img === '') {
+    setShowDescription(true);
+  }
   const toggleDescription = () => {
     setShowDescription(!showDescription);
   };
 
-  return(
+  return (
     <div className={styles.card}>
       {/* Name */}
       {props.name}
 
       {/* Image */}
       <div className={styles.imageContainer}>
-        <img 
+        <img
           className={styles.img}
-          src={props.fondo} 
+          src={props.fondo}
           alt=""
           onClick={toggleDescription} // Toggle description on image click
         />
@@ -38,10 +42,16 @@ function Card(props) {
 
       {/* Precio */}
       {props.precio}
-      
+
+      {/* Admin Tools - Gear Icon and Switch */}
+      <div className={styles.adminTools}>
+        <GearIcon />
+        <SwitchToggle />
+      </div>
+
       <br />
     </div>
-  )
+  );
 }
 
 export default Card;

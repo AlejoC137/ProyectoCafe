@@ -8,6 +8,7 @@ function Cards(props) {
 
    const currentLenguaje = useSelector(state => state.currentLenguaje);
    const menuByCat = useSelector(state => state.menuByCat) 
+   const Admin = useSelector(state => state.isAdmin) 
 
 
 // console.log(CAT );
@@ -15,57 +16,15 @@ function Cards(props) {
   return (
     <div >
       <div className={styles.cards}>
-        {/* {CAT==="TODO"? menu.map((PAD) => (
-          <Card
-            fondo={PAD.foto}
-            // key={PAD?._id}
-            // media={PAD?.media}
-            // location={PAD?.location}
-            // date={PAD?.date}
-            // name={PAD?.name}
-            name={currentLenguaje === 'ES'?PAD.NombreES:PAD.NombreEN}
-            precio={PAD.Precio}
-            DescripcioE={currentLenguaje === 'ES'?PAD.DescripcionES:PAD.DescripcionEN}
-            // breaf={PAD?.breaf}
-            // _id={PAD?._id}
-            // PAD={props?.PAD}
-            // active={props?.active}
-          />
-        )):
-        menuByCat.map((PAD) => (
-          <Card
-            fondo={PAD.foto}
-            // key={PAD?._id}
-            // media={PAD?.media}
-            // location={PAD?.location}
-            // date={PAD?.date}
-            // name={PAD?.name}
-            name={currentLenguaje === 'ES'?PAD.NombreES:PAD.NombreEN}
-            precio={PAD.Precio}
-            DescripcioE={currentLenguaje === 'ES'?PAD.DescripcionES:PAD.DescripcionEN}
-            // breaf={PAD?.breaf}
-            // _id={PAD?._id}
-            // PAD={props?.PAD}
-            // active={props?.active}
-          />
-        ))
-      } */}
 {
         menuByCat.map((PAD) => (
           <Card
             fondo={PAD.foto}
             key={PAD?._id}
-            // media={PAD?.media}
-            // location={PAD?.location}
-            // date={PAD?.date}
-            // name={PAD?.name}
             name={currentLenguaje === 'ES'?PAD.NombreES:PAD.NombreEN}
             precio={PAD.Precio}
             descripcion={currentLenguaje === 'ES'?PAD.DescripcionES:PAD.DescripcionEN}
-            // breaf={PAD?.breaf}
-            // _id={PAD?._id}
-            // PAD={props?.PAD}
-            // active={props?.active}
+            admin={Admin}
           />
         ))
       }

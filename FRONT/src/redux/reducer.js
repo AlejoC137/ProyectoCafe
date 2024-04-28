@@ -6,7 +6,8 @@ import {
     GET_VITRINA,
     GET_MENU,
     GET_MENU_BY_CATEGORY,     
-    SET_CATEGORY     
+    SET_CATEGORY,
+    USER_ADMIN    
   } from "./actions-types";
   
   const initialState = {
@@ -17,6 +18,7 @@ import {
     menu: [],
     menuByCat: [],
     menuCat: 'TODO',
+    isAdmin: false,
 
     
   };
@@ -28,6 +30,13 @@ import {
         return {
             ...state,
             vitrina: action.payload.img,
+                    // console.log(action.payload);
+        };
+        case USER_ADMIN:
+          // console.log(action.payload.img.URL);
+        return {
+            ...state,
+            isAdmin: action.payload,
                     // console.log(action.payload);
         };
 

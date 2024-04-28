@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: Montserrat;
   src: url('../../../assets/Montserrat-VariableFont_wght.ttf') format('truetype');
@@ -11,32 +10,29 @@
   /* Add other font formats (e.g., woff, woff2) if needed */
 }
 
-
 .card {
-  font-family: ProyectoCafe2-Regular;
+  font-family: ProyectoCafe2-Regular, sans-serif; /* Use ProyectoCafe2-Regular as primary font */
   font-size: 22px;
   color: #e74615;
-  width: calc(48% - 10px); /* Se resta el margen horizontal */
+  width: calc(48% - 10px); /* Subtract horizontal margin */
   border-color: #7591c9;
   border-style: solid;
-  border-width: 0 2px; /* Borde solo en los lados izquierdo y derecho */
-  /* height: calc(50% - 10px); */
-  margin: 1%; /* Añadimos un margen para separar las tarjetas */
-  margin-bottom: 1%; /* Añadimos un margen para separar las tarjetas */
-  object-fit: cover; /* Para que la imagen se ajuste dentro del contenedor manteniendo su relación de aspecto */
+  border-width: 0 2px; /* Border only on left and right sides */
+  margin: 1%; /* Add margin to separate cards */
+  margin-bottom: 1%; /* Add margin to separate cards */
+  object-fit: cover; /* Image adjusts to container while maintaining aspect ratio */
   background-image: url('https://res.cloudinary.com/denjiview/image/upload/v1713458263/hafkkk1uhvyuhvdkfwcb.png');
-  background-size: cover; /* Ajustamos el tamaño de la imagen de fondo para que cubra la tarjeta */
-  background-position: center; /* Centramos la imagen de fondo */
+  background-size: cover; /* Adjust background image size to cover the card */
+  background-position: center; /* Center the background image */
 }
 
 .img {
   border-color: #7591c9;
   border-style: solid;
-  border-width: 2px; /* Borde solo en los lados izquierdo y derecho */
-  width: 95%; /* Para que la imagen ocupe todo el ancho del contenedor */
+  border-width: 2px; /* Border only on left and right sides */
+  width: 95%; /* Image takes up full width of container */
   height: 180px;
-  /* padding-top: 5px; */
-  object-fit: cover; /* Para que la imagen se ajuste dentro del contenedor manteniendo su relación de aspecto */
+  object-fit: cover; /* Image adjusts to container while maintaining aspect ratio */
 }
 
 .imageContainer {
@@ -49,7 +45,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco al 50% de opacidad */
+  background-color: rgba(255, 255, 255, 0.8); /* White background with 50% opacity */
 }
 
 .description {
@@ -61,6 +57,72 @@
   font-size: 25px;
   color: #e74615;
   text-align: center;
-  z-index: 1; /* Asegura que la descripción esté sobre el overlay */
+  z-index: 1; /* Ensure description is above the overlay */
   /* background-color: #7591c9; */
+}
+
+/* Admin Tools - Gear Icon and Switch */
+.adminTools {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px; /* Adjust as needed */
+}
+
+.adminTools span {
+  font-size: 24px;
+  margin-right: 5px; /* Space between gear icon and switch */
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
 }
