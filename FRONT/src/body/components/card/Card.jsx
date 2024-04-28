@@ -5,10 +5,8 @@ import GearIcon from './GearIcon';
 import SwitchToggle from './SwitchToggle';
 
 function Card(props) {
-  const [showDescription, setShowDescription] = useState(false);
-  if (props.img === '') {
-    setShowDescription(true);
-  }
+  const [showDescription, setShowDescription] = useState(!props.fondo); // Show description if props.fondo doesn't exist
+
   const toggleDescription = () => {
     setShowDescription(!showDescription);
   };
