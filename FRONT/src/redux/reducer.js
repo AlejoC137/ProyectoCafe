@@ -18,7 +18,7 @@ import {
     menu: [],
     menuByCat: [],
     menuCat: 'TODO',
-    isAdmin: false,
+    isAdmin: null,
 
     
   };

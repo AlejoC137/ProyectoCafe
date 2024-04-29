@@ -3,12 +3,23 @@ import { Link } from 'react-router-dom';
 import styles from '../card/Card.module.css';
 import GearIcon from './GearIcon';
 import SwitchToggle from './SwitchToggle';
+import { useDispatch } from 'react-redux';
+import { changeItemStatus } from '../../../redux/actions.js'; // Importa la acción de Redux
 
 function Card(props) {
   const [showDescription, setShowDescription] = useState(!props.fondo); // Show description if props.fondo doesn't exist
-
+  const [state, setState] = useState(props.isActive === 'Activo'? true : false); // Show description if props.fondo doesn't exist
+  // const [state, setState] = useState(props.isActive === 'Activo'? true : false); // Show description if props.fondo doesn't exist
+  
   const toggleDescription = () => {
     setShowDescription(!showDescription);
+  };
+
+  const dispatch = useDispatch();
+
+  const handleToggle = () => {
+    setState(!state); // Cambia el estado contrario de 'state'
+    dispatch(changeItemStatus(props.ID)); // Despacha la acción con el ID del item
   };
 
   return (
@@ -42,10 +53,17 @@ function Card(props) {
       {props.precio}
 
       {/* Admin Tools - Gear Icon and Switch */}
-      <div className={styles.adminTools}>
-        <GearIcon />
-        <SwitchToggle />
-      </div>
+      {props.admin && (
+        <div className={styles.adminTools}>
+<Link to={`https://portfolio-ap-seven.vercel.app/editproducto/${props.ID}`}>
+          
+          <GearIcon />
+          </Link>
+          
+          <SwitchToggle isToggled={state} onToggle={handleToggle} />
+
+        </div>
+      )}
 
       <br />
     </div>

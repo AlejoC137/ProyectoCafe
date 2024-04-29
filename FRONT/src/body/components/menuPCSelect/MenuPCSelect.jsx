@@ -1,18 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState ,  } from "react";
 import PercheroComp from '../percheroComp/PercheroComp.jsx'
 import styles from './menuPCSelect.module.css'; // Import CSS module
 import { useDispatch, useSelector } from "react-redux";
 import Cards from "../cards/Cards.jsx"
-import { getAllProducts, productsByCat } from "../../../redux/actions.js";
+import { getAllProducts, productsByCat, setAdmin,  } from "../../../redux/actions.js";
 import MenuButtons from "../menuButtons/MenuButtons.jsx";
 
 
-function MenuPCSelect() {
+function MenuPCSelect(props) {
     const dispatch = useDispatch();
     const [isButtonHighlighted, setIsButtonHighlighted] = useState(false); // Estado local para resaltar el botón
 
     useEffect(() => {
         dispatch(getAllProducts());
+        dispatch(setAdmin(props.edit));
+        
+        // console.log(props.edit)
     }, []);
 
     const handleCategoryClick = (category) => {
@@ -24,6 +27,9 @@ function MenuPCSelect() {
     };
 
     const currentLenguaje = useSelector(state => state.currentLenguaje);
+
+    
+
 
     return (
         <div className={styles.centerColumn}>

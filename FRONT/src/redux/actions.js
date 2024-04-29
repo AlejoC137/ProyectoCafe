@@ -6,6 +6,7 @@ import {
   GET_MENU,
   GET_MENU_BY_CATEGORY,
   SET_CATEGORY,
+  USER_ADMIN,
 } from "./actions-types";
 import React from "react";
 import { useSelector } from "react-redux";
@@ -34,7 +35,7 @@ export function getAllProjects(category) {
           console.log(error.message);
       }
   };
-}
+  };
 export function getAllProducts() {
 
 
@@ -52,7 +53,7 @@ export function getAllProducts() {
           console.log(error.message);
       }
   };
-}
+  };
 export function productsByCat(cat , prevMenu) {
 
 
@@ -90,9 +91,7 @@ if (cat==='TODO' ) {
 
     }
   };
-}
-
-
+  };
 export function postProject() {
 
   return function (dispatch) {
@@ -113,9 +112,7 @@ export function postProject() {
           console.log(error.message);
       }
   };
-}
-
-
+  };
 export function setLenguaje(lenguaje) {
 
     return function (dispatch) {
@@ -133,7 +130,7 @@ export function setLenguaje(lenguaje) {
             console.log(error.message);
         }
     };
-  }
+  };
 export function setCat(cat) {
 
     return function (dispatch) {
@@ -151,8 +148,27 @@ export function setCat(cat) {
             console.log(error.message);
         }
     };
-  }
+  };
+export function setAdmin(admin) {
 
+  return async function (dispatch) {
+    
+      try {
+          console.log(admin);
+          return dispatch({
+              type: USER_ADMIN,
+              payload: 
+              admin === 'edit'?
+              true:
+              false       
+          }
+        );          
+      } catch (error) {
+          console.log(error.message);
+      }
+  };
+
+  };
 
 
 export function getVitrina() {
@@ -172,4 +188,18 @@ export function getVitrina() {
             console.log(error.message);
         }
     };
-      };
+  };
+
+
+  export const changeItemStatus = (itemId) => {
+    return async (dispatch) => {
+      try {
+
+        // const update = await axios.get(`/project?collection=${category}`);
+
+        console.log(itemId);
+      } catch (error) {
+        console.error('Error al cambiar el estado del elemento:', error);
+      }
+    };
+  };

@@ -17,6 +17,7 @@ function App() {
         <Route path="/newproject" element={<NewProjectPortal/>} />
         <Route path="/menuprojectocafe" element={<MenuProjectoCafe/>} />
         <Route path="/menupc" element={<MenuPC/>} />
+        <Route path="/menupc/:edit" element={<MenuPC/>} />
         <Route path="/lenguajeSelect" element={<LenguajeSelect/>} />
         {/* <Route path="/home" element={<Home />} /> */}
 
