@@ -9,7 +9,7 @@ import { changeItemStatus } from '../../../redux/actions.js'; // Importa la acci
 function Card(props) {
   const [showDescription, setShowDescription] = useState(!props.fondo); // Show description if props.fondo doesn't exist
   const [state, setState] = useState(props.isActive === 'Activo'? true : false); // Show description if props.fondo doesn't exist
-  // const [state, setState] = useState(props.isActive === 'Activo'? true : false); // Show description if props.fondo doesn't exist
+  const [statusEmoji, setStatusEmoji] = useState(props.isActive === 'Activo' ? '🟢' : '🔴'); // Emoji verde si es activo, rojo si es inactivo
   
   const toggleDescription = () => {
     setShowDescription(!showDescription);
@@ -18,7 +18,9 @@ function Card(props) {
   const dispatch = useDispatch();
 
   const handleToggle = () => {
-    setState(!state); // Cambia el estado contrario de 'state'
+    const newState = !state; // Cambia el estado contrario de 'state'
+    setState(newState);
+    setStatusEmoji(newState ? '🟢' : '🔴'); // Actualiza el emoji según el nuevo estado
     dispatch(changeItemStatus(props.ID)); // Despacha la acción con el ID del item
   };
 
@@ -55,13 +57,11 @@ function Card(props) {
       {/* Admin Tools - Gear Icon and Switch */}
       {props.admin && (
         <div className={styles.adminTools}>
-<Link to={`https://portfolio-ap-seven.vercel.app/editproducto/${props.ID}`}>
-          
-          <GearIcon />
+          <Link to={`https://portfolio-ap-seven.vercel.app/editproducto/${props.ID}`}>
+            <GearIcon />
           </Link>
-          
-          <SwitchToggle isToggled={state} onToggle={handleToggle} />
-
+          {/* <SwitchToggle isToggled={state} onToggle={handleToggle} /> */}
+          <span>{statusEmoji}</span> {/* Muestra el emoji según el estado */}
         </div>
       )}
 
