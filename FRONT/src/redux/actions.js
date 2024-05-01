@@ -14,7 +14,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 // import Swal from "swal"
 import Swal from "sweetalert2";
-
+import { getMenuHard } from "../assets/MENU";
 
 
 
@@ -43,17 +43,44 @@ export function getAllProducts() {
     
       try {
         // /project?collection=soci
-          const menu = await axios.get(`/getmenu`);
-        //   console.log(menu.data);
+          const menu = getMenuHard();
+          // console.log(menu[0]);
           return dispatch({
               type: GET_MENU,
-              payload: menu.data,
+              payload: menu
           });          
       } catch (error) {
           console.log(error.message);
       }
   };
   };
+
+
+
+
+
+// export function getAllProducts() {
+
+
+//   return async function (dispatch) {
+    
+//       try {
+//         // /project?collection=soci
+//           const menu = await axios.get(`/getmenu`);
+//         //   console.log(menu.data);
+//           return dispatch({
+//               type: GET_MENU,
+//               payload: menu.data,
+//           });          
+//       } catch (error) {
+//           console.log(error.message);
+//       }
+//   };
+//   };
+
+
+
+  
 export function productsByCat(cat , prevMenu) {
 
 
@@ -154,7 +181,7 @@ export function setAdmin(admin) {
   return async function (dispatch) {
     
       try {
-          console.log(admin);
+          // console.log(admin);
           return dispatch({
               type: USER_ADMIN,
               payload: 
