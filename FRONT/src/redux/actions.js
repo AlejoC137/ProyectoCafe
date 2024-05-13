@@ -36,29 +36,6 @@ export function getAllProjects(category) {
       }
   };
   };
-export function getAllProducts() {
-
-
-  return async function (dispatch) {
-    
-      try {
-        // /project?collection=soci
-          const menu = getMenuHard();
-          // console.log(menu[0]);
-          return dispatch({
-              type: GET_MENU,
-              payload: menu
-          });          
-      } catch (error) {
-          console.log(error.message);
-      }
-  };
-  };
-
-
-
-
-
 // export function getAllProducts() {
 
 
@@ -66,17 +43,40 @@ export function getAllProducts() {
     
 //       try {
 //         // /project?collection=soci
-//           const menu = await axios.get(`/getmenu`);
-//         //   console.log(menu.data);
+//           const menu = getMenuHard();
+//           // console.log(menu[0]);
 //           return dispatch({
 //               type: GET_MENU,
-//               payload: menu.data,
+//               payload: menu
 //           });          
 //       } catch (error) {
 //           console.log(error.message);
 //       }
 //   };
 //   };
+
+
+
+
+
+export function getAllProducts() {
+
+
+  return async function (dispatch) {
+    
+      try {
+        // /project?collection=soci
+          const menu = await axios.get(`/getmenu`);
+        //   console.log(menu.data);
+          return dispatch({
+              type: GET_MENU,
+              payload: menu.data,
+          });          
+      } catch (error) {
+          console.log(error.message);
+      }
+  };
+  };
 
 
 
