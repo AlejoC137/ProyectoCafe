@@ -6,6 +6,8 @@ import  NewProjectPortal  from "./body/views/newProjectPortal/NewProjectPortal.j
 import  MenuProjectoCafe  from "./body/views/menuProjectoCafe/MenuProjectoCafe.jsx";
 import  MenuPC  from "./body/views/menuPC/MenuPC.jsx";
 import  LenguajeSelect  from "./body/views/lenguajeSelect/LenguajeSelect.jsx";
+import Proyectistas from './body/components/proyectistas/Proyectistas.jsx';
+
 function App() {
 
   return (
@@ -18,7 +20,8 @@ function App() {
         <Route path="/menuprojectocafe" element={<MenuProjectoCafe/>} />
         <Route path="/menupc" element={<MenuPC/>} />
         <Route path="/menupc/:edit" element={<MenuPC/>} />
-        <Route path="/lenguajeSelect" element={<LenguajeSelect/>} />
+        <Route path="/lenguajeSelect" element={<MenuPC/>} />
+        <Route path="/proyectistas" element={<Proyectistas/>} />
         {/* <Route path="/home" element={<Home />} /> */}
 
     </Routes>

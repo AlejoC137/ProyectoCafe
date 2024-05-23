@@ -14,9 +14,11 @@ function MenuPC() {
 
     return (
         <div 
-        className={styles.centerGroup}
+        // className={styles.centerGroup}
         >
-            <MenuPCSelect className={styles.sideC}
+            <MenuPCSelect 
+            // lassName={styles.sideC}
+            
             edit={edit}
             />
             

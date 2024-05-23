@@ -1,18 +1,15 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
-import styles from '../card/Card.module.css';
 import GearIcon from './GearIcon';
-import SwitchToggle from './SwitchToggle';
 import { useDispatch } from 'react-redux';
 import { changeItemStatus } from '../../../redux/actions.js'; // Importa la acción de Redux
 
 function Card(props) {
-  const [showDescription, setShowDescription] = useState(!props.fondo); // Show description if props.fondo doesn't exist
-  const [state, setState] = useState(props.isActive === 'Activo'? true : false); // Show description if props.fondo doesn't exist
-  const [statusEmoji, setStatusEmoji] = useState(props.isActive === 'Activo' ? '🟢' : '🔴'); // Emoji verde si es activo, rojo si es inactivo
-  
+  const [showDescription, setShowDescription] = useState(props.fondo ? false : true); // Initialize description visibility to false
+  const [statusEmoji, setStatusEmoji] = useState(''); // Initialize statusEmoji
+
   const toggleDescription = () => {
-    setShowDescription(!showDescription);
+    setShowDescription(!showDescription); // Toggle description visibility
   };
 
   const dispatch = useDispatch();
@@ -25,45 +22,37 @@ function Card(props) {
   };
 
   return (
-    <div className={styles.card}>
+    <div className="bg-ladrillo h-72 w-full overflow-hidden rounded-2xl border border-lilaDark relative">
       {/* Name */}
-      {props.name}
-
-      {/* Image */}
-      <div className={styles.imageContainer}>
-        <img
-          className={styles.img}
-          src={props.fondo}
-          alt=""
-          onClick={toggleDescription} // Toggle description on image click
-        />
-
-        {/* Description Overlay */}
-        {showDescription && (
-          <div className={styles.descriptionOverlay} onClick={toggleDescription}></div>
-        )}
-
-        {/* Description */}
-        {showDescription && (
-          <div className={styles.description} onClick={toggleDescription}>
-            {props.descripcion}
-          </div>
-        )}
-      </div>
-
-      {/* Precio */}
-      {props.precio}
-
-      {/* Admin Tools - Gear Icon and Switch */}
       {props.admin && (
-        <div className={styles.adminTools}>
+        <div className="absolute top-0 right-0">
           <Link to={`https://portfolio-ap-seven.vercel.app/editproducto/${props.ID}`}>
             <GearIcon />
           </Link>
-          {/* <SwitchToggle isToggled={state} onToggle={handleToggle} /> */}
-          <span>{statusEmoji}</span> {/* Muestra el emoji según el estado */}
+          <span>{props.isActive === 'Activo' ? '🟢' : '🔴'}</span>
         </div>
       )}
+      <div className="font-Bobby_Jones_Soft text-notBlack text-12pt text-center truncate px-1 pt-1">
+        {props.name}
+      </div>
+      <div className="font-Bobby_Jones_Soft text-notBlack text-10pt text-center px-4">
+        {props.precio} 
+      </div>
+
+      {/* Image */}
+      <div className="relative" onClick={toggleDescription}>
+        <img
+          className="w-full h-64 object-cover rounded-2xl border border-lilaDark align-middle"
+          src={props.fondo}
+          alt=""
+        />
+        {/* Description Overlay */}
+        {(showDescription && props.descripcion) && (
+          <div className="absolute top-0 left-0 w-full h-full flex font-Bobby_Jones_Soft text-notBlack border border-lilaDark rounded-2xl items-center justify-center bg-white bg-opacity-75" onClick={toggleDescription}>
+            <div className="text-center">{props.descripcion}</div>
+          </div>
+        )}
+      </div>
 
       <br />
     </div>

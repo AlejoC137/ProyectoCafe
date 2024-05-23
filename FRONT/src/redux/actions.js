@@ -7,6 +7,8 @@ import {
   GET_MENU_BY_CATEGORY,
   SET_CATEGORY,
   USER_ADMIN,
+  GET_PROYECTISTAS,
+  GET_DAYS
 } from "./actions-types";
 import React from "react";
 import { useSelector } from "react-redux";
@@ -36,6 +38,45 @@ export function getAllProjects(category) {
       }
   };
   };
+export async function  getAllProyectistas() {
+
+
+  // return async function (dispatch) {
+    
+      try {
+        // /project?collection=soci
+          const projectistas = await axios.get(`/getproyectistas`);
+          // console.log(projects.data);
+          // return dispatch({
+            // type: GET_PROYECTISTAS,
+            // payload: projectistas.data,
+            // });          
+            return projectistas.data
+            } catch (error) {
+              console.log(error.message);
+              // }
+              };
+              // console.log(projectistas.data); 
+  };
+
+
+  export const agregarPropina = (id, timestamp, valor) => async (dispatch) => {
+    try {
+      // Realiza la solicitud POST con Axios
+      await axios.post(`/postinfoproyectista`, {
+        id,
+        timestamp,
+        valor
+      });
+  
+// console.log(id,timestamp,valor);
+    } catch (error) {
+      console.error('Error al agregar propina:', error);
+      // Manejar cualquier error que ocurra durante la solicitud
+    }
+  };
+
+
 // export function getAllProducts() {
 
 
@@ -76,6 +117,19 @@ export function getAllProducts() {
           console.log(error.message);
       }
   };
+  };
+  
+  export const getDays = () => async (dispatch) => {
+      try {
+          const response = await axios.get('/getdays');
+          dispatch({
+              type: GET_DAYS,
+              payload: response.data // Assuming the response data contains the days
+          });
+      } catch (error) {
+          console.log(error.message);
+          // Optionally, dispatch an error action if needed
+      }
   };
 
 
@@ -140,6 +194,26 @@ export function postProject() {
       }
   };
   };
+
+
+  export const postDay = (dayData) => async (dispatch) => {
+    try {
+        // Perform asynchronous operation (e.g., HTTP request)
+        await axios.post('/project', dayData);
+
+        // Dispatch a synchronous action to update the state
+        // dispatch({
+        //     type: POST_DAY,
+        //     payload: dayData // Optionally, you can pass any data you want to update in the state
+        // });
+    } catch (error) {
+        console.log(error.message);
+        // Optionally, dispatch an error action if needed
+    }
+};
+
+
+
 export function setLenguaje(lenguaje) {
 
     return function (dispatch) {

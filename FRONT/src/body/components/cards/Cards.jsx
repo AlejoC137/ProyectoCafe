@@ -10,10 +10,12 @@ function Cards(props) {
    const isAdmin = useSelector(state => state.isAdmin);
 
    return (
-      <div>
-         <div className={styles.cards}>
-            {menuByCat.map((PAD) => (
-               (isAdmin || PAD.Estado === 'Activo') && // Render card if isAdmin is true or PAD.Estado is 'Activo'
+      <div className="grid grid-cols-2 gap-1 h-screen overflow-y-auto">
+       
+        
+         {menuByCat.map((PAD) => (
+            (isAdmin || PAD.Estado === 'Activo') && // Render card if isAdmin is true or PAD.Estado is 'Activo'
+            <div key={PAD?._id} className="w-full">
                <Card
                   fondo={PAD.foto}
                   key={PAD?._id}
@@ -24,8 +26,41 @@ function Cards(props) {
                   admin={isAdmin}
                   isActive={PAD.Estado}
                />
-            ))}
-         </div>
+            </div>
+         ))}
+
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
       </div>
    );
 }

@@ -28,6 +28,15 @@
   }
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Bobby_Jones_Soft';
+  src: url('./assets/Bobby_Jones_Soft.ttf') format('truetype');
+}
+
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;

@@ -1,79 +1,37 @@
 import React, { useEffect, useState } from 'react';
-import styles from '../card/Button.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { productsByCat } from '../../../redux/actions';
 
 function MenuButtons({ categories }) {
-  const dispatch = useDispatch()
-  
+  const dispatch = useDispatch();
   const [selectedCat, setSelectedCat] = useState('');
-  const menuAnt = useSelector(state => state.menu)
+  const menuAnt = useSelector(state => state.menu);
 
   useEffect(() => {
-    // setSelectedCat("TODO");
-
-    dispatch(productsByCat("TODO",menuAnt));
-}, []);
-
+    dispatch(productsByCat("TODO", menuAnt));
+  }, []);
 
   const handleOnClickCat = (category) => {
-    setSelectedCat(category);
-    dispatch(productsByCat(category,menuAnt))
-    
+  setSelectedCat(category)
+    category === 'Todo' ||  category === "Show all" ? dispatch(productsByCat('TODO', menuAnt)) : dispatch(productsByCat(category, menuAnt))
+    // dispatch(productsByCat(category, menuAnt));
   };
-  
-
 
   return (
-    <div>
-      <button
-        onClick={() => handleOnClickCat(categories[0])}
-        className={selectedCat === categories[0] ? styles.highlightedButton : styles.card}
-      >
-        {categories[0]}
-      </button>
+    <div className="grid grid-cols-3 gap-1 mb-1 border pb-1 border-b-lilaDark ">
 
-      <button
-        onClick={() => handleOnClickCat(categories[1])}
-        className={selectedCat === categories[1] ? styles.highlightedButton : styles.card}
-      >
-        {categories[1]}
-      </button>
-
-      <button
-        onClick={() => handleOnClickCat(categories[2])}
-        className={selectedCat === categories[2] ? styles.highlightedButton : styles.card}
-      >
-        {categories[2]}
-      </button>
-      <button
-        onClick={() => handleOnClickCat(categories[3])}
-        className={selectedCat === categories[3] ? styles.highlightedButton : styles.card}
-      >
-        {categories[3]}
-      </button>
-      <button
-        onClick={() => handleOnClickCat(categories[4])}
-        className={selectedCat === categories[4] ? styles.highlightedButton : styles.card}
-      >
-        {categories[4]}
-      </button>
-
-      <button
-        onClick={() => handleOnClickCat(categories[5])}
-        className={selectedCat === categories[5] ? styles.highlightedButton : styles.card}
-      >
-        {categories[5]}
-      </button>
-
-      <button
-        onClick={() => handleOnClickCat("TODO")}
-        className={selectedCat === "TODO" ? styles.highlightedButton : styles.card}
-      >
-        {categories[6]}
-      </button>
-
-
+      
+      {categories.map((category, index) => (
+        <button
+          key={index}
+          onClick={() => handleOnClickCat(category)}
+          className={`w-full  mr-1 rounded-2xl border border-lilaDark p-1 font-Bobby_Jones_Soft text-lilaDark  text-15pt text-center ${
+            selectedCat === category ? 'bg-ladrillo text-notBlack' : 'bg-softGrey text-cream'
+          }`}
+        >
+          {category}
+        </button>
+      ))}
     </div>
   );
 }

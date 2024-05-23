@@ -1,44 +1,7 @@
-
-@font-face {
-  font-family: Montserrat;
-  src: url('../../../assets/Montserrat-VariableFont_wght.ttf') format('truetype');
-  /* Add other font formats (e.g., woff, woff2) if needed */
-}
-
-@font-face {
-  font-family: ProyectoCafe2-Regular;
-  src: url('../../../assets/PROYECTOCAFE2-REGULAR.TTF') format('truetype');
-  /* Add other font formats (e.g., woff, woff2) if needed */
-}
-
-
 .card {
   font-family: ProyectoCafe2-Regular;
   font-size: 35px;
-  /* color: #b88c7e; */
-  width: calc(50% - 10px); /* Se resta el margen horizontal */
-  /* border-color: #7591c9; */
-  border-style: solid;
-  border: 2px; /* Borde solo en los lados izquierdo y derecho */
-  /* height: calc(50% - 10px); */
-  margin: 1%; /* Añadimos un margen para separar las tarjetas */
-  margin-bottom: 1%; /* Añadimos un margen para separar las tarjetas */
-  object-fit: cover; /* Para que la imagen se ajuste dentro del contenedor manteniendo su relación de aspecto */
-  background-image: url('https://res.cloudinary.com/denjiview/image/upload/v1713458263/hafkkk1uhvyuhvdkfwcb.png');
-  background-size: cover; /* Ajustamos el tamaño de la imagen de fondo para que cubra la tarjeta */
-  background-position: center; /* Centramos la imagen de fondo */
-}
-
-/* Dentro de menuPCSelect.module.css */
-.highlightedButton {
-  font-family: ProyectoCafe2-Regular;
-  font-size: 35px;
-  color: #e74615;
-  width: calc(50% - 10px); /* Se resta el margen horizontal */
-  border-color: #7591c9;
-  border-style: solid;
-  border: 2px; /* Borde solo en los lados izquierdo y derecho */
-  /* height: calc(50% - 10px); */
+  border: 2px solid; /* Borde solo en los lados izquierdo y derecho */
   margin: 1%; /* Añadimos un margen para separar las tarjetas */
   margin-bottom: 1%; /* Añadimos un margen para separar las tarjetas */
   object-fit: cover; /* Para que la imagen se ajuste dentro del contenedor manteniendo su relación de aspecto */

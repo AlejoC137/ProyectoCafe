@@ -6,6 +6,8 @@ export const GET_MENU_BY_CATEGORY = "GET_MENU_BY_CATEGORY";
 export const GET_VITRINA = "GET_VITRINA";
 export const GET_MENU = "GET_MENU";
 export const USER_ADMIN = "USER_ADMIN";
+export const GET_PROYECTISTAS = "GET_PROYECTISTAS";
+export const GET_DAYS = "GET_DAYS";
 
 
 export const CODE = "CODE";
