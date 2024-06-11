@@ -22,8 +22,8 @@ function MenuPC() {
             edit={edit}
             />
             
-            {/* <SideComp className={styles.sideL}  src="https://res.cloudinary.com/denjiview/image/upload/v1710822092/00-PLANTAS2_x1njwt.png" /> */}
-            {/* <SideComp className={styles.sideR} src="https://res.cloudinary.com/denjiview/image/upload/v1710822092/00-PLANTAS_z2gtlu.png" /> */}
+            {/* <SideComp className={styles.sideL}  src="https://res.cloudinary.com/dwcp7dk9h/image/upload/v1710822092/00-PLANTAS2_x1njwt.png" /> */}
+            {/* <SideComp className={styles.sideR} src="https://res.cloudinary.com/dwcp7dk9h/image/upload/v1710822092/00-PLANTAS_z2gtlu.png" /> */}
         </div>
     );
 }

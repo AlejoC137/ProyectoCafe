@@ -23,7 +23,7 @@ export function getMenuHard(){
       "CuidadoEN": "NA",
       "Estado": "Activo",
       "DietaEN": "NA",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1713473866/vitrina/ccohbniepcdl58n4dec2.jpg",
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1713473866/vitrina/ccohbniepcdl58n4dec2.jpg",
       "undefined": {}
     },
     {
@@ -44,7 +44,7 @@ export function getMenuHard(){
       "CuidadoEN": "NA",
       "Estado": "Activo",
       "DietaEN": "NA",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1713474295/vitrina/hzwrdspp2pfy08ofiwu3.jpg"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1713474295/vitrina/hzwrdspp2pfy08ofiwu3.jpg"
     },
     {
       "_id": "6621cf7728ff431503df0470",
@@ -64,7 +64,7 @@ export function getMenuHard(){
       "CuidadoEN": "NA",
       "Estado": "Inactivo",
       "DietaEN": "Meat",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1713491823/vitrina/vegdjvcj7uih7v3ar466.jpg"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1713491823/vitrina/vegdjvcj7uih7v3ar466.jpg"
     },
     {
       "_id": "6621d1d067d65f8eda32be60",
@@ -84,7 +84,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1714372375/vitrina/wxwglutmkvikpsxjhbmw.png"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1714372375/vitrina/wxwglutmkvikpsxjhbmw.png"
     },
     {
       "_id": "6621f5e5e87e472d29755dbc",
@@ -104,7 +104,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1713501661/vitrina/tobiko9hgkbslpwn9uzf.jpg"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1713501661/vitrina/tobiko9hgkbslpwn9uzf.jpg"
     },
     {
       "_id": "66226f7467d65f8eda4d7620",
@@ -124,7 +124,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1713532783/vitrina/lqsfb3uu32fxy5dlosyy.png"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1713532783/vitrina/lqsfb3uu32fxy5dlosyy.png"
     },
     {
       "_id": "662271b3e87e472d298a6c79",
@@ -144,7 +144,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1713533146/vitrina/m1oj3ofu5d1ehdvj6lpn.jpg"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1713533146/vitrina/m1oj3ofu5d1ehdvj6lpn.jpg"
     },
     {
       "_id": "6622744928ff431503fc2765",
@@ -164,7 +164,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1713534012/vitrina/au3u8koszxrrvp4tlxbq.jpg"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1713534012/vitrina/au3u8koszxrrvp4tlxbq.jpg"
     },
     {
       "_id": "66227852e87e472d298b3610",
@@ -183,7 +183,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1713535056/vitrina/qbj7ypdhbqhl7t8avjcm.jpg"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1713535056/vitrina/qbj7ypdhbqhl7t8avjcm.jpg"
     },
     {
       "_id": "6622811728ff431503fde67a",
@@ -203,7 +203,7 @@ export function getMenuHard(){
       "DietaEN": "Vegeterian",
       "CuidadoES": "NA",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1713537301/vitrina/tu4sigra1qo1yw0v503q.jpg"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1713537301/vitrina/tu4sigra1qo1yw0v503q.jpg"
     },
     {
       "_id": "662282bae87e472d298cc8cd",
@@ -222,7 +222,7 @@ export function getMenuHard(){
       "DietaEN": "Vegeterian",
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1713537719/vitrina/g68kylujfvwrdl3sbtju.jpg",
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1713537719/vitrina/g68kylujfvwrdl3sbtju.jpg",
       "Estado": "Inactivo"
     },
     {
@@ -236,7 +236,7 @@ export function getMenuHard(){
       "DescripcionEN": "Chocolate / Oatmeal / RedVelvet",
       "TipoES": "Postres",
       "TipoEN": "Deserts",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1713548854/vitrina/z2eindz8tyti1ijgo1n6.jpg",
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1713548854/vitrina/z2eindz8tyti1ijgo1n6.jpg",
       "Estado": "Activo"
     },
     {
@@ -250,7 +250,7 @@ export function getMenuHard(){
       "DescripcionEN": "Porcion de pan brioche relleno de chocolate oscuro.",
       "TipoES": "Panes",
       "TipoEN": "Breads",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1713549421/vitrina/ihw1gv2j7tbhuvqxz0ei.jpg",
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1713549421/vitrina/ihw1gv2j7tbhuvqxz0ei.jpg",
       "Estado": "Activo"
     },
     {
@@ -269,7 +269,7 @@ export function getMenuHard(){
       "DietaES": "Carnico",
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1714403816/vitrina/dpjqjo6r2euttjnihokh.jpg",
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1714403816/vitrina/dpjqjo6r2euttjnihokh.jpg",
       "Estado": "Activo"
     },
     {
@@ -289,7 +289,7 @@ export function getMenuHard(){
       "DietaEN": "Vegeterian",
       "CuidadoES": "Nueces",
       "CuidadoEN": "Walnuts",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1713559900/vitrina/s2a0salwu8oq2rymjkmi.jpg",
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1713559900/vitrina/s2a0salwu8oq2rymjkmi.jpg",
       "Estado": "Activo"
     },
     {
@@ -307,7 +307,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1713562661/vitrina/s6byin3zlqjgfkkfugfn.png",
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1713562661/vitrina/s6byin3zlqjgfkkfugfn.png",
       "TipoEN": "Coffee"
     },
     {
@@ -325,7 +325,7 @@ export function getMenuHard(){
       "CuidadoES": "Nueces",
       "CuidadoEN": "Walnuts",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1713564870/vitrina/ptmz36dtmwc5enb3rkh1.jpg",
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1713564870/vitrina/ptmz36dtmwc5enb3rkh1.jpg",
       "TipoEN": "Breackfast",
       "SubTipoES": "Dulce",
       "SubTipoEN": "Sweet"
@@ -345,7 +345,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1713565452/vitrina/gytbjqqvfpj8qwloym92.png",
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1713565452/vitrina/gytbjqqvfpj8qwloym92.png",
       "TipoEN": "Sandwitch",
       "SubTipoES": "Salado",
       "SubTipoEN": "Salty"
@@ -366,7 +366,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
       "Estado": "Activo",
-      "foto": "https://res.cloudinary.com/denjiview/image/upload/v1713567610/e0clp9obvso1namh4yeb.jpg"
+      "foto": "https://res.cloudinary.com/dwcp7dk9h/image/upload/v1713567610/e0clp9obvso1namh4yeb.jpg"
     },
     {
       "_id": "6622fb79e87e472d29a9eeb7",
@@ -385,7 +385,7 @@ export function getMenuHard(){
       "DietaEN": "Vegeterian",
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1713568631/vitrina/acvhz4uo0odrnhuoeri8.jpg",
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1713568631/vitrina/acvhz4uo0odrnhuoeri8.jpg",
       "Estado": "Activo"
     },
     {
@@ -405,7 +405,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "DietaEN": "Vegeterian",
       "CuidadoEN": "NA",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1713730863/vitrina/jo2mhut6d1wfpkw2mkdc.jpg",
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1713730863/vitrina/jo2mhut6d1wfpkw2mkdc.jpg",
       "Estado": "Activo"
     },
     {
@@ -445,7 +445,7 @@ export function getMenuHard(){
       "TipoES": "Café",
       "TipoEN": "Coffee",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1713830249/vitrina/nco0pwlu4x4tjzxc4xxb.png"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1713830249/vitrina/nco0pwlu4x4tjzxc4xxb.png"
     },
     {
       "_id": "6626fcc1e87e472d29434595",
@@ -470,7 +470,7 @@ export function getMenuHard(){
       "_id": "6626ffe55aedf05c8b950b6c",
       "type": "menu",
       "category": "productos",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1713831793/vitrina/x45zgqvmwob1zjvitsa9.png",
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1713831793/vitrina/x45zgqvmwob1zjvitsa9.png",
       "NombreES": ".Americano frío.",
       "NombreEN": ".Iced americano.",
       "Precio": "6.000",
@@ -504,7 +504,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1714522235/vitrina/ezdvyipy90hxvvy6kbmc.jpg"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1714522235/vitrina/ezdvyipy90hxvvy6kbmc.jpg"
     },
     {
       "_id": "662705ed67d65f8eda054a3a",
@@ -714,7 +714,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1714443137/vitrina/jenlah9kp17larbohjms.jpg"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1714443137/vitrina/jenlah9kp17larbohjms.jpg"
     },
     {
       "_id": "662733235aedf05c8b9a892b",
@@ -848,7 +848,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1713907119/vitrina/zqqhldtjo1gy7m2n8pun.jpg"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1713907119/vitrina/zqqhldtjo1gy7m2n8pun.jpg"
     },
     {
       "_id": "6628262b28ff431503d69e55",
@@ -906,7 +906,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1714422840/vitrina/ul26fqvdhbg8dvmnyaks.jpg"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1714422840/vitrina/ul26fqvdhbg8dvmnyaks.jpg"
     },
     {
       "_id": "662d1661262f5d8da175f77f",
@@ -964,7 +964,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1714236889/vitrina/eso7bojt93wymoxalkxe.jpg"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1714236889/vitrina/eso7bojt93wymoxalkxe.jpg"
     },
     {
       "_id": "662d2f72262f5d8da177f7ae",
@@ -984,7 +984,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1714237296/vitrina/dwzgtsakv7zrrmntcgri.jpg"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1714237296/vitrina/dwzgtsakv7zrrmntcgri.jpg"
     },
     {
       "_id": "662d3438e59a957ac11670e9",
@@ -1004,7 +1004,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1714238517/vitrina/pgtoofcamhuhymxfc66l.jpg"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1714238517/vitrina/pgtoofcamhuhymxfc66l.jpg"
     },
     {
       "_id": "662d4ef73aff3391b46bc3fd",
@@ -1024,7 +1024,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1714245363/vitrina/vjed18b0fzz4t4la9byi.jpg"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1714245363/vitrina/vjed18b0fzz4t4la9byi.jpg"
     },
     {
       "_id": "662d543e628fe080859ece96",
@@ -1044,7 +1044,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1714246713/vitrina/s6lmpjjf5iowcppok5cj.jpg"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1714246713/vitrina/s6lmpjjf5iowcppok5cj.jpg"
     },
     {
       "_id": "662d579fe59a957ac118fb89",
@@ -1064,7 +1064,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1714247578/vitrina/gbyhattxcgs0ye0wd7ki.jpg"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1714247578/vitrina/gbyhattxcgs0ye0wd7ki.jpg"
     },
     {
       "_id": "662f3715262f5d8da1a75717",
@@ -1095,7 +1095,7 @@ export function getMenuHard(){
       "CuidadoES": "Picante",
       "CuidadoEN": "Spice",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1714430815/vitrina/stcpxwjzs8tvdqd4qw7p.jpg"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1714430815/vitrina/stcpxwjzs8tvdqd4qw7p.jpg"
     },
     {
       "_id": "66302683be4a7f555d3757be",
@@ -1134,7 +1134,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1714525250/vitrina/l31ftwyhg8naz9kmvkag.jpg"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1714525250/vitrina/l31ftwyhg8naz9kmvkag.jpg"
     },
     {
       "_id": "66302e244ae404d1e44d143c",
@@ -1154,7 +1154,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1714433570/vitrina/ddeizf4ho1fhqm8ax2af.jpg"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1714433570/vitrina/ddeizf4ho1fhqm8ax2af.jpg"
     },
     {
       "_id": "6630337c4ae404d1e44d877f",
@@ -1174,7 +1174,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1714434937/vitrina/lekxwofgcu6ohrntq37f.jpg"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1714434937/vitrina/lekxwofgcu6ohrntq37f.jpg"
     },
     {
       "_id": "663035922ac20d79532ac029",
@@ -1360,7 +1360,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1714531962/vitrina/pebuzbxy9sg41zmvptdp.jpg"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1714531962/vitrina/pebuzbxy9sg41zmvptdp.jpg"
     },
     {
       "_id": "6631afe983285c0445a041f7",
@@ -1418,7 +1418,7 @@ export function getMenuHard(){
       "CuidadoES": "NA",
       "CuidadoEN": "NA",
       "Estado": "Activo",
-      "foto": "http://res.cloudinary.com/denjiview/image/upload/v1714536865/vitrina/e6mdh7gpmdpopsmh63jy.jpg"
+      "foto": "http://res.cloudinary.com/dwcp7dk9h/image/upload/v1714536865/vitrina/e6mdh7gpmdpopsmh63jy.jpg"
     },
     {
       "_id": "6631c39783285c0445a3d5a7",

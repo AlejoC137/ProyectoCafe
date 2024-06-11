@@ -11,7 +11,7 @@ module.exports = {
       fontSize: {
         '15pt': '15pt', // Add this line
         '12pt': '15pt', // Add this line
-        '10pt': '10pt', // Add this line
+        '10pt': '13pt', // Add this line
       },
       colors:{
         pureRed: '#ff0000',

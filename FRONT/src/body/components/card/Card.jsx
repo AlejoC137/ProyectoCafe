@@ -32,10 +32,10 @@ function Card(props) {
           <span>{props.isActive === 'Activo' ? '🟢' : '🔴'}</span>
         </div>
       )}
-      <div className="font-Bobby_Jones_Soft text-notBlack text-12pt text-center truncate px-1 pt-1">
+      <div className="font-Bobby_Jones_Soft text-notBlack text-12pt text-center truncate">
         {props.name}
       </div>
-      <div className="font-Bobby_Jones_Soft text-notBlack text-10pt text-center px-4">
+      <div className="font-Bobby_Jones_Soft text-notBlack text-10pt text-center ">
         {props.precio} 
       </div>
 
@@ -49,7 +49,7 @@ function Card(props) {
         {/* Description Overlay */}
         {(showDescription && props.descripcion) && (
           <div className="absolute top-0 left-0 w-full h-full flex font-Bobby_Jones_Soft text-notBlack border border-lilaDark rounded-2xl items-center justify-center bg-white bg-opacity-75" onClick={toggleDescription}>
-            <div className="text-center">{props.descripcion}</div>
+            <div className="text-center">{props.name} - {props.descripcion}</div>
           </div>
         )}
       </div>

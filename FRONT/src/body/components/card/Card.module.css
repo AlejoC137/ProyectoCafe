@@ -21,7 +21,7 @@
   margin: 1%; /* Add margin to separate cards */
   margin-bottom: 1%; /* Add margin to separate cards */
   object-fit: cover; /* Image adjusts to container while maintaining aspect ratio */
-  background-image: url('https://res.cloudinary.com/denjiview/image/upload/v1713458263/hafkkk1uhvyuhvdkfwcb.png');
+  background-image: url('https://res.cloudinary.com/dwcp7dk9h/image/upload/v1713458263/hafkkk1uhvyuhvdkfwcb.png');
   background-size: cover; /* Adjust background image size to cover the card */
   background-position: center; /* Center the background image */
 }

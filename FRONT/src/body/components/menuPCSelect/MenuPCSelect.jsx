@@ -47,7 +47,7 @@ function MenuPCSelect(props) {
     <div>
         <PercheroComp
             className={styles.percheroElement}
-            src="https://res.cloudinary.com/denjiview/image/upload/v1710822553/Untitled-1-02_zml2ay.png"
+            src="https://res.cloudinary.com/dwcp7dk9h/image/upload/v1718079744/zg1d7zmrgmphh4ftzf8w.png"
             alt="Your Image Alt Text"
             imageWidth="40px"
         />
@@ -85,7 +85,7 @@ function MenuPCSelect(props) {
     />
 
     <Cards
-        sourceImg="https://res.cloudinary.com/denjiview/image/upload/v1710996709/PERCHERO_02-02_g4pqcy.png"
+        sourceImg="https://res.cloudinary.com/dwcp7dk9h/image/upload/v1710996709/PERCHERO_02-02_g4pqcy.png"
     />
 </div>
     );

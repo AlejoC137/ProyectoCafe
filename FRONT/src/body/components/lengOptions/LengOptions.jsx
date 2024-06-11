@@ -30,7 +30,7 @@ function LengOptions() {
         <div className={styles.centerColumn}>
             <PercheroComp 
                 className={styles.percheroElement}
-                src="https://res.cloudinary.com/denjiview/image/upload/v1710822553/Untitled-1-02_zml2ay.png" 
+                src="https://res.cloudinary.com/dwcp7dk9h/image/upload/v1710822553/Untitled-1-02_zml2ay.png" 
                 alt="Your Image Alt Text" 
                 imageWidth="40px"
             />
@@ -46,7 +46,7 @@ Dom/Sun: 9:00am - 2:00 pm
             {/* <Link to="/menuprojectocafe">  */}
                 <PercheroComp 
                     className={styles.percheroElement}
-                    src="https://res.cloudinary.com/denjiview/image/upload/v1710822094/PERCHERO_02-01_mvlvyz.png" 
+                    src="https://res.cloudinary.com/dwcp7dk9h/image/upload/v1710822094/PERCHERO_02-01_mvlvyz.png" 
                     alt="Your Image Alt Text" 
                     buttonText={"ESPAÑOL"}
                     value='ES'
@@ -60,7 +60,7 @@ Dom/Sun: 9:00am - 2:00 pm
             {/* <Link to="/menuprojectocafe"> */}
                 <PercheroComp 
                     className={styles.percheroElement}
-                    src="https://res.cloudinary.com/denjiview/image/upload/v1710822094/PERCHERO_02-01_mvlvyz.png" 
+                    src="https://res.cloudinary.com/dwcp7dk9h/image/upload/v1710822094/PERCHERO_02-01_mvlvyz.png" 
                     alt="Your Image Alt Text" 
                     buttonText={"ENGLISH"}
                     value='EN'
@@ -74,7 +74,7 @@ Dom/Sun: 9:00am - 2:00 pm
             <Link to="https://wa.me/3008214593"> 
                 <PercheroComp 
                     className={styles.percheroElement}
-                    src="https://res.cloudinary.com/denjiview/image/upload/v1710822094/PERCHERO_02-01_mvlvyz.png" 
+                    src="https://res.cloudinary.com/dwcp7dk9h/image/upload/v1710822094/PERCHERO_02-01_mvlvyz.png" 
                     alt="Your Image Alt Text" 
                     buttonText={"WHATSAPP"}
                     value='EN'
@@ -88,7 +88,7 @@ Dom/Sun: 9:00am - 2:00 pm
       
                 <PercheroComp 
                     className={styles.percheroElement}
-                    src="https://res.cloudinary.com/denjiview/image/upload/v1710996709/PERCHERO_02-02_g4pqcy.png" 
+                    src="https://res.cloudinary.com/dwcp7dk9h/image/upload/v1710996709/PERCHERO_02-02_g4pqcy.png" 
                     alt="Your Image Alt Text" 
                     // buttonText={""}
                     value='EN'
