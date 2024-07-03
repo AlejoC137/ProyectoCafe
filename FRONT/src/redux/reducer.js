@@ -5,6 +5,7 @@ import {
   GET_VITRINA,
   GET_MENU,
   GET_MENU_BY_CATEGORY,     
+  GET_ALL_ITEMS,     
   SET_CATEGORY,
   USER_ADMIN,
   GET_DAYS  // Importa la acción GET_DAYS
@@ -19,7 +20,9 @@ const initialState = {
   menuByCat: [],
   menuCat: 'TODO',
   isAdmin: null,
+  items:{},
   days: [] // Agrega un array para almacenar los días
+  
 };
 
 const reducer = (state = initialState, action) => {
@@ -41,7 +44,12 @@ const reducer = (state = initialState, action) => {
               ...state,
               allProjects: action.payload,
           };
-
+          case GET_ALL_ITEMS:
+            return {
+                ...state,
+                items: action.payload,
+                        // console.log(action.payload);
+            };
       case GET_MENU:
           return {
               ...state,

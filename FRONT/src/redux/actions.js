@@ -1,6 +1,7 @@
 import {
   POST_A_PROJECT,
   GET_ALL_PROJECTS,
+  GET_ALL_ITEMS,
   SET_LENGUAJE,
   GET_VITRINA,
   GET_MENU,
@@ -17,6 +18,25 @@ import axios from "axios";
 // import Swal from "swal"
 import Swal from "sweetalert2";
 import { getMenuHard } from "../assets/MENU";
+
+
+
+export function getAllItems() {
+  return async function (dispatch) {
+  
+      try {
+        // /project?collection=soci
+          const items = await axios.get(`/items`);
+          // console.log(projects.data);
+          return dispatch({
+            type: GET_ALL_ITEMS,
+            payload:items.data,
+          });          
+      } catch (error) {
+          console.log(error.message);
+      }
+  };
+  };
 
 
 
@@ -250,6 +270,7 @@ export function setCat(cat) {
         }
     };
   };
+  
 export function setAdmin(admin) {
 
   return async function (dispatch) {
@@ -292,13 +313,48 @@ export function getVitrina() {
   };
 
 
+  export  async function updateItem(updateData) {
+    //  return  function (dispatch){
+       try {
+        // console.log(updateData);
+          await axios.put('/updateitem', updateData).then(response => {
+            // console.log(response);
+          })
+          .catch(error => {
+            if (error.response) {
+              console.log(error.response.data);
+              console.log(error.response.status);
+              console.log(error.response.headers);
+            } else if (error.request) {
+              console.log(error.request);
+            } else {
+              console.log('Error', error.message);
+            }
+            console.log(error.config);
+          });
+        // Dispatch an action if needed
+        // return {
+          // type: PUT_PROJECT,
+          // payload: response.data, // You may or may not need to dispatch the updated project data
+        // };
+
+        // console.log(response);
+      } catch (error) {
+        // Swal.fire(error.response.data.error);
+        // Optionally, you can throw the error to handle it in the component
+        console.log(error.message)
+
+      }
+      
+    }
+
   export const changeItemStatus = (itemId) => {
     return async (dispatch) => {
       try {
 
         // const update = await axios.get(`/project?collection=${category}`);
 
-        console.log(itemId);
+        // console.log(itemId);
       } catch (error) {
         console.error('Error al cambiar el estado del elemento:', error);
       }

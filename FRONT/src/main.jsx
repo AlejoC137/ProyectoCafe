@@ -13,6 +13,11 @@ axios.defaults.baseURL = 'https://us-east4.gcp.data.mongodb-api.com/app/applicat
 //esto es para trabajar de forma deployada
   
 // axios.defaults.baseURL = 'https://humanconet.adaptable.app/'
+
+
+
+
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <BrowserRouter>

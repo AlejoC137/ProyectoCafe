@@ -8,6 +8,7 @@ export const GET_MENU = "GET_MENU";
 export const USER_ADMIN = "USER_ADMIN";
 export const GET_PROYECTISTAS = "GET_PROYECTISTAS";
 export const GET_DAYS = "GET_DAYS";
+export const GET_ALL_ITEMS = "GET_ALL_ITEMS";
 
 
 export const CODE = "CODE";
