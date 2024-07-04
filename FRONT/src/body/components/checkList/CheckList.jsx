@@ -85,7 +85,7 @@ function CheckList(props) {
            <div className="mt-4 w-full flex flex-col md:flex-row justify-around">
                 {filteredItemsDesechablesP.length > 0 && (
                     <div className="bg-gray-100 border p-4 rounded w-full md:w-1/2 m-2">
-                        <h3 className="font-bold text-lg mb-2">ARTÍCULOS PENDIENTES DE COMPRA</h3>
+                        <h3 className="font-bold text-lg mb-2">DESECHABLES PENDIENTES DE COMPRA</h3>
                         {filteredItemsDesechablesP.map((item, index) => (
                             <div key={index} className="border p-2 mb-2 bg-white rounded">
                                 <p>{item["Nombre del producto"]}</p>
@@ -102,7 +102,7 @@ function CheckList(props) {
                 )}
                 {filteredItemsIgredienteP.length > 0 && (
                     <div className="bg-gray-100 border p-4 rounded w-full md:w-1/2 m-2">
-                        <h3 className="font-bold text-lg mb-2">ARTÍCULOS PENDIENTES DE COMPRA</h3>
+                        <h3 className="font-bold text-lg mb-2">INGREDIENTES PENDIENTES DE COMPRA</h3>
                         {filteredItemsIgredienteP.map((item, index) => (
                             <div key={index} className="border p-2 mb-2 bg-white rounded">
                                 <p>{item["Nombre del producto"]}</p>
@@ -119,7 +119,7 @@ function CheckList(props) {
                 )}
                 {filteredItemsProduccionExternaP.length > 0 && (
                     <div className="bg-gray-100 border p-4 rounded w-full md:w-1/2 m-2">
-                        <h3 className="font-bold text-lg mb-2">ARTÍCULOS PENDIENTES DE COMPRA</h3>
+                        <h3 className="font-bold text-lg mb-2">PRODUCCION A SOLICITAR</h3>
                         {filteredItemsProduccionExternaP.map((item, index) => (
                             <div key={index} className="border p-2 mb-2 bg-white rounded">
                                 <p>{item["Nombre del producto"]}</p>
@@ -136,7 +136,7 @@ function CheckList(props) {
                 )}
                 {filteredItemsProduccionInternaP.length > 0 && (
                     <div className="bg-gray-100 border p-4 rounded w-full md:w-1/2 m-2">
-                        <h3 className="font-bold text-lg mb-2">ARTÍCULOS PENDIENTES DE COMPRA</h3>
+                        <h3 className="font-bold text-lg mb-2">PRODUCCION A EJECUTAR</h3>
                         {filteredItemsProduccionInternaP.map((item, index) => (
                             <div key={index} className="border p-2 mb-2 bg-white rounded">
                                 <p>{item["Nombre del producto"]}</p>
