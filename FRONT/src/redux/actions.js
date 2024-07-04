@@ -347,6 +347,14 @@ export function getVitrina() {
       }
       
     }
+    export async function delitem(body) {
+      try {
+        const response = await axios.delete(`/delitem?id=${body.id}&category=${body.category}`);
+        console.log(response.data);
+      } catch (error) {
+        console.error(error.message);
+      }
+    }
 
   export const changeItemStatus = (itemId) => {
     return async (dispatch) => {

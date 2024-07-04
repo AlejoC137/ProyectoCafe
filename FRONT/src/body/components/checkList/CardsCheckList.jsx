@@ -8,16 +8,21 @@ const items = props.info
 // console.log(items.length);
    return (
       <div 
-      // className="grid grid-cols-2 gap-1 h-screen overflow-y-auto"
-      // className="grid grid-cols-3 gap-1 overflow-y-auto"
       >
          {props.tittle}
+      <div 
+      className="grid gap-1 h-screen overflow-y-auto"
+      // className="grid grid-cols-3 gap-1 overflow-y-auto"
+      >
         
             {items && items.map((item) => (
                <div key={item?._id} className="w-full">
                   <CardCheckList
+                     
                      datos={item}
                      category={props.tittle} 
+                     subCategory={item} 
+
                   />
 
                </div>
@@ -26,7 +31,10 @@ const items = props.info
             )}
 
       </div>
+      </div>
    );
 }
 
 export default CardsCheckList;
+
+

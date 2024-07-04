@@ -6,14 +6,17 @@ import CardsCheckList from './CardsCheckList.jsx';
 function CheckList(props) {
     const dispatch = useDispatch();
     const items = useSelector(state => state.items);
-    const [filteredItemsPC, setFilteredItemsPC] = useState([]);
-    const [filteredItemsPP, setFilteredItemsPP] = useState([]);
+    const [filteredItemsDesechablesP, setFilteredItemsDesechablesP] = useState([]);
+    const [filteredItemsIgredienteP, setFilteredItemsIgredienteP] = useState([]);
+    const [filteredItemsProduccionExternaP, setFilteredItemsProduccionExternaP] = useState([]);
+    const [filteredItemsProduccionInternaP, setFilteredItemsProduccionInternaP] = useState([]);
+
     const [isLoading, setIsLoading] = useState(false);
     const [reportCreated, setReportCreated] = useState(false);
 
     useEffect(() => {
         dispatch(getAllItems());
-    }, [reportCreated, items]);
+    }, [reportCreated]);
 
     const handleCreateReport = async () => {
         setIsLoading(true);
@@ -39,11 +42,16 @@ function CheckList(props) {
             ...items.produccionInterna
         ];
 
-        const filteredPC = allItems.filter(item => item.Estado === 'PC');
-        const filteredPP = allItems.filter(item => item.Estado === 'PP');
+        const desechablesP = items.desechables.filter(item => item.Estado === 'PENDIENTE');
+        const ingredienteP = items.ingrediente.filter(item => item.Estado === 'PENDIENTE');
+        const produccionExternaP = items.produccionExterna.filter(item => item.Estado === 'PENDIENTE');
+        const produccionInternaP = items.produccionInterna.filter(item => item.Estado === 'PENDIENTE');
+       
 
-        setFilteredItemsPC(filteredPC);
-        setFilteredItemsPP(filteredPP);
+        setFilteredItemsDesechablesP(desechablesP)
+        setFilteredItemsIgredienteP(ingredienteP)
+        setFilteredItemsProduccionExternaP(produccionExternaP)
+        setFilteredItemsProduccionInternaP(produccionInternaP)
     };
 
     const copyToClipboard = (items) => {
@@ -54,7 +62,7 @@ function CheckList(props) {
     };
 
     return (
-        <div className="flex flex-col items-center">
+        <div className="container mx-auto py-8">
             {!reportCreated && (
                 <button
                     className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
@@ -73,11 +81,12 @@ function CheckList(props) {
                     {isLoading ? 'Cargando...' : 'UPDATE REPORTE'}
                 </button>
             )}
-            <div className="mt-4 w-full flex flex-col md:flex-row justify-around">
-                {filteredItemsPC.length > 0 && (
+           
+           <div className="mt-4 w-full flex flex-col md:flex-row justify-around">
+                {filteredItemsDesechablesP.length > 0 && (
                     <div className="bg-gray-100 border p-4 rounded w-full md:w-1/2 m-2">
-                        <h3 className="font-bold text-lg mb-2">ARTICULOS PENDIENTES DE COMPRA</h3>
-                        {filteredItemsPC.map((item, index) => (
+                        <h3 className="font-bold text-lg mb-2">ARTÍCULOS PENDIENTES DE COMPRA</h3>
+                        {filteredItemsDesechablesP.map((item, index) => (
                             <div key={index} className="border p-2 mb-2 bg-white rounded">
                                 <p>{item["Nombre del producto"]}</p>
                                 {/* <p>Estado: {item.Estado}</p> */}
@@ -91,10 +100,10 @@ function CheckList(props) {
                         </button>
                     </div>
                 )}
-                {filteredItemsPP.length > 0 && (
+                {filteredItemsIgredienteP.length > 0 && (
                     <div className="bg-gray-100 border p-4 rounded w-full md:w-1/2 m-2">
-                        <h3 className="font-bold text-lg mb-2">ARTICULOS PENDIENTES DE PRODUCCIÓN</h3>
-                        {filteredItemsPP.map((item, index) => (
+                        <h3 className="font-bold text-lg mb-2">ARTÍCULOS PENDIENTES DE COMPRA</h3>
+                        {filteredItemsIgredienteP.map((item, index) => (
                             <div key={index} className="border p-2 mb-2 bg-white rounded">
                                 <p>{item["Nombre del producto"]}</p>
                                 {/* <p>Estado: {item.Estado}</p> */}
@@ -102,45 +111,85 @@ function CheckList(props) {
                         ))}
                         <button
                             className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-2"
-                            onClick={() => copyToClipboard(filteredItemsPP)}
+                            onClick={() => copyToClipboard(filteredItemsPC)}
                         >
                             Copiar al Portapapeles
                         </button>
                     </div>
                 )}
+                {filteredItemsProduccionExternaP.length > 0 && (
+                    <div className="bg-gray-100 border p-4 rounded w-full md:w-1/2 m-2">
+                        <h3 className="font-bold text-lg mb-2">ARTÍCULOS PENDIENTES DE COMPRA</h3>
+                        {filteredItemsProduccionExternaP.map((item, index) => (
+                            <div key={index} className="border p-2 mb-2 bg-white rounded">
+                                <p>{item["Nombre del producto"]}</p>
+                                {/* <p>Estado: {item.Estado}</p> */}
+                            </div>
+                        ))}
+                        <button
+                            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-2"
+                            onClick={() => copyToClipboard(filteredItemsPC)}
+                        >
+                            Copiar al Portapapeles
+                        </button>
+                    </div>
+                )}
+                {filteredItemsProduccionInternaP.length > 0 && (
+                    <div className="bg-gray-100 border p-4 rounded w-full md:w-1/2 m-2">
+                        <h3 className="font-bold text-lg mb-2">ARTÍCULOS PENDIENTES DE COMPRA</h3>
+                        {filteredItemsProduccionInternaP.map((item, index) => (
+                            <div key={index} className="border p-2 mb-2 bg-white rounded">
+                                <p>{item["Nombre del producto"]}</p>
+                                {/* <p>Estado: {item.Estado}</p> */}
+                            </div>
+                        ))}
+                        <button
+                            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-2"
+                            onClick={() => copyToClipboard(filteredItemsPC)}
+                        >
+                            Copiar al Portapapeles
+                        </button>
+                    </div>
+                )}
+
+                
             </div>
-            <div className="flex flex-wrap">
+           
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                
                 <div className="m-1">
                     <CardsCheckList
                         info={items.desechables}
-                        tittle='desechables'
+                        tittle='DESECHABLES'
                         sourceImg="https://res.cloudinary.com/dwcp7dk9h/image/upload/v1710996709/PERCHERO_02-02_g4pqcy.png"
                     />
                 </div>
                 <div className="m-1">
                     <CardsCheckList
                         info={items.ingrediente}
-                        tittle='ingrediente'
+                        tittle='INGREDIENTE'
                         sourceImg="https://res.cloudinary.com/dwcp7dk9h/image/upload/v1710996709/PERCHERO_02-02_g4pqcy.png"
                     />
                 </div>
                 <div className="m-1">
                     <CardsCheckList
                         info={items.produccionExterna}
-                        tittle='produccionExterna'
+                        tittle='PRODUCCION EXTERNA'
                         sourceImg="https://res.cloudinary.com/dwcp7dk9h/image/upload/v1710996709/PERCHERO_02-02_g4pqcy.png"
                     />
                 </div>
                 <div className="m-1">
                     <CardsCheckList
                         info={items.produccionInterna}
-                        tittle='produccionInterna'
+                        tittle='PRODUCCION INTERNA'
                         sourceImg="https://res.cloudinary.com/dwcp7dk9h/image/upload/v1710996709/PERCHERO_02-02_g4pqcy.png"
                     />
                 </div>
             </div>
+
         </div>
     );
 }
 
 export default CheckList;
+
