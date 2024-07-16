@@ -54,6 +54,21 @@ function Propinas() {
             type: "Proyectista",
             category: 'Dias',
             propinas: [],
+            turnos: {
+                turno1:{
+                    staff:[],
+                    propinas:[],                
+                },
+                turno2:{
+                    staff:[],
+                    propinas:[],                
+                },
+                turno3:{
+                    staff:[],
+                    propinas:[],                
+                },
+            }
+        ,
             date: fechaHoraClic
         };
 
