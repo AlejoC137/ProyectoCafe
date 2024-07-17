@@ -394,6 +394,24 @@ import axios from "axios";
 // import { getMenuHard } from "../assets/MENU";
 
 // // staff
+
+
+export function listaCafe() {
+
+  
+}
+export function informeCafe() { 
+}
+
+export function listaCocina() {
+
+
+}
+export function informeCocina() {
+
+
+}
+
 export function getAllStaff() {
   return async function (dispatch) {
     try {
@@ -620,3 +638,6 @@ export function getVitrina() {
     }
   };
 }
+
+
+ex
