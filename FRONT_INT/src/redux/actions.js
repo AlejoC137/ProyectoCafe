@@ -638,6 +638,3 @@ export function getVitrina() {
     }
   };
 }
-
-
-ex
