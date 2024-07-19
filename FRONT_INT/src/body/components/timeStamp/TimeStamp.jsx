@@ -77,7 +77,7 @@ function TimeStamp(props) {
   };
 
   return (
-    <div className="bg-ladrillo overflow-hidden rounded-2xl border-8 border-black h-custom-height relative ">
+    <div className="bg-ladrillo overflow-hidden rounded-2xl border-8 border-black h-custom-height225 relative ">
       <TittleComp tittle='HORAS' />
       <div className="p-4">
         <label htmlFor="staffSelector" className="block mb-2 text-sm font-medium text-gray-900">Seleccione un miembro del staff:</label>

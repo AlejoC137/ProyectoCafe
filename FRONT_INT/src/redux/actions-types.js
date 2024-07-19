@@ -10,6 +10,7 @@ export const GET_STAFF = "GET_STAFF";
 export const GET_DAYS = "GET_DAYS";
 export const GET_ALL_ITEMS = "GET_ALL_ITEMS";
 export const SWITCH_SHIFT = "SWITCH_SHIFT";
+export const GET_NOTAS = "GET_NOTAS";
 
 
 

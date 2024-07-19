@@ -6,7 +6,9 @@ module.exports = {
   theme: {
     extend: {
       height: {
-        'custom-height': '225px',
+        'custom-height225': '225px',
+        'custom-height550': '550px',
+       
       },
       fontFamily: {
         'Bobby_Jones_Soft': ['Bobby_Jones_Soft', 'sans-serif']

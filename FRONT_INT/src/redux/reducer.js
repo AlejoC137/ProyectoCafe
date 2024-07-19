@@ -8,6 +8,7 @@ import {
   GET_ALL_ITEMS,     
   SET_CATEGORY,
   USER_ADMIN,
+  GET_NOTAS,
   GET_STAFF,
   GET_DAYS  // Importa la acción GET_DAYS
 } from "./actions-types";
@@ -23,7 +24,8 @@ const initialState = {
   isAdmin: null,
   items:{},
   days: [], // Agrega un array para almacenar los días
-  staff: [] 
+  staff: [], 
+  staffNotas: [] 
   
 };
 
@@ -117,6 +119,11 @@ const reducer = (state = initialState, action) => {
           return {
               ...state,
               days: action.payload, // Almacena los días en el estado
+          };
+      case GET_NOTAS: // Agrega el caso para la acción GET_DAYS
+          return {
+              ...state,
+              staffNotas: action.payload, // Almacena los días en el estado
           };
 
       default:

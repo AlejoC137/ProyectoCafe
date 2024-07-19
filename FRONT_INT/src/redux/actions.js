@@ -384,6 +384,7 @@ import {
   GET_STAFF,
   GET_DAYS,
   SWITCH_SHIFT,
+  GET_NOTAS
 } from "./actions-types";
 import React from "react";
 import { useSelector } from "react-redux";
@@ -411,6 +412,46 @@ export function informeCocina() {
 
 
 }
+export  function getAllNotas(dispatch) {
+
+  
+  
+  
+  return async function (dispatch) {
+    try {
+      const response = await axios.get("/getAllNotas");
+      console.log(response.data);
+    dispatch({
+      type: GET_NOTAS,
+      payload: response.data,
+    });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+
+
+
+}
+export async function postNota(data) {
+
+  // console.log(data);
+
+  try {
+
+    const response = await axios.post("/postNotes", data);
+  console.log(response.data);
+
+  } catch (error) {
+
+    console.log(error.message)
+
+  }
+
+}
+
+
 
 export function getAllStaff() {
   return async function (dispatch) {
@@ -639,5 +680,3 @@ export function getVitrina() {
   };
 }
 
-
-ex
