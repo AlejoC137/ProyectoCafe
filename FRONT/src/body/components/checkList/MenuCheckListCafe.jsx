@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllItems } from "../../../redux/actions.js";
 import CardsCheckList from './CardsCheckList.jsx';
 
-function CheckList(props) {
+function MenuCheckListCocina(props) {
     const dispatch = useDispatch();
     const items = useSelector(state => state.items);
     const [filteredItemsDesechablesP, setFilteredItemsDesechablesP] = useState([]);
@@ -191,5 +191,5 @@ function CheckList(props) {
     );
 }
 
-export default CheckList;
+export default MenuCheckListCocina;
 

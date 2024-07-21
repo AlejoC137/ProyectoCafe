@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TittleComp from "../tittleComp/TittleComp";
-import { getAllNotas, postNota } from "../../../redux/actions";
+import { getAllNotas, postNota,delnota } from "../../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 
 function NotasStaff() {
@@ -13,8 +13,7 @@ function NotasStaff() {
 
   useEffect(() => {
 
-    getAllNotas()
-    newNote === false  ? newNote === true : newNote === false 
+
   }, [Notas , newNote ]);
 
   const handleSubmit = (e) => {
@@ -38,11 +37,23 @@ function NotasStaff() {
       // Trigger a view update
       // dispatch({ type: 'REFRESH_NOTAS' }); // Adjust according to your action
     });
-
+    
     getAllNotas()
     newNote === false  ? newNote === true : newNote === false 
 
   };
+
+  const handleDelete = async (info) => {
+    // const body = {
+      // id: props.datos._id,
+      // category: props.category,
+      // category: props.category,
+    // };
+  // console.log(info);
+    await delnota(info);
+
+  };
+
 
   return (
     <div className="bg-ladrillo rounded-2xl border-8 border-black h-custom-height550 relative overflow-auto">
@@ -54,6 +65,15 @@ function NotasStaff() {
             <span>{nota.notaContent}</span>
             <span className="italic">Autor: {nota.notaAuthor}</span>
             <span>{new Date(nota.notaTimeStamp).toLocaleTimeString()}</span>
+            <button
+          onClick={()=>{handleDelete({
+            id:nota._id,
+            category:nota.category,
+            type:nota.type
+          })}}
+          
+
+            >ELIMINAR NOTA</button>
           </div>
         ))}
       </div>

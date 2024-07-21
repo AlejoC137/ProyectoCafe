@@ -567,6 +567,14 @@ export async function delitem(body) {
     console.error(error.message);
   }
 }
+export async function delnota(body) {
+  try {
+    const response = await axios.delete(`/delnotas?id=${body.id}&category=${body.category}&type=${body.type}`);
+    console.log(response.data);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
 
 export const changeItemStatus = (itemId) => {
   return async (dispatch) => {

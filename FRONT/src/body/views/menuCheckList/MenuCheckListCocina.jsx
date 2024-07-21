@@ -1,9 +1,9 @@
 import React from "react";
 import SideComp from '../../components/sideComp/SideComp.jsx'
 // import styles from './menuPC.module.css'; // Import CSS module
-import CheckList from '../../components/checkList/CheckList.jsx'
+import CheckListCocina from '../../components/checkList/MenuCheckListCocina.jsx'
 import { useParams } from "react-router-dom";
-function MenuCheckList() {
+function MenuCheckListCocina() {
     const onPressHandler = (link) => {
         // Redirect to the provided external link
         window.location.href = link;
@@ -15,7 +15,7 @@ function MenuCheckList() {
         <div 
         // className={styles.centerGroup}
         >
-            <CheckList 
+            <CheckListCocina
             // lassName={styles.sideC}
             
             />
@@ -24,4 +24,4 @@ function MenuCheckList() {
     );
 }
 
-export default MenuCheckList;
+export default MenuCheckListCocina;
