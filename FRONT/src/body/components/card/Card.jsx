@@ -11,6 +11,7 @@ function Card(props) {
   const toggleDescription = () => {
     setShowDescription(!showDescription); // Toggle description visibility
   };
+console.log(          props?.fondo );
 
   const dispatch = useDispatch();
 
@@ -43,7 +44,7 @@ function Card(props) {
       <div className="relative" onClick={toggleDescription}>
         <img
           className="w-full h-64 object-cover rounded-2xl border border-lilaDark align-middle"
-          src={props.fondo}
+          src={props?.fondo}
           alt=""
         />
         {/* Description Overlay */}

@@ -22,9 +22,15 @@ function App() {
         <Route path="/newproject" element={<NewProjectPortal/>} />
         <Route path="/menuprojectocafe" element={<MenuProjectoCafe/>} />
         <Route path="/menupc" element={<MenuPC/>} />
+      
+      
+      {/* items */}
         <Route path="/itemsCocina" element={<MenuCheckListCocina/>} />
         <Route path="/itemsCafe" element={<MenuCheckListCafe/>} />
         <Route path="/itemsDes" element={<MenuCheckListDes/>} />
+      {/* items */}
+      
+      
         <Route path="/menupc/:edit" element={<MenuPC/>} />
         <Route path="/lenguajeSelect" element={<MenuPC/>} />
         <Route path="/proyectistas" element={<Proyectistas/>} />

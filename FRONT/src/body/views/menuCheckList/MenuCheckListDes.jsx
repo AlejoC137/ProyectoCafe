@@ -1,7 +1,7 @@
 import React from "react";
 import SideComp from '../../components/sideComp/SideComp.jsx'
 // import styles from './menuPC.module.css'; // Import CSS module
-import CheckList from '../../components/checkList/MenuCheckListCocina.jsx'
+import MenuCheckListByProps from '../../components/checkList/MenuCheckListByProps.jsx';
 import { useParams } from "react-router-dom";
 function MenuCheckListDes() {
     const onPressHandler = (link) => {
@@ -15,9 +15,9 @@ function MenuCheckListDes() {
         <div 
         // className={styles.centerGroup}
         >
-            <CheckList 
-            // lassName={styles.sideC}
-            
+            <MenuCheckListByProps
+                category="DESECHABLES"
+                area="DESECHABLES"
             />
             
         </div>

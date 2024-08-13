@@ -56,7 +56,7 @@ export function getAllProjects(category) {
       } catch (error) {
           console.log(error.message);
       }
-  };
+    };
   };
 export async function  getAllProyectistas() {
 
@@ -357,7 +357,7 @@ export function getVitrina() {
     }
 
   export const changeItemStatus = (itemId) => {
-    return async (dispatch) => {
+    return async (dispatch) => {  
       try {
 
         // const update = await axios.get(`/project?collection=${category}`);

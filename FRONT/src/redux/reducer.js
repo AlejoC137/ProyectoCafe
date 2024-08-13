@@ -20,7 +20,7 @@ const initialState = {
   menuByCat: [],
   menuCat: 'TODO',
   isAdmin: null,
-  items:{},
+  items:[],
   days: [] // Agrega un array para almacenar los días
   
 };

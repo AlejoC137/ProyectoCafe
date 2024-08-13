@@ -17,7 +17,7 @@ function Cards(props) {
             (isAdmin || PAD.Estado === 'Activo') && // Render card if isAdmin is true or PAD.Estado is 'Activo'
             <div key={PAD?._id} className="w-full">
                <Card
-                  fondo={PAD.foto}
+                  fondo={PAD?.foto}
                   key={PAD?._id}
                   ID={PAD?._id}
                   name={currentLenguaje === 'ES' ? PAD.NombreES : PAD.NombreEN}
