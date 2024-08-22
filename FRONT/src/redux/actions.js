@@ -27,7 +27,7 @@ export function getAllItems() {
       try {
         // /project?collection=soci
           const items = await axios.get(`/items`);
-          // console.log(projects.data);
+          // console.log(items.data);
           return dispatch({
             type: GET_ALL_ITEMS,
             payload:items.data,
@@ -316,7 +316,7 @@ export function getVitrina() {
   export  async function updateItem(updateData) {
     //  return  function (dispatch){
        try {
-        // console.log(updateData);
+        console.log(updateData);
           await axios.put('/updateitem', updateData).then(response => {
             // console.log(response);
           })

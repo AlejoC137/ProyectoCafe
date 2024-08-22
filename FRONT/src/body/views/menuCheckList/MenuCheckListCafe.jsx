@@ -16,8 +16,8 @@ function MenuCheckListCafe() {
         // className={styles.centerGroup}
         >
             <MenuCheckListByProps
-                category="INGREDIENTES"
-                area="COMIDA"
+                category="STOCK"
+                Area="CAFE_BEBIDAS"
             />
             
         </div>

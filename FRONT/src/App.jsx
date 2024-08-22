@@ -27,7 +27,7 @@ function App() {
       {/* items */}
         <Route path="/itemsCocina" element={<MenuCheckListCocina/>} />
         <Route path="/itemsCafe" element={<MenuCheckListCafe/>} />
-        <Route path="/itemsDes" element={<MenuCheckListDes/>} />
+        {/* <Route path="/itemsDes" element={<MenuCheckListDes/>} /> */}
       {/* items */}
       
       

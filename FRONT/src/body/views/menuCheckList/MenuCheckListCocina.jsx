@@ -16,8 +16,8 @@ function MenuCheckListCocina() {
         // className={styles.centerGroup}
         >
             <MenuCheckListByProps
-                category="INGREDIENTES"
-                area="COMIDA"
+                category="STOCK"
+                Area="COCINA"
             />
         </div>
     );
