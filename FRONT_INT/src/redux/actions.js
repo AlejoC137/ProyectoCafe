@@ -397,20 +397,54 @@ import axios from "axios";
 // // staff
 
 
-export function listaCafe() {
+// Filtra el menú para obtener los items con estado URGENTE o ACABADO en el área de CAFÉ
+export function informeCafe() {
+  return async function (dispatch, getState) {
+    const items = await axios.get(`/items`);
+    const filteredItems = items.data.filter(item =>
+      (item.Estado === '25%' || item.Estado === '0%') && item.Area === 'CAFE_BEBIDAS'
+    );
+    
+    // dispatch({
+    //   type: "GET_MENU_BY_CATEGORY",
+    //   payload: filteredItems
+    // });
+// console.log(filteredItems);
 
-  
+    return filteredItems; // Devuelve los items filtrados
+  };
 }
-export function informeCafe() { 
-}
 
-export function listaCocina() {
-
-
-}
+// Filtra el menú para obtener los items con estado URGENTE o ACABADO en el área de COCINA
 export function informeCocina() {
+  return async function (dispatch, getState) {
+    const items = await axios.get(`/items`);
+    const filteredItems = items.data.filter(item =>
+      (item.Estado === '25%' || item.Estado === '0%') && item.Area === 'COCINA'
+    );
+
+    // dispatch({
+    //   type: "GET_MENU_BY_CATEGORY",
+    //   payload: filteredItems
+    // });
+    // console.log(filteredItems);
+    return filteredItems; // Devuelve los items filtrados
+  };
+}
 
 
+// Acción para redirigir a la URL específica de la lista de Café
+export function listaCafe() {
+  return function () {
+    window.location.href = "https://proyecto-cafe-sigma.vercel.app/itemsCafe";
+  };
+}
+
+// Acción para redirigir a la URL específica de la lista de Cocina
+export function listaCocina() {
+  return function () {
+    window.location.href = "https://proyecto-cafe-sigma.vercel.app/itemsCocina";
+  };
 }
 export  function getAllNotas(dispatch) {
 
