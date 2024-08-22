@@ -112,23 +112,23 @@ function CardCheckList(props) {
     <div className="bg-ladrillo overflow-hidden rounded-2xl border border-lilaDark relative p-4">
       <h2 className="text-lg font-semibold mb-2">{props.datos["Nombre del producto"]}</h2>
 
-      {renderField("Nombre del producto", "Nombre del producto")}
-      {renderField("Proveedor", "Proveedor")}
-      {renderField("Estado", "Estado")}
-      {renderField("Area", "Área")}
-      {renderField("category", "Categoría")}
-      {renderField("CANTIDAD", "Cantidad")}
-      {renderField("UNIDADES", "Unidades")}
-      {renderField("COSTO", "Costo")}
-      {renderField("COOR", "Coordinador")}
-      {renderField("FECHA_ACT", "Fecha Actualización")}
-      {renderField("GRUPO", "Grupo")}
+      {props.largeEditSet === true && renderField("Nombre del producto", "Nombre del producto")}
+      {props.largeEditSet === true && renderField("Proveedor", "Proveedor")}
+      {props.largeEditSet === true && renderField("Estado", "Estado")}
+      {props.largeEditSet === true && renderField("Area", "Área")}
+      {props.largeEditSet === true && renderField("category", "Categoría")}
+      {props.largeEditSet === true && renderField("CANTIDAD", "Cantidad")}
+      {props.largeEditSet === true && renderField("UNIDADES", "Unidades")}
+      {props.largeEditSet === true && renderField("COSTO", "Costo")}
+      {props.largeEditSet === true && renderField("COOR", "Coordinador")}
+      {props.largeEditSet === true && renderField("FECHA_ACT", "Fecha Actualización")}
+      {props.largeEditSet === true && renderField("GRUPO", "Grupo")}
 
       {/* Mostrar el precio por unidad */}
-      <div className="flex items-center mb-2">
+{    props.largeEditSet === true &&  <div className="flex items-center mb-2">
         <span className="mr-2 text-lg font-semibold">Precio por unidad:</span>
         <span className="text-lg font-semibold">{precioPorUnidad}</span>
-      </div>
+      </div>}
 
       <div className="flex space-x-2">
         <button
@@ -173,12 +173,12 @@ function CardCheckList(props) {
           NA
         </button>
 
-        <button
+{  props.largeEditSet === true &&      <button
           className="text-white font-bold py-2 px-4 rounded bg-red-500 hover:bg-red-700"
           onClick={handleDelete}
         >
          💥
-        </button>
+        </button>}
       </div>
     </div>
   );
