@@ -2,15 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { updateItem, delitem } from '../../../redux/actions.js'; // Import the Redux action
 
+const grupoOptions = ["FRUTAS_VERDURAS", "CONDIMENTO_ESPECIA", "CANAZTA_FAMILIAR", "PANADERIA"];
+
 function CardCheckList(props) {
   const dispatch = useDispatch();
   const [selectedStatus, setSelectedStatus] = useState(props.datos["Estado"]);
-  
-  // Estado local para controlar los campos editables
+
   const [editableField, setEditableField] = useState(null);
   const [editedValue, setEditedValue] = useState(null);
-  
-  // Estado local para almacenar el precio por unidad
   const [precioPorUnidad, setPrecioPorUnidad] = useState(0);
 
   useEffect(() => {
@@ -18,12 +17,14 @@ function CardCheckList(props) {
   }, [props.datos["CANTIDAD"], props.datos["COSTO"], props.datos["COOR"]]);
 
   const handleCheck = (status) => {
-    setSelectedStatus(status); // Update local state immediately
-    updateItem({
+    setSelectedStatus(status);
+    dispatch(updateItem({
       id: props.datos._id,
       Field: "Estado",
       category: "STOCK",
-      Value: status
+      Value: status,
+    })).then(() => {
+      dispatch(getAllItems());  // Re-fetch the updated list after a change
     });
   };
 
@@ -41,13 +42,15 @@ function CardCheckList(props) {
   };
 
   const handleBlur = (field) => {
-    updateItem({
+    dispatch(updateItem({
       id: props.datos._id,
       Field: field,
       category: 'STOCK',
-      Value: editedValue
+      Value: editedValue,
+    })).then(() => {
+      dispatch(getAllItems());  // Re-fetch the updated list after a change
     });
-    setEditableField(null); // Finaliza la edición y oculta el input
+    setEditableField(null);
   };
 
   const handleChange = (e) => {
@@ -86,15 +89,33 @@ function CardCheckList(props) {
       <div className="flex items-center mb-2">
         <span className="mr-2 text-lg font-semibold">{displayName}:</span>
         {editableField === fieldName ? (
-          <input
-            type="text"
-            value={editedValue}
-            onChange={handleChange}
-            onBlur={() => handleBlur(fieldName)}
-            className="border rounded px-2 py-1"
-            placeholder={props.datos[fieldName]}
-            autoFocus
-          />
+          fieldName === "GRUPO" ? (
+            // Render select if the field is GRUPO
+            <select
+              value={editedValue}
+              onChange={handleChange}
+              onBlur={() => handleBlur(fieldName)}
+              className="border rounded px-2 py-1"
+              autoFocus
+            >
+              {grupoOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          ) : (
+            // Render input for other fields
+            <input
+              type="text"
+              value={editedValue}
+              onChange={handleChange}
+              onBlur={() => handleBlur(fieldName)}
+              className="border rounded px-2 py-1"
+              placeholder={props.datos[fieldName]}
+              autoFocus
+            />
+          )
         ) : (
           <span className="text-lg font-semibold">{props.datos[fieldName]}</span>
         )}
@@ -125,10 +146,12 @@ function CardCheckList(props) {
       {props.largeEditSet === true && renderField("GRUPO", "Grupo")}
 
       {/* Mostrar el precio por unidad */}
-{    props.largeEditSet === true &&  <div className="flex items-center mb-2">
-        <span className="mr-2 text-lg font-semibold">Precio por unidad:</span>
-        <span className="text-lg font-semibold">{precioPorUnidad}</span>
-      </div>}
+      {props.largeEditSet === true && (
+        <div className="flex items-center mb-2">
+          <span className="mr-2 text-lg font-semibold">Precio por unidad:</span>
+          <span className="text-lg font-semibold">{precioPorUnidad}</span>
+        </div>
+      )}
 
       <div className="flex space-x-2">
         <button
@@ -173,12 +196,14 @@ function CardCheckList(props) {
           NA
         </button>
 
-{  props.largeEditSet === true &&      <button
-          className="text-white font-bold py-2 px-4 rounded bg-red-500 hover:bg-red-700"
-          onClick={handleDelete}
-        >
-         💥
-        </button>}
+        {props.largeEditSet === true && (
+          <button
+            className="text-white font-bold py-2 px-4 rounded bg-red-500 hover:bg-red-700"
+            onClick={handleDelete}
+          >
+            💥
+          </button>
+        )}
       </div>
     </div>
   );

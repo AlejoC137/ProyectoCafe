@@ -316,7 +316,7 @@ export function getVitrina() {
   export  async function updateItem(updateData) {
     //  return  function (dispatch){
        try {
-        console.log(updateData);
+        // console.log(updateData);
           await axios.put('/updateitem', updateData).then(response => {
             // console.log(response);
           })
