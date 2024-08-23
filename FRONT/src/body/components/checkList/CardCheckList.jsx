@@ -77,12 +77,20 @@ function CardCheckList(props) {
   };
 
   const calcularPrecioPorUnidad = () => {
-    const cantidad = parseFloat(props.datos["CANTIDAD"]) || 1; // Evitar división por 0
-    const costo = parseFloat(props.datos["COSTO"]) || 0;
-    const coor = parseFloat(props.datos["COOR"]) || 1;
-    const precio = (costo / cantidad) * coor;
-    setPrecioPorUnidad(precio.toFixed(2)); // Redondear a 2 decimales
+    // Ensure CANTIDAD, COSTO, and COOR are parsed as numbers, default to 0 if not a valid number.
+    const cantidad = isNaN(parseFloat(props.datos["CANTIDAD"])) ? 0 : parseFloat(props.datos["CANTIDAD"]);
+    const costo = isNaN(parseFloat(props.datos["COSTO"])) ? 0 : parseFloat(props.datos["COSTO"]);
+    const coor = isNaN(parseFloat(props.datos["COOR"])) ? 0 : parseFloat(props.datos["COOR"]);
+  
+    // Perform the calculation only if the quantity and coordinator values are greater than 0 to avoid division by zero.
+    if (cantidad === 0 || coor === 0) {
+      setPrecioPorUnidad(0);
+    } else {
+      const precio = (costo / cantidad) * coor;
+      setPrecioPorUnidad(precio.toFixed(2)); // Round to 2 decimals
+    }
   };
+  
 
   const renderField = (fieldName, displayName) => {
     return (
@@ -143,7 +151,7 @@ function CardCheckList(props) {
       {props.largeEditSet === true && renderField("COSTO", "Costo")}
       {props.largeEditSet === true && renderField("COOR", "Coordinador")}
       {props.largeEditSet === true && renderField("FECHA_ACT", "Fecha Actualización")}
-      {props.largeEditSet === true && renderField("GRUPO", "Grupo")}
+      {/* {props.datos["GRUPO"] ? (props.largeEditSet === true ? renderField("GRUPO", "Grupo") : props.datos["GRUPO"]) : "NaN"} */}
 
       {/* Mostrar el precio por unidad */}
       {props.largeEditSet === true && (

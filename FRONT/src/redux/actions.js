@@ -313,40 +313,18 @@ export function getVitrina() {
   };
 
 
-  export  async function updateItem(updateData) {
-    //  return  function (dispatch){
-       try {
-        // console.log(updateData);
-          await axios.put('/updateitem', updateData).then(response => {
-            // console.log(response);
-          })
-          .catch(error => {
-            if (error.response) {
-              console.log(error.response.data);
-              console.log(error.response.status);
-              console.log(error.response.headers);
-            } else if (error.request) {
-              console.log(error.request);
-            } else {
-              console.log('Error', error.message);
-            }
-            console.log(error.config);
-          });
-        // Dispatch an action if needed
-        // return {
-          // type: PUT_PROJECT,
-          // payload: response.data, // You may or may not need to dispatch the updated project data
-        // };
-
-        // console.log(response);
-      } catch (error) {
-        // Swal.fire(error.response.data.error);
-        // Optionally, you can throw the error to handle it in the component
-        console.log(error.message)
-
-      }
-      
+  export async function updateItem(updateData) {
+    try {
+      await axios.put('/updateitem', updateData);
+      // After a successful update, dispatch an action to update the state in the store
+      return (dispatch) => {
+        dispatch(getAllItems());  // Assuming getAllItems fetches the updated list
+      };
+    } catch (error) {
+      console.log(error.message);
     }
+  }
+  
     export async function delitem(body) {
       try {
         const response = await axios.delete(`/delitem?id=${body.id}&category=${body.category}`);
