@@ -1,14 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CardCheckList from './CardCheckList';
+import { useDispatch, useSelector } from "react-redux";
+import { getSrcItems } from '../../../redux/actions';
 
 function CardsCheckList(props) {
+   
+    const dispatch = useDispatch();
+
     const items = props.info;
     const [largeEdit, setLargeEdit] = useState(false); // Estado inicial del switch de edición
+    const [searchTerm, setSearchTerm] = useState(""); // Estado para el término de búsqueda
+
+
+    useEffect(() => {
+        // Cuando cambia el término de búsqueda, despachar la acción
+        dispatch(getSrcItems(searchTerm));
+    }, [dispatch, searchTerm]);
+
 
     // Función para cambiar el estado de largeEdit
     const handleSwitchSet = () => {
         setLargeEdit(!largeEdit); // Cambia el estado al opuesto
     };
+
+
 
     // Agrupar los items por categoría
     const groupedItems = items.reduce((acc, item) => {
@@ -20,11 +35,14 @@ function CardsCheckList(props) {
         return acc;
     }, {});
 
+
+
     return (
         <div>
 
             {/* Botones fijos */}
             <div className="fixed top-0 left-0 w-full bg-gray-800 text-white z-50">
+
                 <div className="container mx-auto flex justify-center py-4 space-x-4">
                     {Object.keys(groupedItems).map((category) => (
                         <a 
@@ -43,6 +61,15 @@ function CardsCheckList(props) {
                     >
                         {largeEdit ? "VIEW" : "EDIT"}
                     </button>
+                    <input
+                    type="text"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)} // Actualizar el término de búsqueda
+                    placeholder="Buscar ítems..."
+                    // className="border rounded w-full fixed top-20 justify-center py-8 bg-gray-800 text-white z-50"
+                    className=" bg-gray-800 z-50"
+
+                />
                 </div>
             </div>
 
