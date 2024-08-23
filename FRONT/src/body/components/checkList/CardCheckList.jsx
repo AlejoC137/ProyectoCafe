@@ -8,6 +8,7 @@ const areaOptions = ["CAFE_BEBIDAS", "COCINA"];
 const categoriaOptions = ["produccion_interna", "compra_almacen"];
 const unidadOptions = ["srv", "NaN", "ml", "un", "gr"];
 const grupoOptions = ["FRUTAS_VERDURAS", "CONDIMENTO_ESPECIA", "CANAZTA_FAMILIAR", "PANADERIA"];
+const marcaOpcions = ["FRUTAS_VERDURAS", "CONDIMENTO_ESPECIA", "CANAZTA_FAMILIAR", "PANADERIA"];
 
 function CardCheckList({ datos, largeEditSet, category }) {
   const dispatch = useDispatch();
@@ -143,7 +144,7 @@ function CardCheckList({ datos, largeEditSet, category }) {
       {largeEditSet && renderField("COOR", "Coordinador")}
       {largeEditSet && renderField("FECHA_ACT", "Fecha Actualización")}
       {largeEditSet && renderField("GRUPO", "Grupo", grupoOptions)}
-      {largeEditSet && renderField("MARCA", "Marca", grupoOptions)}
+      {largeEditSet && renderField("MARCA", "Marca", marcaOpcions)}
 
       <div className="flex items-center mb-2">
         <span className="mr-2 text-lg font-semibold">Precio por unidad:</span>
