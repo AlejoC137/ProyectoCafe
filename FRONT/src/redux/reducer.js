@@ -9,6 +9,7 @@ import {
   GET_SRC_ITEMS,     
   SET_CATEGORY,
   USER_ADMIN,
+  SET_RECETA,
   GET_DAYS  // Importa la acción GET_DAYS
 } from "./actions-types";
 
@@ -22,6 +23,7 @@ const initialState = {
   menuCat: 'TODO',
   isAdmin: null,
   items:[],
+  receta:{},
   itemsSearch:[],
   days: [] // Agrega un array para almacenar los días
   
@@ -53,6 +55,12 @@ const reducer = (state = initialState, action) => {
                 itemsSearch: action.payload,
                         // console.log(action.payload);
             };
+          case SET_RECETA:
+            return {
+                ...state,
+                receta: action.payload,
+                        // console.log(action.payload);
+            };
           case GET_SRC_ITEMS:
             return {
                 ...state,
@@ -64,6 +72,7 @@ const reducer = (state = initialState, action) => {
               ...state,
               menu: action.payload,
               menuByCat: action.payload,
+              itemsSearch: action.payload,
           };
 
       case SET_CATEGORY:

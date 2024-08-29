@@ -11,6 +11,7 @@ import {
   USER_ADMIN,
   GET_PROYECTISTAS,
   GET_DAYS,
+  SET_RECETA,
 } from "./actions-types";
 import React from "react";
 import { useSelector } from "react-redux";
@@ -40,28 +41,50 @@ export function getAllItems() {
   };
   
 };
-export function getSrcItems(search) {
+export function setReceta(receta) {
+
+  return async function (dispatch, getState) {
+    try {
+      // Enviar los ítems filtrados y ordenados como payload en la acción
+      return dispatch({
+        type: SET_RECETA,
+        payload: receta,
+      });
+
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+}
+export function getSrcItems(search, source) {
+
   return async function (dispatch, getState) {
     try {
       // Obtener el estado actual desde el reducer (el estado tiene "items: []" en initialState)
-      const { items } = getState(); 
+       const { items } = getState() 
+
+       const itemsToUse = source ? source : items;
 
       // Si el término de búsqueda está vacío, retornar todos los ítems sin filtrar
       if (search.trim() === '') {
         return dispatch({
           type: GET_SRC_ITEMS,
-          payload: items, // Retornar todos los ítems sin filtrar
+          payload: itemsToUse, // Retornar todos los ítems sin filtrar
         });
       }
 
       // Filtrar los ítems por la palabra clave ignorando mayúsculas y minúsculas
-      const filteredItems = items.filter(item => 
-        item["Nombre del producto"].toLowerCase().includes(search.toLowerCase())
+      const filteredItems = itemsToUse.filter(
+        source?
+        item => item["NombreES"].toLowerCase().includes(search.toLowerCase()):
+        item => item["Nombre del producto"].toLowerCase().includes(search.toLowerCase())
       );
 
       // Ordenar alfabéticamente los ítems filtrados por nombre (u otro campo si lo deseas)
-      const sortedItems = filteredItems.sort((a, b) => 
-        a["Nombre del producto"].localeCompare(b["Nombre del producto"])
+      const sortedItems = filteredItems.sort(
+        source?
+        (a, b) =>  a["NombreES"].localeCompare(b["NombreES"]):
+        (a, b) =>  a["Nombre del producto"].localeCompare(b["Nombre del producto"])
       );
 
       // Enviar los ítems filtrados y ordenados como payload en la acción

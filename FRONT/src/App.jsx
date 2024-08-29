@@ -10,6 +10,7 @@ import  MenuCheckListCafe  from "./body/views/menuCheckList/MenuCheckListCafe.js
 import  MenuCheckListDes  from "./body/views/menuCheckList/MenuCheckListDes.jsx";
 import  LenguajeSelect  from "./body/views/lenguajeSelect/LenguajeSelect.jsx";
 import Proyectistas from './body/components/proyectistas/Proyectistas.jsx';
+import RecetaCard from './body/components/card/RecetaCard.jsx';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/newproject" element={<NewProjectPortal/>} />
         <Route path="/menuprojectocafe" element={<MenuProjectoCafe/>} />
         <Route path="/menupc" element={<MenuPC/>} />
+        <Route path="/RecetaCard" element={<RecetaCard/>} />
       
       
       {/* items */}

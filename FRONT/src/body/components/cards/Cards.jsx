@@ -1,19 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from '../card/Card.jsx';
 import styles from '../cards/Cards.module.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getSrcItems } from '../../../redux/actions.js';
 
 function Cards(props) {
    const menu = useSelector(state => state.menu);
    const currentLenguaje = useSelector(state => state.currentLenguaje);
    const menuByCat = useSelector(state => state.menuByCat);
    const isAdmin = useSelector(state => state.isAdmin);
+   const [searchTerm, setSearchTerm] = useState('');
+
+   const items = useSelector(state => state.itemsSearch);  // Usar itemsSearch para mostrar los resultados filtrados
+
+
+
+   const dispatch = useDispatch();
+
+   useEffect(() => {
+      dispatch(getSrcItems(searchTerm, menuByCat)); // Despachar la búsqueda cada vez que cambie el término de búsqueda
+    }, [searchTerm]);
+
+    const handleSearch = (e) => {
+      setSearchTerm(e.target.value);
+    };
+
+
+
 
    return (
       <div className="grid grid-cols-2 gap-1 h-screen overflow-y-auto">
        
+
+      {isAdmin && <input
+        type="text"
+        placeholder="Buscar producto"
+        value={searchTerm}
+        onChange={handleSearch}
+      />}
         
-         {menuByCat.map((PAD) => (
+         {items.map((PAD) => (
             (isAdmin || PAD.Estado === 'Activo') && // Render card if isAdmin is true or PAD.Estado is 'Activo'
             <div key={PAD?._id} className="w-full">
                <Card
@@ -25,6 +51,7 @@ function Cards(props) {
                   descripcion={currentLenguaje === 'ES' ? PAD.DescripcionES : PAD.DescripcionEN}
                   admin={isAdmin}
                   isActive={PAD.Estado}
+                  receta={PAD.receta}
                />
             </div>
          ))}
@@ -66,3 +93,15 @@ function Cards(props) {
 }
 
 export default Cards;
+
+
+
+
+
+
+
+
+
+
+
+
