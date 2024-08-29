@@ -23,7 +23,7 @@ const initialState = {
   menuCat: 'TODO',
   isAdmin: null,
   items:[],
-  cat:'',
+  cat:'TODO',
   receta:{},
   itemsSearch:[],
   days: [] // Agrega un array para almacenar los días
