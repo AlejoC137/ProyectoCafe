@@ -23,6 +23,7 @@ const initialState = {
   menuCat: 'TODO',
   isAdmin: null,
   items:[],
+  cat:'',
   receta:{},
   itemsSearch:[],
   days: [] // Agrega un array para almacenar los días
@@ -78,13 +79,14 @@ const reducer = (state = initialState, action) => {
       case SET_CATEGORY:
           return {
               ...state,
-              menuCat: action.payload,
+              cat: action.payload,
           };
 
       case GET_MENU_BY_CATEGORY:
           return {
               ...state,
               menuByCat: state.menuCat === 'TODOS' ? state.menu : action.payload,
+              cat:  action.payload,
           };
 
       case POST_A_PROJECT:

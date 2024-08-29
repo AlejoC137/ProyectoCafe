@@ -3,15 +3,15 @@ import {
   GET_ALL_PROJECTS,
   GET_ALL_ITEMS,
   GET_SRC_ITEMS,
+  SET_CATEGORY,
   SET_LENGUAJE,
   GET_VITRINA,
   GET_MENU,
   GET_MENU_BY_CATEGORY,
-  SET_CATEGORY,
   USER_ADMIN,
+  SET_RECETA,
   GET_PROYECTISTAS,
   GET_DAYS,
-  SET_RECETA,
 } from "./actions-types";
 import React from "react";
 import { useSelector } from "react-redux";
@@ -40,7 +40,11 @@ export function getAllItems() {
       }
   };
   
+
+  
 };
+
+
 export function setReceta(receta) {
 
   return async function (dispatch, getState) {
@@ -58,12 +62,26 @@ export function setReceta(receta) {
 }
 export function getSrcItems(search, source) {
 
+
+  // const { items } = getState() 
+//   const itemsToUse =source ? source :items;
+
+//   const filteredItems = itemsToUse.filter(item => y
+//     item["NombreES"].toLowerCase().includes(search.toLowerCase())
+//   );
+// console.log(search, source);
+// console.log(filteredItems);
+
+
   return async function (dispatch, getState) {
     try {
       // Obtener el estado actual desde el reducer (el estado tiene "items: []" en initialState)
-       const { items } = getState() 
-
-       const itemsToUse = source ? source : items;
+       const { items, cat } = getState() 
+var itemsToUse;
+cat !== 'TODO'?      itemsToUse = cat !== "" 
+  ? (source || items).filter(item => cat === item.TipoES || cat === item.TipoEN)
+  : (source || items)
+       : itemsToUse = source
 
       // Si el término de búsqueda está vacío, retornar todos los ítems sin filtrar
       if (search.trim() === '') {
@@ -313,7 +331,7 @@ export function setLenguaje(lenguaje) {
   };
 export function setCat(cat) {
 
-    return function (dispatch) {
+    return async function (dispatch) {
         try {
   
                     return dispatch({
@@ -321,9 +339,7 @@ export function setCat(cat) {
                         payload: cat,
                
                 })
-                .catch((error) => {
-  console.log(error);             
-   });
+                
         } catch (error) {
             console.log(error.message);
         }

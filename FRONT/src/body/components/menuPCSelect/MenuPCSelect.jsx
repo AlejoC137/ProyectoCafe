@@ -43,7 +43,7 @@ function MenuPCSelect(props) {
 
     return (
        <div className="m-1 fixed">
-    {/* Toggle para cambiar entre español e inglés */}
+
     <div>
         <PercheroComp
             className={styles.percheroElement}
@@ -52,6 +52,12 @@ function MenuPCSelect(props) {
             alt="Your Image Alt Text"
             imageWidth="40px"
         />
+        <div
+        
+            className='font-Bobby_Jones_Soft text-15pt text-center'
+        >
+            {currentLenguaje === 'ES'? `Lunes - Sabado : 8:00 AM - 7:30 PM, Domingo: 9:00 AM - 2:30 PM` : `Monday - Saturday: 8:00 AM - 7:30, Sunday: 9:00 AM - 2:30 PM` }
+        </div>
         {/* Botón para cambiar a español */}
         <div className="flex">
             {/* Botón para cambiar a español */}

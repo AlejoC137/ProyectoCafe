@@ -12,6 +12,7 @@ function Cards(props) {
    const [searchTerm, setSearchTerm] = useState('');
 
    const items = useSelector(state => state.itemsSearch);  // Usar itemsSearch para mostrar los resultados filtrados
+   const cate = useSelector(state => state.cat);  // Usar itemsSearch para mostrar los resultados filtrados
 
 
 
@@ -19,7 +20,7 @@ function Cards(props) {
 
    useEffect(() => {
       dispatch(getSrcItems(searchTerm, menuByCat)); // Despachar la búsqueda cada vez que cambie el término de búsqueda
-    }, [searchTerm]);
+    }, [searchTerm,cate]);
 
     const handleSearch = (e) => {
       setSearchTerm(e.target.value);
@@ -33,8 +34,9 @@ function Cards(props) {
        
 
       {isAdmin && <input
+        className='h-5'
         type="text"
-        placeholder="Buscar producto"
+        placeholder={currentLenguaje === 'ES'? "Buscar" : "Search"}
         value={searchTerm}
         onChange={handleSearch}
       />}

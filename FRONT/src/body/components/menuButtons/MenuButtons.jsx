@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { productsByCat } from '../../../redux/actions';
+import { productsByCat, setCat } from '../../../redux/actions';
 
 function MenuButtons({ categories }) {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ function MenuButtons({ categories }) {
 
   const handleOnClickCat = (category) => {
   setSelectedCat(category)
-    category === 'Todo' ||  category === "Show all" ? dispatch(productsByCat('TODO', menuAnt)) : dispatch(productsByCat(category, menuAnt))
+    category === 'Todo' ||  category === "Show all" ? dispatch(setCat('TODO')) : dispatch(setCat(category))
     // dispatch(productsByCat(category, menuAnt));
   };
 
