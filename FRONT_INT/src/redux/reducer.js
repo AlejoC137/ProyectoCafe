@@ -10,6 +10,7 @@ import {
     USER_ADMIN,
     GET_NOTAS,
     GET_STAFF,
+    GET_SRC_ITEMS,
     GET_DAYS
   } from "./actions-types";
   
@@ -23,9 +24,10 @@ import {
     menuCat: 'TODO',
     isAdmin: null,
     items: [],  // Aquí se almacenarán todos los items
+    staffNotas: [],
     days: [],  // Almacenar los días de trabajo
     staff: [], 
-    staffNotas: []
+    itemsSearch:[],
   };
   
   const reducer = (state = initialState, action) => {
@@ -114,6 +116,13 @@ import {
           ...state,
           staffNotas: action.payload,
         };
+
+
+        case GET_SRC_ITEMS:
+          return {
+            ...state,
+            itemsSearch: action.payload,
+          };
   
       default:
         return state;
