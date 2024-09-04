@@ -205,7 +205,6 @@ export function getAllProducts() {
       try {
         // /project?collection=soci
           const menu = await axios.get(`/getmenu`);
-        //   console.log(menu.data);
           return dispatch({
               type: GET_MENU,
               payload: menu.data,
@@ -215,6 +214,9 @@ export function getAllProducts() {
       }
   };
   };
+  
+
+
   
   export const getDays = () => async (dispatch) => {
       try {

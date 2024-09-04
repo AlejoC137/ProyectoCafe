@@ -11,6 +11,7 @@ import  MenuCheckListDes  from "./body/views/menuCheckList/MenuCheckListDes.jsx"
 import  LenguajeSelect  from "./body/views/lenguajeSelect/LenguajeSelect.jsx";
 import Proyectistas from './body/components/proyectistas/Proyectistas.jsx';
 import RecetaCard from './body/components/card/RecetaCard.jsx';
+import CalculatorMenuPrice from './body/views/calculatorMenuPrice/CalculatorMenuPrice.jsx';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
       {/* items */}
         <Route path="/itemsCocina" element={<MenuCheckListCocina/>} />
         <Route path="/itemsCafe" element={<MenuCheckListCafe/>} />
+        <Route path="/CalculatorMenuPrice" element={<CalculatorMenuPrice/>} />
         {/* <Route path="/itemsDes" element={<MenuCheckListDes/>} /> */}
       {/* items */}
       
