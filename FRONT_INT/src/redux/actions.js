@@ -568,7 +568,10 @@ export function getAllItems() {
 export function getAllProducts() {
   return async function (dispatch) {
     try {
+      
       const menu = await axios.get(`/getmenu`);
+                // console.log(menu.data);
+
       return dispatch({
         type: GET_MENU,
         payload: menu.data,
