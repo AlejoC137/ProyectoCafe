@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { updateItem, delitem, getAllItems } from '../../../redux/actions.js';
+import TagsInput from "./TagsInput.jsx";
 
 // Option arrays for dropdowns
 const proveedorOptions = ["Colanta", "ADHER", "Principe Conejo", "La Vaquita", "Mundo Huevo", "NaN", "Dulces Tonterias", "Frutos & Semillas", "Price Smart", "Fermentados", "Modou", "BRETAÑA 300ml", "Exito", "Frescampo", "TREE FRUTS", "Lina Gil", "Splenda", "JE", "Exitp", "Éxito", "INTERNO", "Mandalas", "Carreta", "D1", "McPollo", "PriceSmart", "JUAN VALDEZ", "la Vaquita"];
@@ -23,13 +24,24 @@ function CardCheckList({ datos, largeEditSet, category }) {
 
   const handleCheck = (status) => {
     setSelectedStatus(status);
-    dispatch(updateItem({
+
+
+    // dispatch(updateItem({
+    //   id: datos._id,
+    //   Field: "Estado",
+    //   category: "STOCK",
+    //   Value: status,
+    // }
+    updateItem({
       id: datos._id,
       Field: "Estado",
       category: "STOCK",
       Value: status,
-    })).then(() => {
-      dispatch(getAllItems());  // Re-fetch the updated list after a change
+    }
+  
+  
+  ).then(() => {
+     // Re-fetch the updated list after a change
     });
   };
 
@@ -44,20 +56,33 @@ function CardCheckList({ datos, largeEditSet, category }) {
   };
 
   const handleBlur = (field) => {
+    const currentDate = new Date().toISOString().split('T')[0]; // Obtener la fecha actual en formato YYYY-MM-DD
+  
     dispatch(updateItem({
       id: datos._id,
       Field: field,
       category: 'STOCK',
       Value: editedValue,
     })).then(() => {
+      // Actualizar la fecha de actualización junto con el campo modificado
+      dispatch(updateItem({
+        id: datos._id,
+        Field: "FECHA_ACT",
+        category: 'STOCK',
+        Value: currentDate,
+      }));
       dispatch(getAllItems());  // Re-fetch the updated list after a change
     });
+  
     setEditableField(null);
   };
+  
 
   const handleChange = (e) => {
     setEditedValue(e.target.value);
   };
+
+  
 
   const calcularPrecioPorUnidad = () => {
     const cantidad = isNaN(parseFloat(datos["CANTIDAD"])) ? 0 : parseFloat(datos["CANTIDAD"]);
@@ -128,7 +153,14 @@ function CardCheckList({ datos, largeEditSet, category }) {
     };
     return selectedStatus === status ? classes[status] : 'bg-gray-500 hover:bg-gray-700';
   };
-
+  const handleTagsChange = (newTags) => {
+    dispatch(updateItem({
+      id: datos._id,
+      Field: "MARCA", // O "Proveedor" dependiendo de la lógica
+      category: 'STOCK',
+      Value: newTags.join(','),  // Guardar los tags como una cadena separada por comas
+    }));
+  };
   return (
     <div className="bg-ladrillo overflow-hidden rounded-2xl border border-lilaDark relative p-4">
       <h2 className="text-lg font-semibold mb-2">{datos["Nombre del producto"]}</h2>
@@ -147,15 +179,23 @@ function CardCheckList({ datos, largeEditSet, category }) {
       {largeEditSet && renderField("MARCA", "Marca", marcaOpcions)}
 
       <div className="flex items-center mb-2">
+      {largeEditSet && (
+      <div className="mb-4">
+        <span className="mr-2 text-lg font-semibold">Marcas:</span>
+        <TagsInput initialTags={datos["MARCA"] ? datos["MARCA"].split(',') : []} onTagsChange={handleTagsChange} />
+      </div>
+    )}
+      </div>
+      <div className="flex items-center mb-2">
         <span className="mr-2 text-lg font-semibold">Precio por unidad:</span>
         <span className="text-lg font-semibold">{precioPorUnidad}</span>
       </div>
 
-      <div className="flex space-x-2">
+      <div className="flex">
         {['100%', '75%', '50%', '25%', '0%', 'NA'].map(status => (
           <button
             key={status}
-            className={`${getButtonClass(status)} text-white font-bold py-2 px-4 rounded`}
+            className={`${getButtonClass(status)} text-white font-bold py-2 px-2 `}
             onClick={() => handleCheck(status)}
           >
             {status}
@@ -164,7 +204,7 @@ function CardCheckList({ datos, largeEditSet, category }) {
 
         {largeEditSet && (
           <button
-            className="text-white font-bold py-2 px-4 rounded bg-red-500 hover:bg-red-700"
+            className="text-white font-bold py-2 px-2 bg-red-500 hover:bg-red-700"
             onClick={handleDelete}
           >
             💥

@@ -3,16 +3,14 @@ import {
   GET_ALL_PROJECTS,
   GET_ALL_ITEMS,
   GET_SRC_ITEMS,
-  SET_CATEGORY,
   SET_LENGUAJE,
   GET_VITRINA,
   GET_MENU,
   GET_MENU_BY_CATEGORY,
+  SET_CATEGORY,
   USER_ADMIN,
-  SET_RECETA,
   GET_PROYECTISTAS,
   GET_DAYS,
-  GET_STAFF
 } from "./actions-types";
 import React from "react";
 import { useSelector } from "react-redux";
@@ -41,69 +39,29 @@ export function getAllItems() {
       }
   };
   
-
-  
 };
-
-
-export function setReceta(receta) {
-
-  return async function (dispatch, getState) {
-    try {
-      // Enviar los ítems filtrados y ordenados como payload en la acción
-      return dispatch({
-        type: SET_RECETA,
-        payload: receta,
-      });
-
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-}
-export function getSrcItems(search, source) {
-
-
-  // const { items } = getState() 
-//   const itemsToUse =source ? source :items;
-
-//   const filteredItems = itemsToUse.filter(item => y
-//     item["NombreES"].toLowerCase().includes(search.toLowerCase())
-//   );
-// console.log(search, source);
-// console.log(filteredItems);
-
-
+export function getSrcItems(search) {
   return async function (dispatch, getState) {
     try {
       // Obtener el estado actual desde el reducer (el estado tiene "items: []" en initialState)
-       const { items, cat } = getState() 
-var itemsToUse;
-cat !== 'TODO'?      itemsToUse = cat !== "" 
-  ? (source || items).filter(item => cat === item.TipoES || cat === item.TipoEN)
-  : (source || items)
-       : itemsToUse = source
+      const { items } = getState(); 
 
       // Si el término de búsqueda está vacío, retornar todos los ítems sin filtrar
       if (search.trim() === '') {
         return dispatch({
           type: GET_SRC_ITEMS,
-          payload: itemsToUse, // Retornar todos los ítems sin filtrar
+          payload: items, // Retornar todos los ítems sin filtrar
         });
       }
 
       // Filtrar los ítems por la palabra clave ignorando mayúsculas y minúsculas
-      const filteredItems = itemsToUse.filter(
-        source?
-        item => item["NombreES"].toLowerCase().includes(search.toLowerCase()):
-        item => item["Nombre del producto"].toLowerCase().includes(search.toLowerCase())
+      const filteredItems = items.filter(item => 
+        item["Nombre del producto"].toLowerCase().includes(search.toLowerCase())
       );
 
       // Ordenar alfabéticamente los ítems filtrados por nombre (u otro campo si lo deseas)
-      const sortedItems = filteredItems.sort(
-        source?
-        (a, b) =>  a["NombreES"].localeCompare(b["NombreES"]):
-        (a, b) =>  a["Nombre del producto"].localeCompare(b["Nombre del producto"])
+      const sortedItems = filteredItems.sort((a, b) => 
+        a["Nombre del producto"].localeCompare(b["Nombre del producto"])
       );
 
       // Enviar los ítems filtrados y ordenados como payload en la acción
@@ -206,6 +164,7 @@ export function getAllProducts() {
       try {
         // /project?collection=soci
           const menu = await axios.get(`/getmenu`);
+        //   console.log(menu.data);
           return dispatch({
               type: GET_MENU,
               payload: menu.data,
@@ -215,9 +174,6 @@ export function getAllProducts() {
       }
   };
   };
-  
-
-
   
   export const getDays = () => async (dispatch) => {
       try {
@@ -232,19 +188,7 @@ export function getAllProducts() {
       }
   };
 
-  export function getAllStaff() {
-    return async function (dispatch) {
-      try {
-        const staff = await axios.get('/getAllStaff');
-        dispatch({
-          type: GET_STAFF,
-          payload: staff.data,
-        });
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-  }
+
 
   
 export function productsByCat(cat , prevMenu) {
@@ -346,7 +290,7 @@ export function setLenguaje(lenguaje) {
   };
 export function setCat(cat) {
 
-    return async function (dispatch) {
+    return function (dispatch) {
         try {
   
                     return dispatch({
@@ -354,7 +298,9 @@ export function setCat(cat) {
                         payload: cat,
                
                 })
-                
+                .catch((error) => {
+  console.log(error);             
+   });
         } catch (error) {
             console.log(error.message);
         }

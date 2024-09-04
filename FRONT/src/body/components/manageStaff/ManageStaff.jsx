@@ -6,7 +6,7 @@ function ManageStaff(props) {
   const [isAuthorized, setIsAuthorized] = useState(false); // Estado para verificar si el código es correcto
 
   // Código esperado
-  const expectedCode = "1035869114"; // Cambia esto por el código que quieras
+  const expectedCode = "1034869114"; // Cambia esto por el código que quieras
 
   // Función para manejar el cambio de código
   const handleCodeChange = (e) => {
@@ -50,14 +50,6 @@ function ManageStaff(props) {
             className="mt-4 inline-block bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700"
           >
             Ir a Calculator Menu Price
-          </a>
-          <a
-            href="https://proyecto-cafe-sigma.vercel.app/CalculoNomina"
-            target="_blank" // Abre el enlace en una nueva pestaña
-            rel="noopener noreferrer" // Por seguridad
-            className="mt-4 inline-block bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700"
-          >
-            Calcular Nomina y Propina
           </a>
         </div>
       ) : (

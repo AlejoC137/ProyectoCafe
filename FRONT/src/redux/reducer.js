@@ -8,6 +8,7 @@ import {
   GET_ALL_ITEMS,     
   GET_SRC_ITEMS,     
   SET_CATEGORY,
+  GET_STAFF,
   USER_ADMIN,
   SET_RECETA,
   GET_DAYS  // Importa la acción GET_DAYS
@@ -18,6 +19,7 @@ const initialState = {
   postedProject: [],
   currentLenguaje: 'ES',
   vitrina: {},
+  staff: [], 
   menu: [],
   menuByCat: [],
   menuCat: 'TODO',
@@ -56,6 +58,15 @@ const reducer = (state = initialState, action) => {
                 itemsSearch: action.payload,
                         // console.log(action.payload);
             };
+
+
+            case GET_STAFF:
+                return {
+                  ...state,
+                  staff: action.payload,
+                };
+
+
           case SET_RECETA:
             return {
                 ...state,

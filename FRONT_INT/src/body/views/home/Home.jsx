@@ -26,7 +26,7 @@ function Home() {
                 <TipStaff />
                 <Checklist />
                 <TaskAndStandars />
-                {/* <ManageStaff /> */}
+                <ManageStaff />
             </div>
         </div>
     );

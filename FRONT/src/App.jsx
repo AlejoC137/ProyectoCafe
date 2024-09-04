@@ -12,6 +12,7 @@ import  LenguajeSelect  from "./body/views/lenguajeSelect/LenguajeSelect.jsx";
 import Proyectistas from './body/components/proyectistas/Proyectistas.jsx';
 import RecetaCard from './body/components/card/RecetaCard.jsx';
 import CalculatorMenuPrice from './body/views/calculatorMenuPrice/CalculatorMenuPrice.jsx';
+import CalculoNomina from './body/components/manageStaff/CalculoNomina.jsx';
 
 function App() {
 
@@ -27,7 +28,10 @@ function App() {
         <Route path="/RecetaCard" element={<RecetaCard/>} />
       
       
+
+
       {/* items */}
+        <Route path="/CalculoNomina" element={<CalculoNomina/>} />
         <Route path="/itemsCocina" element={<MenuCheckListCocina/>} />
         <Route path="/itemsCafe" element={<MenuCheckListCafe/>} />
         <Route path="/CalculatorMenuPrice" element={<CalculatorMenuPrice/>} />
