@@ -48,12 +48,20 @@ function RecetaCard() {
         )}
       </div>
 
-      {/* Plating */}
+      {/* Plating (Emplatado) */}
       <div className="mb-4">
         <h3 className="font-Bobby_Jones_Soft text-notBlack text-14pt mb-2">Emplatado:</h3>
-        <p className="text-notBlack text-12pt">
-          {lareceta?.emplatado || "No data"}
-        </p>
+        {Array.isArray(lareceta?.emplatado) ? (
+          <ol className="list-decimal list-inside text-notBlack text-12pt">
+            {lareceta.emplatado.map((paso, index) => (
+              <li key={index}>{paso.proceso || "No data"}</li>
+            ))}
+          </ol>
+        ) : (
+          <p className="text-notBlack text-12pt">
+            {lareceta?.emplatado || "No data"}
+          </p>
+        )}
       </div>
 
       {/* Notes */}
