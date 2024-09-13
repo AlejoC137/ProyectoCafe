@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllStaffes } from "../../../redux/actions"; // Asumiendo que esta es la acción correcta
+import { getAllStaffes } from "../../../redux/actions";
 
 const CalculoNomina = () => {
   const dispatch = useDispatch();
-  const staff = useSelector((state) => state.staff); // Traer el estado de staff desde el reducer
+  const staff = useSelector((state) => state.staff);
 
   const [fechaInicio, setFechaInicio] = useState("");
   const [fechaFin, setFechaFin] = useState("");
   const [resultados, setResultados] = useState([]);
+  const [historialDesplegado, setHistorialDesplegado] = useState({}); // Controla qué empleados tienen el historial visible
 
-  // Tarifa por cargo
   const tarifas = {
     "AUXILIAR COCINA JN": 6528,
     "Barista JN": 8489,
@@ -18,11 +18,9 @@ const CalculoNomina = () => {
   };
 
   useEffect(() => {
-    // Llamar a la acción para obtener todos los staff
     dispatch(getAllStaffes());
   }, [dispatch]);
 
-  // Función para manejar el cálculo
   const handleCalcular = () => {
     const resultado = calcularHorasYPropinas(staff, fechaInicio, fechaFin);
     const valorPagarPorPersona = calcularValorPagar(
@@ -34,35 +32,30 @@ const CalculoNomina = () => {
     setResultados(valorPagarPorPersona);
   };
 
-  // Función para calcular horas y propinas (basada en tu código)
   function calcularHorasYPropinas(data, fechaInicio, fechaFin) {
     const inicio = new Date(fechaInicio);
     const fin = new Date(fechaFin);
 
     return data.map((persona) => {
-      // Filtrar turnos dentro del rango de fechas
       const turnosFiltrados = persona.Turno_Pasados.filter((turno) => {
         const fechaTurno = new Date(turno.turnoDate);
         return fechaTurno >= inicio && fechaTurno <= fin;
       });
 
-      // Calcular horas trabajadas
       const horasTrabajadas = turnosFiltrados.reduce((total, turno) => {
         const horaInicio = new Date(`${turno.turnoDate}T${turno.horaInicio}`);
         const horaSalida =
           turno.horaSalida === "PENDING"
             ? new Date()
             : new Date(`${turno.turnoDate}T${turno.horaSalida}`);
-        return total + (horaSalida - horaInicio) / (1000 * 60 * 60); // Convertir milisegundos a horas
+        return total + (horaSalida - horaInicio) / (1000 * 60 * 60);
       }, 0);
 
-      // Filtrar propinas dentro del rango de fechas
       const propinasFiltradas = persona.Propinas_PP.filter((propina) => {
         const fechaPropina = new Date(propina.tipDia);
         return fechaPropina >= inicio && fechaPropina <= fin;
       });
 
-      // Calcular monto total de propinas
       const totalPropinas = propinasFiltradas.reduce((total, propina) => {
         return total + parseFloat(propina.tipMonto);
       }, 0);
@@ -70,24 +63,21 @@ const CalculoNomina = () => {
       return {
         nombre: `${persona.Nombre} ${persona.Apellido}`,
         horasTrabajadas: parseFloat(horasTrabajadas.toFixed(2)),
-        totalPropinas: parseFloat((totalPropinas / 1000).toFixed(3)), // Dividido por 1000 para formato de miles
+        totalPropinas: parseFloat((totalPropinas / 1000).toFixed(3)),
         cargo: persona.Cargo,
+        turnos: turnosFiltrados, // Guardar los turnos filtrados
       };
     });
   }
 
-  // Función para calcular el valor a pagar (basada en tu código)
   function calcularValorPagar(resultado, tarifas, fechaInicio, fechaFin) {
     return resultado.map((persona) => {
-      // Obtener la tarifa por hora según el cargo de la persona
-      const tarifaHora = tarifas[persona.cargo] || 0; // Si el cargo no se encuentra, usar tarifa de 0 para evitar NaN
+      const tarifaHora = tarifas[persona.cargo] || 0;
 
-      // Calcular el valor a pagar por horas trabajadas
       const valorPagaPorHoras = parseFloat(
         (persona.horasTrabajadas * tarifaHora / 1000).toFixed(3)
-      ); // Dividido por 1000 para formato de miles
+      );
 
-      // Calcular el total de la nómina
       const totalNomina = parseFloat(
         (valorPagaPorHoras + persona.totalPropinas).toFixed(3)
       );
@@ -99,9 +89,17 @@ const CalculoNomina = () => {
         valorPagaPorHoras,
         totalNomina,
         periodo: `${fechaInicio} a ${fechaFin}`,
+        turnos: persona.turnos,
       };
     });
   }
+
+  const handleToggleHistorial = (index) => {
+    setHistorialDesplegado((prevState) => ({
+      ...prevState,
+      [index]: !prevState[index], // Alternar entre mostrar u ocultar el historial
+    }));
+  };
 
   return (
     <div className="p-4 bg-white rounded shadow">
@@ -128,7 +126,6 @@ const CalculoNomina = () => {
         />
       </div>
 
-      {/* Botón para calcular */}
       <button
         onClick={handleCalcular}
         className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700"
@@ -149,18 +146,59 @@ const CalculoNomina = () => {
                 <th className="border px-4 py-2">Pago por Horas</th>
                 <th className="border px-4 py-2">Total Nómina</th>
                 <th className="border px-4 py-2">Período</th>
+                <th className="border px-4 py-2">Historial</th>
               </tr>
             </thead>
             <tbody>
               {resultados.map((persona, index) => (
-                <tr key={index}>
-                  <td className="border px-4 py-2">{persona.nombre}</td>
-                  <td className="border px-4 py-2">{persona.horasTrabajadas}</td>
-                  <td className="border px-4 py-2">{persona.totalPropinas}</td>
-                  <td className="border px-4 py-2">{persona.valorPagaPorHoras}</td>
-                  <td className="border px-4 py-2">{persona.totalNomina}</td>
-                  <td className="border px-4 py-2">{persona.periodo}</td>
-                </tr>
+                <React.Fragment key={index}>
+                  <tr>
+                    <td className="border px-4 py-2">{persona.nombre}</td>
+                    <td className="border px-4 py-2">{persona.horasTrabajadas}</td>
+                    <td className="border px-4 py-2">{persona.totalPropinas}</td>
+                    <td className="border px-4 py-2">{persona.valorPagaPorHoras}</td>
+                    <td className="border px-4 py-2">{persona.totalNomina}</td>
+                    <td className="border px-4 py-2">{persona.periodo}</td>
+                    <td className="border px-4 py-2">
+                      <button
+                        onClick={() => handleToggleHistorial(index)}
+                        className="bg-green-500 text-white py-1 px-3 rounded hover:bg-green-700"
+                      >
+                        🗂️
+                      </button>
+                    </td>
+                  </tr>
+
+                  {/* Mostrar historial de turnos si está desplegado */}
+                  {historialDesplegado[index] && (
+                    <tr>
+                      <td colSpan="7" className="border px-4 py-2">
+                        <table className="table-auto w-full border mt-2">
+                          <thead>
+                            <tr>
+                              <th className="border px-4 py-2">Fecha</th>
+                              <th className="border px-4 py-2">Hora Inicio</th>
+                              <th className="border px-4 py-2">Hora Salida</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {persona.turnos.map((turno, idx) => (
+                              <tr key={idx}>
+                                <td className="border px-4 py-2">{turno.turnoDate}</td>
+                                <td className="border px-4 py-2">{turno.horaInicio}</td>
+                                <td className="border px-4 py-2">
+                                  {turno.horaSalida === "PENDING"
+                                    ? "PENDING"
+                                    : turno.horaSalida}
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  )}
+                </React.Fragment>
               ))}
             </tbody>
           </table>
