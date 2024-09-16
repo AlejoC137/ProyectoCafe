@@ -11,6 +11,7 @@ import {
   GET_STAFF,
   USER_ADMIN,
   SET_RECETA,
+  UPDATE_LOG_STAFF,
   GET_DAYS  // Importa la acción GET_DAYS
 } from "./actions-types";
 
@@ -117,7 +118,27 @@ const reducer = (state = initialState, action) => {
               ...state,
               days: action.payload, // Almacena los días en el estado
           };
+         
+          
 
+          case UPDATE_LOG_STAFF:
+            return {
+                ...state,
+                staff: state.staff.map((staffMember) => {
+                    if (staffMember._id === action.payload.personaId) {
+                        return {
+                            ...staffMember,
+                            Turno_Pasados: action.payload.updatedTurnoPasados,
+                        };
+                    }
+                    return staffMember;
+                }),
+            };
+
+
+
+
+          
       default:
           return state;
   }

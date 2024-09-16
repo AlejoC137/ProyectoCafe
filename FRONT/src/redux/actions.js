@@ -10,6 +10,7 @@ import {
   GET_MENU_BY_CATEGORY,
   USER_ADMIN,
   SET_RECETA,
+  UPDATE_LOG_STAFF,
   GET_PROYECTISTAS,
   GET_DAYS,
   GET_STAFF
@@ -433,6 +434,35 @@ export function getVitrina() {
         // console.log(itemId);
       } catch (error) {
         console.error('Error al cambiar el estado del elemento:', error);
+      }
+    };
+  };
+
+
+
+  export const updateLogStaff = (personaId, updatedTurnoPasados) => {
+
+    console.log(personaId, updatedTurnoPasados);
+
+    return async (dispatch) => {
+      try {
+        const payload = {
+          id: personaId,               // _id of the employee
+          Field: 'Turno_Pasados',      // Field to update
+          Value: updatedTurnoPasados,  // Updated Turno_Pasados array
+        };
+  
+        // Send PUT request to /updateStaff
+        await axios.put('/updateStaff', payload);
+  
+        // Dispatch the action to update the state in Redux
+        dispatch({
+          type: UPDATE_LOG_STAFF,
+          payload: { personaId, updatedTurnoPasados },
+        });
+      } catch (error) {
+        console.error('Error updating shift log:', error);
+        // Handle errors as needed
       }
     };
   };

@@ -12,6 +12,7 @@ export const GET_ALL_ITEMS = "GET_ALL_ITEMS";
 export const GET_SRC_ITEMS = "GET_SRC_ITEMS";
 export const SET_RECETA = "SET_RECETA";
 export const GET_STAFF = "GET_STAFF";
+export const UPDATE_LOG_STAFF = "UPDATE_LOG_STAFF";
 
 
 export const CODE = "CODE";
