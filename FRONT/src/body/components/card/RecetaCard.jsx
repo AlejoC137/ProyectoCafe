@@ -1,11 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from 'react-redux';
 
 function RecetaCard() {
   const lareceta = useSelector(state => state.receta);
   const [editableField, setEditableField] = useState(null);
-  const [editedData, setEditedData] = useState(lareceta);
+  const [editedData, setEditedData] = useState(lareceta || {});
   const [changes, setChanges] = useState({});
+
+  // Efecto para inicializar propiedades vacías si no están definidas
+  useEffect(() => {
+    setEditedData({
+      ...lareceta,
+      ingredientes: lareceta?.ingredientes || [],
+      preparacion: lareceta?.preparacion || [],
+      emplatado: lareceta?.emplatado || [],
+      notas: lareceta?.notas || []
+    });
+  }, [lareceta]);
 
   const handleEdit = (field) => {
     setEditableField(field);
@@ -13,7 +24,6 @@ function RecetaCard() {
 
   const handleChange = (field, value, index = null) => {
     if (index !== null) {
-      // Si estamos editando un campo dentro de un array (preparación, emplatado, etc.)
       const updatedArray = [...editedData[field]];
       updatedArray[index] = { ...updatedArray[index], proceso: value };
       setEditedData({
@@ -25,7 +35,6 @@ function RecetaCard() {
         [field]: updatedArray,
       });
     } else {
-      // Si estamos editando un campo directo
       setEditedData({
         ...editedData,
         [field]: value,
@@ -38,7 +47,8 @@ function RecetaCard() {
   };
 
   const addItem = (field) => {
-    const updatedArray = [...editedData[field], { proceso: "Nuevo paso" }];
+    // Inicializa el array si está vacío o indefinido
+    const updatedArray = [...(editedData[field] || []), { proceso: "Nuevo paso" }];
     setEditedData({
       ...editedData,
       [field]: updatedArray,
@@ -113,7 +123,7 @@ function RecetaCard() {
                 <input
                   type="text"
                   value={`${ingrediente.nombre}: ${ingrediente.cantidad} ${ingrediente.unidades}`}
-                  onChange={(e) => handleChange("ingredientes", e.target.value, index)} // Aquí corregimos el paso de argumentos
+                  onChange={(e) => handleChange("ingredientes", e.target.value, index)}
                   className="border border-gray-300 rounded p-2 w-full"
                 />
               ) : (
@@ -138,13 +148,13 @@ function RecetaCard() {
               {editableField === `paso-${index}` ? (
                 <input
                   type="text"
-                  value={paso.proceso}  // Aquí accedemos al campo "proceso" del objeto
-                  onChange={(e) => handleChange("preparacion", e.target.value, index)} // Corregido para paso de argumentos
+                  value={paso.proceso}
+                  onChange={(e) => handleChange("preparacion", e.target.value, index)}
                   className="border border-gray-300 rounded p-2 w-full"
                 />
               ) : (
                 <span onClick={() => handleEdit(`paso-${index}`)} className="cursor-pointer">
-                  {paso.proceso || "No data"}  {/* Renderizamos el campo "proceso" */}
+                  {paso.proceso || "No data"}
                   <i className="ml-2 text-blue-500">✎</i>
                 </span>
               )}
@@ -165,13 +175,13 @@ function RecetaCard() {
                 {editableField === `emplatado-${index}` ? (
                   <input
                     type="text"
-                    value={paso.proceso}  // Aquí accedemos al campo "proceso"
-                    onChange={(e) => handleChange("emplatado", e.target.value, index)}  // Corregido para paso de argumentos
+                    value={paso.proceso}
+                    onChange={(e) => handleChange("emplatado", e.target.value, index)}
                     className="border border-gray-300 rounded p-2 w-full"
                   />
                 ) : (
                   <span onClick={() => handleEdit(`emplatado-${index}`)} className="cursor-pointer">
-                    {paso.proceso || "No data"}  {/* Renderizamos el campo "proceso" */}
+                    {paso.proceso || "No data"}
                     <i className="ml-2 text-blue-500">✎</i>
                   </span>
                 )}
@@ -185,12 +195,12 @@ function RecetaCard() {
               <input
                 type="text"
                 value={editedData.emplatado}
-                onChange={(e) => handleChange("emplatado", e.target.value)} // Cambiado el nombre del campo a un string
+                onChange={(e) => handleChange("emplatado", e.target.value)}
                 className="border border-gray-300 rounded p-2 w-full"
               />
             ) : (
               <span onClick={() => handleEdit("emplatado")} className="cursor-pointer">
-                {editedData?.emplatado || "No data"}
+                {editedData?.emplatado || "No" }
                 <i className="ml-2 text-blue-500">✎</i>
               </span>
             )}
@@ -209,7 +219,7 @@ function RecetaCard() {
                 <input
                   type="text"
                   value={nota}
-                  onChange={(e) => handleChange("notas", e.target.value, index)} // Corregido el paso de argumentos
+                  onChange={(e) => handleChange("notas", e.target.value, index)}
                   className="border border-gray-300 rounded p-2 w-full"
                 />
               ) : (
@@ -250,4 +260,4 @@ function RecetaCard() {
   );
 }
 
-export default RecetaCard;
+export default RecetaCard;     
