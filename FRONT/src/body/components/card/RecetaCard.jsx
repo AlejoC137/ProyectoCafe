@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
+import { setReceta } from "./actions"; // Adjust the import path
 
 function RecetaCard() {
+  const dispatch = useDispatch();
   const lareceta = useSelector(state => state.receta);
   const [editableField, setEditableField] = useState(null);
-  const [editedData, setEditedData] = useState(lareceta || {});
+  const [editedData, setEditedData] = useState({});
   const [changes, setChanges] = useState({});
 
   // Efecto para inicializar propiedades vacías si no están definidas
@@ -47,7 +49,6 @@ function RecetaCard() {
   };
 
   const addItem = (field) => {
-    // Inicializa el array si está vacío o indefinido
     const updatedArray = [...(editedData[field] || []), { proceso: "Nuevo paso" }];
     setEditedData({
       ...editedData,
@@ -73,6 +74,9 @@ function RecetaCard() {
 
   const handleConfirm = () => {
     console.log("Datos a actualizar en la API:", changes);
+    
+    // Dispatch the action to update the receta in the store
+    dispatch(setReceta(editedData));
 
     // Aquí iría la lógica para el llamado a la API para actualizar los datos
     setChanges({});
@@ -200,7 +204,7 @@ function RecetaCard() {
               />
             ) : (
               <span onClick={() => handleEdit("emplatado")} className="cursor-pointer">
-                {editedData?.emplatado || "No" }
+                {editedData?.emplatado || "No data"}
                 <i className="ml-2 text-blue-500">✎</i>
               </span>
             )}
@@ -260,4 +264,4 @@ function RecetaCard() {
   );
 }
 
-export default RecetaCard;     
+export default RecetaCard;
