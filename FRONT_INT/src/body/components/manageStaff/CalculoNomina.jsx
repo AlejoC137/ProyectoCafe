@@ -150,7 +150,7 @@ const CalculoNomina = () => {
               </tr>
             </thead>
             <tbody>
-              {resultados.map((persona, index) => (
+              {resultados.map((persona, index) => (  persona.show &&
                 <React.Fragment key={index}>
                   <tr>
                     <td className="border px-4 py-2">{persona.nombre}</td>

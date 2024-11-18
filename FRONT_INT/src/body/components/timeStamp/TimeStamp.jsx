@@ -88,11 +88,12 @@ function TimeStamp(props) {
           className="mb-4 p-2 bg-white border border-gray-300 rounded-md"
         >
           <option value="" disabled>Seleccione un miembro</option>
-          {theStaff.map((staff) => (
+          {theStaff.map((staff) => ( staff.show &&
             <option key={staff._id} value={staff._id}>
               {staff.Nombre} {staff.Apellido} - {staff.Cargo}
             </option>
-          ))}
+          )
+          )}
         </select>
         <div className="flex space-x-4 justify-center">
           <button
