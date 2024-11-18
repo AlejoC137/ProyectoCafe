@@ -1,36 +1,21 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { useSelector } from 'react-redux';
+import { setReceta } from "./actions"; // Adjust the import path
 
 function RecetaCard() {
+  const dispatch = useDispatch();
   const lareceta = useSelector(state => state.receta);
   const [editableField, setEditableField] = useState(null);
-  const [editedData, setEditedData] = useState(lareceta);
+  const [editedData, setEditedData] = useState({});
   const [changes, setChanges] = useState({});
-  const inputRef = useRef(null);
-
-  useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [editableField]);
 
   const handleEdit = (field) => {
     setEditableField(field);
   };
 
-  const handleChange = (field, value, index = null, subField = null) => {
-    if (index !== null && subField !== null) {
-      const updatedArray = [...editedData[field]];
-      updatedArray[index] = { ...updatedArray[index], [subField]: value };
-      setEditedData({
-        ...editedData,
-        [field]: updatedArray,
-      });
-      setChanges({
-        ...changes,
-        [field]: updatedArray,
-      });
-    } else if (index !== null) {
+  const handleChange = (field, value, index = null) => {
+    if (index !== null) {
+      // Si estamos editando un campo dentro de un array (preparación, emplatado, etc.)
       const updatedArray = [...editedData[field]];
       updatedArray[index] = value;
       setEditedData({
@@ -54,12 +39,7 @@ function RecetaCard() {
   };
 
   const addItem = (field) => {
-    const newItem =
-      field === 'ingredientes'
-        ? { nombre: '', cantidad: '', unidades: '' }
-        : { proceso: 'Nuevo paso' };
-
-    const updatedArray = [...editedData[field], newItem];
+    const updatedArray = [...editedData[field], { proceso: "Nuevo paso" }];
     setEditedData({
       ...editedData,
       [field]: updatedArray,
@@ -84,6 +64,7 @@ function RecetaCard() {
 
   const handleConfirm = () => {
     console.log("Datos a actualizar en la API:", changes);
+
     // Aquí iría la lógica para el llamado a la API para actualizar los datos
     setChanges({});
     setEditableField(null);
@@ -136,30 +117,12 @@ function RecetaCard() {
           {Array.isArray(editedData?.ingredientes) && editedData.ingredientes.map((ingrediente, index) => (
             <li key={index} className="mb-2">
               {editableField === `ingrediente-${index}` ? (
-                <div className="flex gap-2">
-                  <input
-                    ref={inputRef}
-                    type="text"
-                    value={ingrediente.nombre}
-                    onChange={(e) => handleChange("ingredientes", e.target.value, index, "nombre")}
-                    className="border border-gray-300 rounded p-2 w-1/3"
-                    placeholder="Nombre"
-                  />
-                  <input
-                    type="text"
-                    value={ingrediente.cantidad}
-                    onChange={(e) => handleChange("ingredientes", e.target.value, index, "cantidad")}
-                    className="border border-gray-300 rounded p-2 w-1/3"
-                    placeholder="Cantidad"
-                  />
-                  <input
-                    type="text"
-                    value={ingrediente.unidades}
-                    onChange={(e) => handleChange("ingredientes", e.target.value, index, "unidades")}
-                    className="border border-gray-300 rounded p-2 w-1/3"
-                    placeholder="Unidades"
-                  />
-                </div>
+                <input
+                  type="text"
+                  value={`${ingrediente.nombre}: ${ingrediente.cantidad} ${ingrediente.unidades}`}
+                  onChange={(e) => handleChange("ingredientes", e.target.value, index)} // Aquí corregimos el paso de argumentos
+                  className="border border-gray-300 rounded p-2 w-full"
+                />
               ) : (
                 <span onClick={() => handleEdit(`ingrediente-${index}`)} className="cursor-pointer">
                   {ingrediente.nombre || "No data"}: {ingrediente.cantidad || "No data"} {ingrediente.unidades || "No data"}
@@ -183,8 +146,8 @@ function RecetaCard() {
                 <input
                   ref={inputRef}
                   type="text"
-                  value={paso.proceso}
-                  onChange={(e) => handleChange("preparacion", e.target.value, index, "proceso")}
+                  value={paso.proceso}  // Aquí accedemos al campo "proceso" del objeto
+                  onChange={(e) => handleChange("preparacion", e.target.value, index)} // Corregido para paso de argumentos
                   className="border border-gray-300 rounded p-2 w-full"
                 />
               ) : (
@@ -209,69 +172,66 @@ function RecetaCard() {
               <li key={index} className="mb-2">
                 {editableField === `emplatado-${index}` ? (
                   <input
-                  ref={inputRef}
-                  type="text"
-                  value={paso.proceso}
-                  onChange={(e) => handleChange("emplatado", e.target.value, index, "proceso")}
-                  className="border border-gray-300 rounded p-2 w-full"
-                />
-              ) : (
-                <span onClick={() => handleEdit(`emplatado-${index}`)} className="cursor-pointer">
-                  {paso.proceso || "No data"}
-                  <i className="ml-2 text-blue-500">✎</i>
-                </span>
-              )}
-              <button onClick={() => removeItem('emplatado', index)} className="ml-2 text-red-500">Eliminar</button>
-            </li>
-          ))}
-        </ol>
-      ) : (
-        <p className="text-gray-600">
-          {editableField === "emplatado" ? (
-            <input
-              ref={inputRef}
-              type="text"
-              value={editedData.emplatado}
-              onChange={(e) => handleChange("emplatado", e.target.value)}
-              className="border border-gray-300 rounded p-2 w-full"
-            />
-          ) : (
-            <span onClick={() => handleEdit("emplatado")} className="cursor-pointer">
-              {editedData?.emplatado || "No data"}
-              <i className="ml-2 text-blue-500">✎</i>
-            </span>
-          )}
-        </p>
-      )}
-      <button onClick={() => addItem('emplatado')} className="text-blue-500 mt-4">Agregar emplatado</button>
-    </div>
-
-    {/* Notes */}
-    <div className="bg-gray-100 rounded-lg p-4 mb-6">
-      <h3 className="text-lg font-bold text-gray-700 mb-4">Notas</h3>
-      <ul className="list-disc list-inside text-gray-600">
-        {Array.isArray(editedData?.notas) && editedData.notas.map((nota, index) => (
-          <li key={index} className="mb-2">
-            {editableField === `nota-${index}` ? (
+                    type="text"
+                    value={paso.proceso}  // Aquí accedemos al campo "proceso"
+                    onChange={(e) => handleChange("emplatado", e.target.value, index)}  // Corregido para paso de argumentos
+                    className="border border-gray-300 rounded p-2 w-full"
+                  />
+                ) : (
+                  <span onClick={() => handleEdit(`emplatado-${index}`)} className="cursor-pointer">
+                    {paso.proceso || "No data"}  {/* Renderizamos el campo "proceso" */}
+                    <i className="ml-2 text-blue-500">✎</i>
+                  </span>
+                )}
+                <button onClick={() => removeItem('emplatado', index)} className="ml-2 text-red-500">Eliminar</button>
+              </li>
+            ))}
+          </ol>
+        ) : (
+          <p className="text-gray-600">
+            {editableField === "emplatado" ? (
               <input
-                ref={inputRef}
                 type="text"
-                value={nota}
-                onChange={(e) => handleChange("notas", e.target.value, index)}
+                value={editedData.emplatado}
+                onChange={(e) => handleChange("emplatado", e.target.value)} // Cambiado el nombre del campo a un string
                 className="border border-gray-300 rounded p-2 w-full"
               />
             ) : (
-              <span onClick={() => handleEdit(`nota-${index}`)} className="cursor-pointer">
-                {nota || "No data"}
+              <span onClick={() => handleEdit("emplatado")} className="cursor-pointer">
+                {editedData?.emplatado || "No data"}
                 <i className="ml-2 text-blue-500">✎</i>
               </span>
             )}
-            <button onClick={() => removeItem('notas', index)} className="ml-2 text-red-500">Eliminar</button>
-          </li>
-        ))}
-      </ul>
-      <button onClick={() => addItem('notas')} className="text-blue-500 mt-4">Agregar nota</button>
-    </div>
+          </p>
+        )}
+        <button onClick={() => addItem('emplatado')} className="text-blue-500 mt-4">Agregar emplatado</button>
+      </div>
+
+      {/* Notes */}
+      <div className="bg-gray-100 rounded-lg p-4 mb-6">
+        <h3 className="text-lg font-bold text-gray-700 mb-4">Notas</h3>
+        <ul className="list-disc list-inside text-gray-600">
+          {editedData?.notas?.map((nota, index) => (
+            <li key={index} className="mb-2">
+              {editableField === `nota-${index}` ? (
+                <input
+                  type="text"
+                  value={nota}
+                  onChange={(e) => handleChange("notas", e.target.value, index)} // Corregido el paso de argumentos
+                  className="border border-gray-300 rounded p-2 w-full"
+                />
+              ) : (
+                <span onClick={() => handleEdit(`nota-${index}`)} className="cursor-pointer">
+                  {nota || "No data"}
+                  <i className="ml-2 text-blue-500">✎</i>
+                </span>
+              )}
+              <button onClick={() => removeItem('notas', index)} className="ml-2 text-red-500">Eliminar</button>
+            </li>
+          ))}
+        </ul>
+        <button onClick={() => addItem('notas')} className="text-blue-500 mt-4">Agregar nota</button>
+      </div>
 
     {/* Confirm and Cancel Buttons */}
     <div className="flex justify-center">
