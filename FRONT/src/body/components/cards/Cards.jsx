@@ -31,7 +31,7 @@ function Cards(props) {
 
    return (
 
-      <>
+      <div>
             {isAdmin && <input
         className='h-5'
         type="text"
@@ -96,7 +96,7 @@ function Cards(props) {
 <br></br>
       </div>
   
-     </>      
+ </div>    
          
          );
 }
