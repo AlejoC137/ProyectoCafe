@@ -53,7 +53,7 @@ function App() {
   }
   return (
     <div >
-     <TopNav />
+     {/* <TopNav /> */}
      <br></br>
      <br></br>
     <Routes>
@@ -76,7 +76,7 @@ function App() {
 
         {/* Renderiza el BottomNav debajo del componente actual */}
      </Routes>
-     <BottomNav />
+     {/* <BottomNav /> */}
      <br></br>
      <br></br>
      <br></br>
