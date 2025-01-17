@@ -30,16 +30,20 @@ function Cards(props) {
 
 
    return (
-      <div className="grid grid-cols-2 gap-1 h-screen overflow-y-auto">
-       
 
-      {isAdmin && <input
+      <div>
+            {isAdmin && <input
         className='h-5'
         type="text"
         placeholder={currentLenguaje === 'ES'? "Buscar" : "Search"}
         value={searchTerm}
         onChange={handleSearch}
       />}
+    
+      <div className="grid grid-cols-2 gap-1 h-screen overflow-y-auto">
+       
+
+
         
          {items.map((PAD) => (
             (isAdmin || PAD.Estado === 'Activo') && // Render card if isAdmin is true or PAD.Estado is 'Activo'
@@ -91,7 +95,10 @@ function Cards(props) {
 <br></br>
 <br></br>
       </div>
-   );
+  
+ </div>    
+         
+         );
 }
 
 export default Cards;
