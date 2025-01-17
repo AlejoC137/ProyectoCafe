@@ -1,8 +1,7 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 1px;
-  padding-top: 1px;
+  padding: 2rem;
   text-align: center;
 }
 
@@ -26,15 +25,6 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@font-face {
-  font-family: 'Bobby_Jones_Soft';
-  src: url('./assets/Bobby_Jones_Soft.ttf') format('truetype');
 }
 
 @media (prefers-reduced-motion: no-preference) {

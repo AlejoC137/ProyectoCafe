@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { useSelector } from 'react-redux';
-import { setReceta } from "./actions"; // Adjust the import path
 
 function RecetaCard() {
-  const dispatch = useDispatch();
   const lareceta = useSelector(state => state.receta);
   const [editableField, setEditableField] = useState(null);
-  const [editedData, setEditedData] = useState({});
+  const [editedData, setEditedData] = useState(lareceta);
   const [changes, setChanges] = useState({});
 
   const handleEdit = (field) => {
@@ -17,7 +15,7 @@ function RecetaCard() {
     if (index !== null) {
       // Si estamos editando un campo dentro de un array (preparación, emplatado, etc.)
       const updatedArray = [...editedData[field]];
-      updatedArray[index] = value;
+      updatedArray[index] = { ...updatedArray[index], proceso: value };
       setEditedData({
         ...editedData,
         [field]: updatedArray,
@@ -27,6 +25,7 @@ function RecetaCard() {
         [field]: updatedArray,
       });
     } else {
+      // Si estamos editando un campo directo
       setEditedData({
         ...editedData,
         [field]: value,
@@ -70,18 +69,12 @@ function RecetaCard() {
     setEditableField(null);
   };
 
-  const handleCancel = () => {
-    setEditedData(lareceta); // Reset to original receta
-    setEditableField(null);  // Exit edit mode
-  };
-
   return (
     <div className="bg-white h-auto w-full p-6 rounded-xl shadow-md border border-gray-300">
       {/* Recipe Name */}
       <div className="font-semibold text-gray-800 text-xl text-center mb-6">
         {editableField === "nombre" ? (
           <input
-            ref={inputRef}
             type="text"
             value={editedData.nombre}
             onChange={(e) => handleChange("nombre", e.target.value)}
@@ -114,7 +107,7 @@ function RecetaCard() {
       <div className="bg-gray-100 rounded-lg p-4 mb-6">
         <h3 className="text-lg font-bold text-gray-700 mb-4">Ingredientes</h3>
         <ul className="list-disc list-inside text-gray-600">
-          {Array.isArray(editedData?.ingredientes) && editedData.ingredientes.map((ingrediente, index) => (
+          {editedData?.ingredientes?.map((ingrediente, index) => (
             <li key={index} className="mb-2">
               {editableField === `ingrediente-${index}` ? (
                 <input
@@ -140,11 +133,10 @@ function RecetaCard() {
       <div className="bg-gray-100 rounded-lg p-4 mb-6">
         <h3 className="text-lg font-bold text-gray-700 mb-4">Preparación</h3>
         <ol className="list-decimal list-inside text-gray-600">
-          {Array.isArray(editedData?.preparacion) && editedData.preparacion.map((paso, index) => (
+          {editedData?.preparacion?.map((paso, index) => (
             <li key={index} className="mb-2">
               {editableField === `paso-${index}` ? (
                 <input
-                  ref={inputRef}
                   type="text"
                   value={paso.proceso}  // Aquí accedemos al campo "proceso" del objeto
                   onChange={(e) => handleChange("preparacion", e.target.value, index)} // Corregido para paso de argumentos
@@ -152,7 +144,7 @@ function RecetaCard() {
                 />
               ) : (
                 <span onClick={() => handleEdit(`paso-${index}`)} className="cursor-pointer">
-                  {paso.proceso || "No data"}
+                  {paso.proceso || "No data"}  {/* Renderizamos el campo "proceso" */}
                   <i className="ml-2 text-blue-500">✎</i>
                 </span>
               )}
@@ -233,35 +225,29 @@ function RecetaCard() {
         <button onClick={() => addItem('notas')} className="text-blue-500 mt-4">Agregar nota</button>
       </div>
 
-    {/* Confirm and Cancel Buttons */}
-    <div className="flex justify-center">
-      <button
-        onClick={handleConfirm}
-        disabled={Object.keys(changes).length === 0}
-        className={`py-2 px-6 rounded-lg shadow transition duration-200 ${
-          Object.keys(changes).length > 0
-            ? "bg-blue-500 text-white hover:bg-blue-600"
-            : "bg-gray-300 text-gray-500 cursor-not-allowed"
-        }`}
-      >
-        Confirmar cambios
-      </button>
-      <button
-        onClick={handleCancel}
-        className="py-2 px-6 rounded-lg shadow bg-gray-500 text-white hover:bg-gray-600 ml-2"
-      >
-        Cancelar
-      </button>
-    </div>
+      {/* Confirm Button */}
+      <div className="flex justify-center">
+        <button
+          onClick={handleConfirm}
+          disabled={Object.keys(changes).length === 0}
+          className={`py-2 px-6 rounded-lg shadow transition duration-200 ${
+            Object.keys(changes).length > 0
+              ? "bg-blue-500 text-white hover:bg-blue-600"
+              : "bg-gray-300 text-gray-500 cursor-not-allowed"
+          }`}
+        >
+          Confirmar cambios
+        </button>
+      </div>
 
-    {/* Additional Information */}
-    <div className="text-gray-500 text-sm text-center mt-6">
-      <p>Escrito por: {editedData?.escrito || "No data"}</p>
-      <p>Revisado por: {editedData?.revisado || "No data"}</p>
-      <p>Última actualización: {editedData?.actualizacion || "No data"}</p>
+      {/* Additional Information */}
+      <div className="text-gray-500 text-sm text-center mt-6">
+        <p>Escrito por: {editedData?.escrito || "No data"}</p>
+        <p>Revisado por: {editedData?.revisado || "No data"}</p>
+        <p>Última actualización: {editedData?.actualizacion || "No data"}</p>
+      </div>
     </div>
-  </div>
-);
+  );
 }
 
 export default RecetaCard;
