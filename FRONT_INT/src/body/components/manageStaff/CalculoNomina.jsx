@@ -13,8 +13,8 @@ const CalculoNomina = () => {
 
   const tarifas = {
     "AUXILIAR COCINA JN": 6528,
-    "Barista JN": 8489,
-    "Barista SN": 9095,
+    "Barista JN": 8489+(8489*0.1),
+    "Barista SN": 9095+(8489*0.1),
   };
 
   useEffect(() => {
@@ -75,7 +75,7 @@ const CalculoNomina = () => {
       const tarifaHora = tarifas[persona.cargo] || 0;
 
       const valorPagaPorHoras = parseFloat(
-        (persona.horasTrabajadas * tarifaHora / 1000).toFixed(3)
+        (persona.horasTrabajadas * (8489+(8489*0.1)) / 1000).toFixed(3)
       );
 
       const totalNomina = parseFloat(
@@ -103,6 +103,7 @@ const CalculoNomina = () => {
 
   return (
     <div className="p-4 bg-white rounded shadow">
+      ?
       <h2 className="text-xl font-semibold mb-4">Cálculo de Nómina y Propinas</h2>
 
       {/* Inputs para las fechas */}

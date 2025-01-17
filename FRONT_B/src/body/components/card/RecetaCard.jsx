@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from 'react-redux';
-import { setReceta } from "./actions"; // Adjust the import path
+// import { setReceta } from "./actions"; // Adjust the import path
 
 function RecetaCard() {
   const dispatch = useDispatch();

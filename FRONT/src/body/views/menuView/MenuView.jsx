@@ -36,6 +36,8 @@ function MenuView() {
         return 'Café Frío y Caliente';
       case 'Drinks':
         return 'Bebidas';
+      case 'Sides':
+        return 'Adición';
       case 'Deserts':
         return 'Postres';
       case 'Breads':
