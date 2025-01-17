@@ -39,9 +39,9 @@ export function CardGrid({ products, isEnglish, category , filterKey }) {
         {products
             .filter((product) => product.TipoEN === filterKey) // Filtrar por TipoEN
             .map((product) => (
-              <div key={product._id} className="snap-center flex-shrink-0 w-[260px] ">
+(      product.Estado === 'Activo'  &&      <div key={product._id} className="snap-center flex-shrink-0 w-[260px] ">
                 <CardInstance product={product} isEnglish={isEnglish} />
-              </div>
+              </div>)
             ))}
         </div>
       </div>

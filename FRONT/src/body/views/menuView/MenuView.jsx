@@ -34,6 +34,12 @@ function MenuView() {
     switch (tipoEN) {
       case 'Coffee':
         return 'Café Frío y Caliente';
+      case 'Drinks':
+        return 'Bebidas';
+      case 'Deserts':
+        return 'Postres';
+      case 'Breads':
+        return 'Panaderia';
       case 'Breackfast':
         return 'Desayuno Salado y Dulce';
       case 'Lunch':
@@ -60,7 +66,7 @@ function MenuView() {
             filterKey={category}
             products={menuData}
             category={getCategoryTitle(category)}
-            isEnglish={true}
+            isEnglish={false}
           />
         </div>
       ))}
