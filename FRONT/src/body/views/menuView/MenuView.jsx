@@ -49,7 +49,7 @@ function MenuView() {
       case 'Others':
         return tipoEN;
       default:
-        return tipoEN;
+        return 'Otros';
     }
   };
 
