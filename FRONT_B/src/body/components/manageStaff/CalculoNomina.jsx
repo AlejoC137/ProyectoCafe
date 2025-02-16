@@ -14,12 +14,12 @@ const CalculoNomina = () => {
   const [ajustes, setAjustes] = useState({});
   const [ajustesSign, setAjustesSign] = useState({});
 
-  const tarifas = {
-    "AUXILIAR COCINA JN": 6528,
-    "Barista JN": 8489,
-    "Barista SN": 9095,
+ const tarifas = {
+    "AUXILIAR COCINA JN": 7528+(8489*0.1),
+    "AUX PRODUCCION": 8489+(8489*0.1),
+    "Barista SN": 9095+(8489*0.1),
+    
   };
-
   useEffect(() => {
     dispatch(getAllStaff());
   }, [dispatch]);
