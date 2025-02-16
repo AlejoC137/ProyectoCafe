@@ -12,9 +12,10 @@ const CalculoNomina = () => {
   const [historialDesplegado, setHistorialDesplegado] = useState({}); // Controla qué empleados tienen el historial visible
 
   const tarifas = {
-    "AUXILIAR COCINA JN": 6528,
-    "Barista JN": 8489+(8489*0.1),
+    "AUXILIAR COCINA JN": 7528+(8489*0.1),
+    "AUX PRODUCCION": 8489+(8489*0.1),
     "Barista SN": 9095+(8489*0.1),
+    
   };
 
   useEffect(() => {
