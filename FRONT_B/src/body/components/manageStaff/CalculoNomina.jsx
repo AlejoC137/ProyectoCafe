@@ -15,9 +15,9 @@ const CalculoNomina = () => {
   const [ajustesSign, setAjustesSign] = useState({});
 
  const tarifas = {
-    "AUXILIAR COCINA JN": 7500+(7500*0.1),
-    "AUX PRODUCCION": 7500+(7500*0.1),
-    "Barista SN": 8500+(9000*0.1),
+    "AUXILIAR COCINA JN": 7250+(7250*0.1),
+    "AUX PRODUCCION": 7250+(7250*0.1),
+    "Barista SN": 8500+(8500*0.1),
     
   };
   useEffect(() => {
